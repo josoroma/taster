@@ -91,9 +91,9 @@ npm ci
 npm start
 ```
 
-Open the [local showcase](http://localhost:5173/taster/), or explore the [public showcase](https://josoroma.github.io/taster/) without installing anything. The final [Included projects and their prompts](#included-projects-and-their-prompts) section pairs every project with its source folder, live and local previews, and a reusable prompt.
+Open the [local showcase](http://localhost:5173/taster/), or explore the [public showcase](https://josoroma.github.io/taster/) without installing anything. The final [Included projects and their prompts](#included-projects-and-their-prompts) section pairs every project with its source folder, live preview, and a reusable prompt.
 
-Use `PORT=8080 npm start` to choose a different port. Local preview links work while the server is running; they are not public deployments.
+Use `PORT=8080 npm start` to choose a different port.
 
 ## Repository structure
 
@@ -218,11 +218,11 @@ Choose an included project to explore a working implementation, or use the addit
 
 ### Included projects and their prompts
 
-These seven projects are available in `examples/`. Each entry includes its public preview and a reusable prompt describing that project. Local previews require the [local server](#run-the-seven-included-projects).
+These seven projects are available in `examples/`. Each entry includes its public preview and a reusable prompt describing that project.
 
 #### Lumen — The Sunken Garden
 
-Source: [`examples/lumen/`](examples/lumen/) · [Play live](https://josoroma.github.io/taster/examples/lumen/) · [Local preview](http://localhost:5173/taster/examples/lumen/)
+Source: [`examples/lumen/`](examples/lumen/) · [Play live](https://josoroma.github.io/taster/examples/lumen/)
 
 ```text
 $taster create a complete browser adventure in a sunken mechanical garden.
@@ -234,7 +234,7 @@ and a satisfying replayable ending.
 
 #### Bell Lab
 
-Source: [`examples/bell-lab/`](examples/bell-lab/) · [Open live](https://josoroma.github.io/taster/examples/bell-lab/) · [Local preview](http://localhost:5173/taster/examples/bell-lab/)
+Source: [`examples/bell-lab/`](examples/bell-lab/) · [Open live](https://josoroma.github.io/taster/examples/bell-lab/)
 
 ```text
 $taster create an interactive lesson for beginners on preparing a Bell state.
@@ -245,7 +245,7 @@ Add camera inspection and reversible assembly, and identify the apparatus as a v
 
 #### Workshop
 
-Source: [`examples/workshop/`](examples/workshop/) · [Open live](https://josoroma.github.io/taster/examples/workshop/) · [Local preview](http://localhost:5173/taster/examples/workshop/)
+Source: [`examples/workshop/`](examples/workshop/) · [Open live](https://josoroma.github.io/taster/examples/workshop/)
 
 ```text
 $taster explain a mounting plate built from a box, rounded corners, four holes,
@@ -256,7 +256,7 @@ provide pan and zoom, and include validated STEP and STL exports.
 
 #### SHIFT
 
-Source: [`examples/ai-history/`](examples/ai-history/) · [Watch live](https://josoroma.github.io/taster/examples/ai-history/) · [Local preview](http://localhost:5173/taster/examples/ai-history/)
+Source: [`examples/ai-history/`](examples/ai-history/) · [Watch live](https://josoroma.github.io/taster/examples/ai-history/)
 
 ```text
 $taster create a 90-second code-rendered browser animation about AI, from
@@ -268,7 +268,7 @@ clearly separate from established history; do not invent an AGI arrival date.
 
 #### Cerebra
 
-Source: [`examples/brain-atlas/`](examples/brain-atlas/) · [Explore live](https://josoroma.github.io/taster/examples/brain-atlas/) · [Local preview](http://localhost:5173/taster/examples/brain-atlas/)
+Source: [`examples/brain-atlas/`](examples/brain-atlas/) · [Explore live](https://josoroma.github.io/taster/examples/brain-atlas/)
 
 ```text
 $taster build an interactive 3D brain explainer with named regions, hints, and
@@ -280,7 +280,7 @@ as educational schematics rather than a clinical atlas.
 
 #### INNERSPACE
 
-Source: [`examples/particle-atlas/`](examples/particle-atlas/) · [Explore live](https://josoroma.github.io/taster/examples/particle-atlas/) · [Local preview](http://localhost:5173/taster/examples/particle-atlas/)
+Source: [`examples/particle-atlas/`](examples/particle-atlas/) · [Explore live](https://josoroma.github.io/taster/examples/particle-atlas/)
 
 ```text
 $taster create a 78-second journey from a helium atom through its nucleus,
@@ -293,7 +293,7 @@ before introducing the open research questions.
 
 #### DEXTRA
 
-Source: [`examples/cyborg-hand/`](examples/cyborg-hand/) · [Inspect live](https://josoroma.github.io/taster/examples/cyborg-hand/) · [Local preview](http://localhost:5173/taster/examples/cyborg-hand/)
+Source: [`examples/cyborg-hand/`](examples/cyborg-hand/) · [Inspect live](https://josoroma.github.io/taster/examples/cyborg-hand/)
 
 ```text
 $taster create a futuristic cyborg hand that fully extends and closes into a

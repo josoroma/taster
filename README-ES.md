@@ -91,9 +91,9 @@ npm ci
 npm start
 ```
 
-Abre la [galería local](http://localhost:5173/taster/) o explora la [galería pública](https://josoroma.github.io/taster/) sin instalar nada. La sección final [Proyectos incluidos y sus prompts](#proyectos-incluidos-y-sus-prompts) reúne cada proyecto con su carpeta de código fuente, sus vistas previas pública y local y un prompt reutilizable.
+Abre la [galería local](http://localhost:5173/taster/) o explora la [galería pública](https://josoroma.github.io/taster/) sin instalar nada. La sección final [Proyectos incluidos y sus prompts](#proyectos-incluidos-y-sus-prompts) reúne cada proyecto con su carpeta de código fuente, su vista previa pública y un prompt reutilizable.
 
-Usa `PORT=8080 npm start` para elegir otro puerto. Los enlaces a las vistas previas locales funcionan mientras el servidor está en ejecución; no son despliegues públicos.
+Usa `PORT=8080 npm start` para elegir otro puerto.
 
 ## Estructura del repositorio
 
@@ -218,11 +218,11 @@ Elige un proyecto incluido para explorar una implementación funcional, o usa la
 
 ### Proyectos incluidos y sus prompts
 
-Estos siete proyectos están disponibles en `examples/`. Cada entrada incluye su vista previa pública y un prompt reutilizable que describe el proyecto. Las vistas previas locales requieren el [servidor local](#ejecutar-los-siete-proyectos-incluidos).
+Estos siete proyectos están disponibles en `examples/`. Cada entrada incluye su vista previa pública y un prompt reutilizable que describe el proyecto.
 
 #### Lumen — The Sunken Garden
 
-Código fuente: [`examples/lumen/`](examples/lumen/) · [Jugar en línea](https://josoroma.github.io/taster/examples/lumen/) · [Vista previa local](http://localhost:5173/taster/examples/lumen/)
+Código fuente: [`examples/lumen/`](examples/lumen/) · [Jugar en línea](https://josoroma.github.io/taster/examples/lumen/)
 
 ```text
 $taster crea una aventura completa para el navegador en un jardín mecánico sumergido.
@@ -235,7 +235,7 @@ satisfactorio que invite a volver a jugar.
 
 #### Bell Lab
 
-Código fuente: [`examples/bell-lab/`](examples/bell-lab/) · [Abrir en línea](https://josoroma.github.io/taster/examples/bell-lab/) · [Vista previa local](http://localhost:5173/taster/examples/bell-lab/)
+Código fuente: [`examples/bell-lab/`](examples/bell-lab/) · [Abrir en línea](https://josoroma.github.io/taster/examples/bell-lab/)
 
 ```text
 $taster crea una lección interactiva para principiantes sobre cómo preparar
@@ -247,7 +247,7 @@ ensamblaje reversible, e identifica el aparato como una metáfora visual.
 
 #### Workshop
 
-Código fuente: [`examples/workshop/`](examples/workshop/) · [Abrir en línea](https://josoroma.github.io/taster/examples/workshop/) · [Vista previa local](http://localhost:5173/taster/examples/workshop/)
+Código fuente: [`examples/workshop/`](examples/workshop/) · [Abrir en línea](https://josoroma.github.io/taster/examples/workshop/)
 
 ```text
 $taster explica una placa de montaje construida a partir de un prisma rectangular,
@@ -259,7 +259,7 @@ desplazar y ampliar la vista e incluye exportaciones STEP y STL validadas.
 
 #### SHIFT
 
-Código fuente: [`examples/ai-history/`](examples/ai-history/) · [Ver en línea](https://josoroma.github.io/taster/examples/ai-history/) · [Vista previa local](http://localhost:5173/taster/examples/ai-history/)
+Código fuente: [`examples/ai-history/`](examples/ai-history/) · [Ver en línea](https://josoroma.github.io/taster/examples/ai-history/)
 
 ```text
 $taster crea una animación de 90 segundos para el navegador, renderizada mediante
@@ -272,7 +272,7 @@ de la historia establecida; no inventes una fecha de llegada de la AGI.
 
 #### Cerebra
 
-Código fuente: [`examples/brain-atlas/`](examples/brain-atlas/) · [Explorar en línea](https://josoroma.github.io/taster/examples/brain-atlas/) · [Vista previa local](http://localhost:5173/taster/examples/brain-atlas/)
+Código fuente: [`examples/brain-atlas/`](examples/brain-atlas/) · [Explorar en línea](https://josoroma.github.io/taster/examples/brain-atlas/)
 
 ```text
 $taster construye una explicación interactiva del cerebro en 3D con regiones
@@ -285,7 +285,7 @@ separación como esquemas educativos, no como un atlas clínico.
 
 #### INNERSPACE
 
-Código fuente: [`examples/particle-atlas/`](examples/particle-atlas/) · [Explorar en línea](https://josoroma.github.io/taster/examples/particle-atlas/) · [Vista previa local](http://localhost:5173/taster/examples/particle-atlas/)
+Código fuente: [`examples/particle-atlas/`](examples/particle-atlas/) · [Explorar en línea](https://josoroma.github.io/taster/examples/particle-atlas/)
 
 ```text
 $taster crea un viaje de 78 segundos desde un átomo de helio hasta su núcleo,
@@ -300,7 +300,7 @@ las preguntas de investigación abiertas.
 
 #### DEXTRA
 
-Código fuente: [`examples/cyborg-hand/`](examples/cyborg-hand/) · [Inspeccionar en línea](https://josoroma.github.io/taster/examples/cyborg-hand/) · [Vista previa local](http://localhost:5173/taster/examples/cyborg-hand/)
+Código fuente: [`examples/cyborg-hand/`](examples/cyborg-hand/) · [Inspeccionar en línea](https://josoroma.github.io/taster/examples/cyborg-hand/)
 
 ```text
 $taster crea una mano cíborg futurista que se extienda por completo y se cierre
