@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#edeae2"><meta name="description" content="SHIFT — an original 90-second animated journey from the Transformer to the open question of AGI. A Taster film you can pause, explore and rewind.">
+<title>SHIFT — A short history of a big idea · Taster</title>
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<div id="ai-history" class="app">
+<header class="topbar"><a class="brand" href="../" aria-label="Taster examples"><span class="brand-mark" aria-hidden="true">t.</span> TASTER <span class="brand-divider">/</span> MOTION STUDIES</a><button id="sources-open" class="quiet-button">Sources & context <span aria-hidden="true">↗</span></button></header>
+<main>
+<div class="masthead"><div><p class="eyebrow">A SHORT HISTORY OF A BIG IDEA</p><h1>SHIFT<span class="title-dot">.</span></h1></div><div class="masthead-note"><span class="small-line"></span><p>From attention<br>to possibility.</p><span class="duration">90 SECONDS · 7 CHAPTERS</span></div></div>
+<section id="film" class="film" tabindex="0" aria-label="Animated history. Space plays or pauses; left and right arrows seek five seconds; Home restarts and End seeks to the end.">
+<div class="film-top"><span id="chapter-count">01 / 07</span><span id="year">2017</span><span class="film-medium">A TASTER ORIGINAL</span></div>
+<div class="film-content"><div class="story"><p id="lead" class="lead">Attention Is All You Need</p><h2 id="chapter-title">A new way<br>to connect.</h2><p id="caption" class="caption">The Transformer relates tokens through attention. Relationships become part of the computation, without a recurrent chain.</p><div class="insight"><span aria-hidden="true">↳</span><span id="insight">Relationships, computed.</span></div></div><div class="scene-wrap"><canvas id="film-canvas" aria-label="Animated conceptual diagrams for the selected chapter"></canvas><div class="diagram-tag"><span class="dot"></span> CONCEPTUAL DIAGRAM</div></div></div>
+<div class="film-bottom"><span class="technical-label">READ THE MECHANISM</span><p id="note">Attention weights here are illustrative. Training can process positions in parallel; autoregressive generation still advances token by token.</p></div>
+</section>
+<section class="transport" aria-label="Film controls"><div class="transport-main"><button id="play" class="play-button" aria-label="Play film"><span id="play-icon" aria-hidden="true">▶</span><span id="play-label">Play film</span></button><button id="restart" class="icon-button" aria-label="Restart film" title="Restart">↶</button><span id="time" class="time">00:00 <span>/ 01:30</span></span><label class="speed-label"><span class="sr-only">Playback speed</span><select id="speed" aria-label="Playback speed"><option value="-1">−1× reverse</option><option value="0.5">0.5×</option><option value="1" selected>1×</option><option value="1.5">1.5×</option><option value="2">2×</option></select></label><button id="fullscreen" class="icon-button fullscreen" aria-label="Enter fullscreen" title="Fullscreen">⤢</button></div><label class="scrub-label"><span class="sr-only">Film time in seconds</span><input id="scrubber" type="range" min="0" max="90" step="0.05" value="0" aria-label="Film time in seconds"></label><div id="chapter-rail" class="chapter-rail" aria-label="Choose a chapter"></div></section>
+<div class="below"><p>2017 → an open question.<br><span>A selective history of the Transformer era.</span></p><p class="keyboard">SPACE <span>play / pause</span> &nbsp; ← → <span>seek</span><br>Rendered entirely in code. No footage. No generated images.</p></div>
+<details class="transcript"><summary>Read the film <span>Full transcript & learning notes</span></summary><div id="transcript-content"></div></details>
+<p id="status" class="sr-only" role="status" aria-live="polite"></p>
+</main>
+<footer class="page-footer"><a href="../">← More Taster experiments</a><span>MADE TO BE REWOUND.</span></footer>
+</div>
+<dialog id="sources-dialog" aria-labelledby="sources-title"><div class="dialog-header"><div><p class="eyebrow">THE RECORD BEHIND THE FILM</p><h2 id="sources-title">Ideas have sources.</h2></div><button id="sources-close" class="quiet-button">Close ×</button></div><p class="scope">This is a selective journey through the Transformer era, beginning in 2017. AI, attention, pre-training and reinforcement learning all have earlier histories. The diagrams explain ideas; they are not measurements or disclosed model architectures. The final chapter presents AGI as a research question, with no arrival date or claim of achievement.</p><ol id="sources-list"></ol><p class="sources-foot">Primary sources checked October 2026. Historical milestones are selected, not exhaustive. This film has no voice track; its captions are the narration.</p></dialog>
+<script type="module" src="./main.mjs"></script>
+</body></html>

@@ -1,0 +1,8 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {REGIONS,REST,regionAt,regionOffset,partPose,regionInfo} from '../examples/brain-atlas/src/model.mjs';
+test('every inspected region has a stable identity and educational context',()=>{assert.equal(new Set(REGIONS.map(r=>r.id)).size,8);for(const r of REGIONS){assert.ok(r.role&&r.location&&r.hint&&r.connection);assert.match(r.color,/^#[0-9a-f]{6}$/);}});
+test('bilateral outer regions remain mirrored across inspection states',()=>{for(const id of ['frontal','parietal','temporal','occipital'])for(const progress of [0,.25,.5,1]){const left=partPose(id,-1,progress),right=partPose(id,1,progress);assert.equal(Math.abs(left.position[0]),right.position[0]);assert.deepEqual(left.position.slice(1),right.position.slice(1));}});
+test('separation returns exactly to rest without cumulative motion',()=>{for(const r of REGIONS)for(let cycle=0;cycle<40;cycle++){assert.deepEqual(partPose(r.id,1,1).position,regionOffset(r.id,1));partPose(r.id,1,.4);assert.deepEqual(partPose(r.id,1,0),REST);}assert.deepEqual(REST.position,[0,0,0]);});
+test('internal inspection reveals context without changing the role',()=>{const closed=regionInfo('hippocampus',0),open=regionInfo('hippocampus',1);assert.equal(closed.visible,false);assert.equal(open.visible,true);assert.equal(closed.role,open.role);assert.match(open.inspection,/connected/);});
+test('schematic regions have consistent front back and lower side locations',()=>{assert.equal(regionAt(1,2),'frontal');assert.equal(regionAt(1,-2),'occipital');assert.equal(regionAt(-.5,0),'temporal');assert.equal(regionAt(1,0),'parietal');assert.throws(()=>regionInfo('unknown'),RangeError);});

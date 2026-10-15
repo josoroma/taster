@@ -1,0 +1,7 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {sampleFilm,CHAPTERS,DURATION,attentionWeights} from '../examples/ai-history/src/model.mjs';
+test('film chapters cover the exact duration without gaps',()=>{assert.equal(CHAPTERS[0].start,0);assert.equal(CHAPTERS.at(-1).end,DURATION);for(let i=1;i<CHAPTERS.length;i++)assert.equal(CHAPTERS[i-1].end,CHAPTERS[i].start);});
+test('all timestamps have deterministic, bounded chapter-local state through reverse seeking',()=>{const times=[0,1,13.9,14,26,39,51,63,78,89,90];const first=times.map(sampleFilm);for(let i=times.length-1;i>=0;i--)assert.deepEqual(sampleFilm(times[i]),first[i]);for(const s of first){assert.ok(s.progress>=0&&s.progress<=1);assert.ok(s.reveal>=0&&s.reveal<=1);assert.ok(s.time>=s.chapter.start&&s.time<=s.chapter.end)}});
+test('exact boundaries select the next chapter and the endpoint remains the open AGI question',()=>{CHAPTERS.forEach((c,i)=>assert.equal(sampleFilm(c.start).index,i));assert.equal(sampleFilm(DURATION).chapter.id,'frontier');assert.equal(sampleFilm(DURATION).finished,true);assert.equal(sampleFilm(1000).time,DURATION);assert.equal(sampleFilm(-50).time,0);assert.equal(sampleFilm(NaN).time,0)});
+test('illustrative attention rows are normalized probability distributions',()=>{for(let r=0;r<8;r++){const w=attentionWeights(r);assert.equal(w.length,8);assert.ok(w.every(v=>v>0&&v<1));assert.ok(Math.abs(w.reduce((a,b)=>a+b,0)-1)<1e-12)}});

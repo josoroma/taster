@@ -1,0 +1,4 @@
+interface:
+  display_name: "Taster"
+  short_description: "Games, science, and sober engineering explainers"
+  default_prompt: "Use $taster to make an interactive explanation or playable game, choosing a sober engineering or cinematic style that fits the subject."

@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#16181c">
+  <title>Workshop · Taster</title>
+  <meta name="description" content="A quiet, interactive look at how a CAD part is built. Follow the code, inspect the geometry, and download the real solid.">
+  <link rel="icon" href="../../favicon.svg">
+  <link rel="stylesheet" href="./style.css">
+  <script type="importmap">{"imports":{"three":"../../node_modules/three/build/three.module.js","three/addons/":"../../node_modules/three/examples/jsm/"}}</script>
+</head>
+<body>
+<main id="workshop">
+  <header class="masthead">
+    <a class="wordmark" href="../"><span class="brand-mark" aria-hidden="true">t.</span><span>TASTER <span class="slash">/</span> <span class="edition">WORKSHOP</span></span></a>
+    <div class="header-right"><span class="specimen">STUDY 003</span><button id="about">Model & sources <span aria-hidden="true">↗</span></button></div>
+  </header>
+
+  <section class="intro" aria-labelledby="title">
+    <div><div class="eyebrow"><span></span> CONSTRUCTION, EXPLAINED</div><h1 id="title">From stock to part.</h1></div>
+    <p>Four operations. One precise object.<br> Follow the code, then turn it over.</p>
+  </section>
+
+  <div class="workspace">
+    <section class="explanation" aria-label="Construction sequence">
+      <div class="code-panel">
+        <div class="panel-heading"><span>PLATE.PY</span><span><span class="status-dot"></span> <span id="code-line">LINE 3</span></span></div>
+        <div id="code" class="code" aria-label="Python construction code"></div>
+        <div class="code-footer"><span>PYTHON / SMLIBPY</span><a id="download-source" href="./assets/cad-plate/source.py" download>Source <span aria-hidden="true">↓</span></a></div>
+      </div>
+
+      <nav class="steps" aria-label="Choose a construction step">
+        <button data-step="0" aria-current="step"><span class="step-index">01</span><span>Stock</span><span class="step-line"></span></button>
+        <button data-step="1"><span class="step-index">02</span><span>Round</span><span class="step-line"></span></button>
+        <button data-step="2"><span class="step-index">03</span><span>Drill</span><span class="step-line"></span></button>
+        <button data-step="3"><span class="step-index">04</span><span>Pocket</span><span class="step-line"></span></button>
+      </nav>
+
+      <section class="step-description" aria-live="polite" aria-atomic="true">
+        <div class="section-label"><span id="operation">01 / PRIMITIVE</span><span id="stage-count">1 OF 4</span></div>
+        <h2 id="step-title">Start with a solid.</h2>
+        <p id="step-description">A plate, 80 × 60 × 10 mm, centered on the origin. Its six faces define the starting material.</p>
+        <div class="dimension-note"><span class="dimension-rule" aria-hidden="true"></span><span id="dimension">80 × 60 × 10 mm</span></div>
+      </section>
+      <div class="part-readouts" aria-label="Measured CAD properties">
+        <div><span>VOLUME</span><p><strong id="volume">—</strong><span>mm³</span></p></div>
+        <div><span>FACES</span><p><strong id="faces">—</strong><span>B-rep</span></p></div>
+        <div class="validity"><span>SOLID</span><p><span id="validity">Loading</span></p></div>
+      </div>
+      <p class="measurement-note">Properties measured from the CAD solid.<br>The viewport displays its tessellated surface.</p>
+    </section>
+
+    <section class="viewer-panel" aria-label="Interactive CAD model">
+      <div class="viewer-heading"><span>PART 001 <span class="muted">/ MOUNTING PLATE</span></span><span>mm</span></div>
+      <div class="viewport" id="viewport">
+        <canvas id="workshop-canvas" tabindex="0" aria-label="Three dimensional mounting plate. Drag to orbit, Shift-drag or right-drag to pan, scroll to zoom. Arrow keys pan, plus and minus zoom, and Home frames the part."></canvas>
+        <div class="view-controls" aria-label="Standard views"><button data-view="iso" aria-pressed="true">ISO</button><button data-view="top" aria-pressed="false">TOP</button><button data-view="front" aria-pressed="false">FRONT</button></div>
+        <div class="camera-controls" aria-label="Camera controls"><button id="zoom-in" aria-label="Zoom in" title="Zoom in">+</button><button id="zoom-out" aria-label="Zoom out" title="Zoom out">−</button><span></span><button id="pan-left" aria-label="Pan left" title="Pan left">←</button><button id="pan-right" aria-label="Pan right" title="Pan right">→</button><button id="pan-up" aria-label="Pan up" title="Pan up">↑</button><button id="pan-down" aria-label="Pan down" title="Pan down">↓</button><span></span><button id="reset-camera" aria-label="Frame the whole part" title="Frame the whole part">⌖</button></div>
+        <div class="view-caption"><span class="accent-dash"></span><span id="geometry-caption">The starting solid</span></div>
+        <div id="loading" class="loading">Loading the solid<span>01 — 04</span></div>
+        <div id="graphics-error" class="graphics-error" hidden><div class="eyebrow">VIEW UNAVAILABLE</div><h2>The 3D view could not load.</h2><p id="error-copy">Enable WebGL 2 and reload to inspect the solid. The construction notes and CAD downloads remain available below.</p><button id="reload">Reload view ↻</button></div>
+      </div>
+      <div class="viewer-meta"><label><input id="hidden-edges" type="checkbox"><span class="dashed-key" aria-hidden="true"></span>Hidden edges</label><span class="gesture-hint">DRAG TO ORBIT <span>·</span> SCROLL TO ZOOM</span></div>
+      <section class="transport" aria-label="Construction playback">
+        <button id="previous" class="step-control" aria-label="Previous construction step" title="Previous step">‹</button>
+        <button id="play" class="play-control" aria-label="Play construction sequence" disabled><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M7 4.5 15 10l-8 5.5Z"/></svg></button>
+        <button id="next" class="step-control" aria-label="Next construction step" title="Next step">›</button>
+        <div class="timeline-wrap"><div class="timeline-label"><span id="playback-status">STEP THROUGH THE BUILD</span><span id="timestamp">00:00 / 00:12</span></div><label class="sr-only" for="timeline">Construction timeline in seconds</label><input id="timeline" type="range" min="0" max="12" step=".01" value="0"></div>
+        <label class="speed-control"><span class="sr-only">Playback speed</span><select id="speed"><option value=".5">0.5×</option><option value="1" selected>1×</option><option value="2">2×</option></select></label>
+      </section>
+    </section>
+  </div>
+
+  <footer class="footer"><div class="footer-note"><span class="footnote-mark">↳</span> Geometry first. Motion with a purpose.</div><label class="gentle-control"><input id="gentle" type="checkbox">Reduced camera motion</label><div class="downloads"><span>FINAL PART</span><a id="download-step" href="./assets/cad-plate/final.step" download>STEP <span aria-hidden="true">↓</span></a><a id="download-stl" href="./assets/cad-plate/final.stl" download>STL <span aria-hidden="true">↓</span></a></div></footer>
+
+  <dialog id="model-dialog"><button id="close-dialog" class="close-dialog" aria-label="Close model information">×</button><div class="eyebrow"><span></span> ABOUT THIS STUDY</div><h2>A drawing of<br>a real solid.</h2><p>This plate is constructed by Python using SMLibPy. Each of the four states is exported from the CAD kernel, including its measured volume and face count. The browser draws a triangle mesh and edge curves from those states; it does not run a CAD kernel.</p><p>The sequence selects complete, discrete construction states. It shows what each modeling operation changes, rather than simulating material removal, tool motion, or a 3D printer. All dimensions are in millimeters.</p><p>The downloadable STEP file contains the final CAD solid. The STL is a tessellated surface and does not encode units. Use millimeters when importing it, and choose manufacturing settings separately.</p><div class="dialog-links"><a href="https://smlibpy.classcad.ch/" target="_blank" rel="noreferrer">SMLibPy · reference & documentation ↗</a><a id="dialog-source" href="./assets/cad-plate/source.py" download>Download the executable Python source ↓</a></div><p class="dialog-credit">A Taster study in code, geometry, and construction.</p></dialog>
+</main>
+<script type="module" src="./main.mjs"></script>
+</body>
+</html>

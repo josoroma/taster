@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#050916">
+  <title>Bell Lab · A Taster experiment</title><meta name="description" content="Take a two-qubit machine apart. Explore superposition, entanglement, and measurement, then solve three quantum circuit puzzles.">
+  <link rel="icon" href="../../favicon.svg"><link rel="stylesheet" href="./style.css">
+  <script type="importmap">{"imports":{"three":"../../node_modules/three/build/three.module.js","three/addons/":"../../node_modules/three/examples/jsm/"}}</script>
+</head>
+<body>
+<main id="lab">
+  <header class="masthead"><a href="../" class="wordmark"><span class="mark">✳</span> TASTER<span class="slash">/</span><span class="edition">INTERACTIVE SCIENCE</span></a><div class="header-actions"><span class="status-light"></span><span class="simulation">IDEAL TWO-QUBIT SIMULATOR</span><button id="about">About the model ↗</button></div></header>
+  <div class="workspace">
+    <aside class="story-panel">
+      <div class="eyebrow"><span class="rule"></span> EXPERIMENT 002</div>
+      <h1>Two qubits.<br><em>One shared<br> state.</em></h1>
+      <p class="intro">A small machine for a wonderfully<br class="desktop"> strange idea.</p>
+      <div class="mode-switch" aria-label="Experience mode"><button id="mode-learn" aria-pressed="true">Explore</button><button id="mode-play" aria-pressed="false">Play the challenge <span>↗</span></button></div>
+      <section id="lesson">
+        <div class="section-label"><span id="chapter-number">01 / 04</span><span>THE EXPLANATION</span></div>
+        <h2 id="chapter-title">Begin with certainty.</h2><p id="chapter-copy">Both qubits start in state 0. The only possible joint outcome is 00. The arrows show each qubit’s local state.</p>
+        <nav class="chapter-list" aria-label="Explanation chapters">
+          <button data-chapter="0" aria-current="step"><span>01</span> Prepare <i></i></button><button data-chapter="1"><span>02</span> Superpose <i></i></button><button data-chapter="2"><span>03</span> Entangle <i></i></button><button data-chapter="3"><span>04</span> Measure <i></i></button>
+        </nav>
+      </section>
+      <section id="challenge" hidden>
+        <div class="section-label"><span id="challenge-index">01 / 03</span><span>YOUR MISSION</span></div>
+        <h2 id="challenge-name">Make a Bell pair.</h2><p id="challenge-description"></p><div class="target-state" id="target-state"></div>
+        <div class="score-row"><span>Target fidelity</span><strong id="fidelity">50%</strong></div><div class="fidelity-track"><span id="fidelity-fill"></span></div>
+        <p class="hint" id="challenge-hint" hidden></p><button class="quiet" id="hint">Show a hint</button>
+        <button class="primary" id="check">Check my state <span>↗</span></button><button class="primary" id="next-challenge" hidden>Next challenge <span>↗</span></button>
+        <div class="challenge-progress" id="challenge-progress" aria-label="Challenge progress">○ ○ ○</div>
+      </section>
+      <div class="model-note"><span class="note-dot"></span><span>A mathematical model, made visible.<br>The machine is a visual metaphor.</span></div>
+    </aside>
+    <section class="stage" aria-label="Interactive two-qubit apparatus">
+      <div class="stage-header"><span class="eyebrow">BELL LAB</span><span class="stage-caption" id="stage-caption">CONCEPTUAL CIRCUIT · NOT TO SCALE</span></div>
+      <canvas id="bell-canvas" tabindex="0" aria-label="Three dimensional quantum apparatus. Drag to orbit; right-drag or Shift-drag to pan; scroll to zoom. Keyboard plus and minus zoom, arrows pan, Home resets the view."></canvas>
+      <div class="stage-tags" aria-hidden="true"><span><i class="cyan"></i> QUBIT 0</span><span><i class="violet"></i> QUBIT 1</span></div>
+      <div id="loading" class="loading"><div class="loading-orbit"></div><span>Bringing the invisible into view…</span></div>
+      <div id="graphics-error" class="graphics-error" hidden><h2>This view needs WebGL 2.</h2><p>Enable hardware acceleration and reload to explore the machine.</p><button id="reload" class="primary">Reload</button></div>
+      <div class="assembly-control"><div><span>ASSEMBLY</span><strong id="assembly-label">Together</strong></div><label class="sr-only" for="explode">Separate or reassemble the machine</label><input id="explode" type="range" min="0" max="1" step=".001" value="0"><button id="assembly-toggle" title="Separate or reassemble layers">Separate ↗</button></div>
+      <div class="scene-toolbar"><label><span class="sr-only">Focus on a part</span><select id="focus"><option value="overview">Whole machine</option><option value="qubit0">Qubit 0</option><option value="qubit1">Qubit 1</option><option value="readout">Readout layer</option></select></label><div class="camera-buttons"><button id="zoom-out" aria-label="Zoom out">−</button><button id="zoom-in" aria-label="Zoom in">+</button><button id="pan-left" aria-label="Pan left">←</button><button id="pan-up" aria-label="Pan up">↑</button><button id="pan-down" aria-label="Pan down">↓</button><button id="pan-right" aria-label="Pan right">→</button><button id="home" aria-label="Reset camera" title="Frame the machine">⌂</button></div></div>
+      <div class="gesture-hint">DRAG TO ORBIT <span>·</span> SHIFT + DRAG TO PAN <span>·</span> SCROLL TO ZOOM</div>
+      <div id="notice" class="notice" role="status" aria-live="polite"></div>
+    </section>
+    <aside class="readout-panel">
+      <div class="section-label"><span>LIVE READOUT</span><span class="live-dot"></span></div>
+      <div class="state-equation" id="state-equation">|00⟩</div><p class="readout-intro">The shared state <span>|q₀ q₁⟩</span></p>
+      <div class="histogram-heading">OUTCOME PROBABILITIES</div><div id="probabilities" class="probabilities"></div>
+      <div class="coherence"><div><span>Entanglement</span><strong id="entanglement">0.00</strong></div><div class="entanglement-track"><span id="entanglement-fill"></span></div><p>Concurrence · 0 separate, 1 maximal</p></div>
+      <div class="local-states"><div><span><i class="cyan"></i> Qubit 0 purity</span><strong id="purity0">1.00</strong></div><div><span><i class="violet"></i> Qubit 1 purity</span><strong id="purity1">1.00</strong></div></div>
+      <p class="local-note" id="local-note">A full arrow represents a pure local state.</p>
+      <button id="measure" class="measure-button">Measure both <span>↗</span></button><div class="measurement" id="measurement" aria-live="polite">No measurement yet</div><p class="measurement-note">Measurement changes the state.<br>Correlation cannot send a faster-than-light message.</p>
+    </aside>
+  </div>
+  <section class="control-deck" aria-label="Animation and quantum circuit controls">
+    <div class="transport" id="transport"><button id="play" aria-label="Play explanation" disabled>▶</button><div class="timeline-wrap"><div class="timeline-label"><span id="timeline-status">A GUIDED LOOK INSIDE</span><span id="timestamp">00:00 / 00:24</span></div><label class="sr-only" for="timeline">Explanation timeline</label><input id="timeline" type="range" min="0" max="24" step=".01" value="0"></div><label><span class="sr-only">Playback speed</span><select id="speed"><option value=".5">0.5×</option><option value="1" selected>1×</option><option value="1.5">1.5×</option></select></label></div>
+    <div class="gate-deck" id="gate-deck" hidden><div><span class="deck-title">BUILD YOUR CIRCUIT</span><span class="deck-subtitle" id="gate-count">0 gates applied</span></div><button data-gate="H0" title="Hadamard on qubit 0">H <sub>0</sub></button><button data-gate="H1" title="Hadamard on qubit 1">H <sub>1</sub></button><button data-gate="CNOT01" class="cnot" title="Controlled X: qubit 0 controls qubit 1">CX <sub>0→1</sub></button><button data-gate="X1" title="Bit flip on qubit 1">X <sub>1</sub></button><button data-gate="Z0" title="Phase flip on qubit 0">Z <sub>0</sub></button><button id="reset-state" class="reset-gates" title="Reset both qubits">↺ Reset</button></div>
+    <div class="display-settings"><label title="Reduce decorative and camera motion"><input id="gentle" type="checkbox"> Gentle motion</label><label><span class="sr-only">Rendering quality</span><select id="quality"><option value="high">High detail</option><option value="low">Performance</option></select></label></div>
+  </section>
+  <footer class="footer"><span>MADE TO BE TAKEN APART. AND UNDERSTOOD.</span><a href="../lumen/">Play Lumen ↗</a><button id="sources">Model & sources ↗</button></footer>
+  <dialog id="model-dialog"><button class="close-dialog" aria-label="Close model information">×</button><div class="eyebrow">WHAT THIS EXPLAINS</div><h2>Exact state.<br>Imagined machine.</h2><p>Bell Lab computes an ideal, noiseless two-qubit pure state. Gates multiply complex amplitudes; probability is amplitude magnitude squared. Qubit ordering is |q₀ q₁⟩, with qubit 0 on the left.</p><p>The Bloch arrows show each qubit’s reduced state. They shrink to the center for a maximally entangled pair: neither local view alone describes the joint state. The ribbon and layered machine are explanatory metaphors, not photon paths or a real processor’s construction.</p><p>Measurement samples the joint computational-basis distribution and collapses this simulated state. Matching 00/11 counts alone do not certify entanglement; the full state and its relative phase matter. Entanglement does not permit faster-than-light communication.</p><p>The guided tour shows ideal gates at chapter boundaries. Decorative motion between them is illustrative; it is not a simulated physical gate pulse.</p><ul><li><a href="https://quantum.cloud.ibm.com/learning/en/courses/use-a-qc-today/build-and-run-your-first-quantum-program" target="_blank" rel="noreferrer">IBM · Preparing a Bell state ↗</a></li><li><a href="https://quantum.cloud.ibm.com/docs/en/guides/plot-quantum-states" target="_blank" rel="noreferrer">IBM · What a Bloch visualization can show ↗</a></li><li><a href="https://quantum.cloud.ibm.com/learning/en/courses/general-formulation-of-quantum-information/density-matrices/bloch-sphere" target="_blank" rel="noreferrer">IBM · The Bloch sphere and mixed states ↗</a></li></ul></dialog>
+  <dialog id="win-dialog"><div class="win-symbol">✳</div><div class="eyebrow">THREE STATES. ONE NEW INTUITION.</div><h2>You made<br>the connection.</h2><p>You built three Bell states and distinguished a change in probability from a change in phase.</p><button id="play-again" class="primary">Play again <span>↗</span></button><button id="return-explore" class="quiet">Return to the explanation</button></dialog>
+</main>
+<script type="module" src="./main.mjs"></script>
+</body>
+</html>

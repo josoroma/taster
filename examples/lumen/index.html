@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#102923">
+  <meta name="description" content="A small keeper. A forgotten garden. An atmospheric 3D adventure about bringing the light back.">
+  <title>Lumen — The Sunken Garden</title>
+  <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./style.css">
+  <script type="importmap">{"imports":{"three":"../../node_modules/three/build/three.module.js","three/addons/":"../../node_modules/three/examples/jsm/"}}</script>
+</head>
+<body>
+  <main id="game" aria-label="Lumen: The Sunken Garden">
+    <canvas id="world" tabindex="0" aria-label="Garden world. Use WASD or arrow keys to walk, E to tune, Space to dash, Escape to pause."></canvas>
+    <div class="vignette" aria-hidden="true"></div>
+    <header class="topbar">
+      <a class="brand" href="./" aria-label="Lumen home"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 1 20 12 31 16 20 20 16 31 12 20 1 16 12 12Z"/><circle cx="16" cy="16" r="4"/></svg><span>LUMEN</span></a>
+      <span class="edition">A SMALL WORLD TO GET LOST IN</span>
+      <div class="top-actions"><button id="sound" aria-pressed="false" title="Toggle sound">Sound <span>off</span></button><button id="pause" aria-label="Pause game" title="Pause (Escape)">Ⅱ</button><button id="settings" aria-label="Open settings" title="Settings">☷</button></div>
+    </header>
+    <section class="location" aria-label="Location">
+      <div class="eyebrow"><span class="tiny-line"></span> CHAPTER 01 <span class="divider">/</span> THE AWAKENING</div>
+      <h1>The Sunken<br><em>Garden.</em></h1>
+      <p>Some things are only waiting for a little light.</p>
+    </section>
+    <aside class="map-panel" aria-label="Garden map">
+      <div class="map-heading"><span>THE OLD CONSERVATORY</span><span>N ↑</span></div>
+      <svg id="map" viewBox="0 0 180 140" role="img" aria-label="Map showing your position, the three beacons, sentinels, and the exit">
+        <defs><pattern id="grid" width="18" height="18" patternUnits="userSpaceOnUse"><path d="M18 0H0V18" fill="none" stroke="currentColor" stroke-width=".35" opacity=".3"/></pattern></defs>
+        <rect x="10" y="7" width="160" height="126" fill="url(#grid)" stroke="currentColor" stroke-width=".5" opacity=".6"/>
+        <path d="M36 118H18V22H162V118H65M42 14V4M72 14V4M108 14V4M138 14V4" fill="none" stroke="currentColor" stroke-width="3" opacity=".4"/>
+        <g id="map-beacons"></g><g id="map-hazards"></g><path id="map-exit" d="M35 101h10v10H35z" fill="none" stroke="#bcb28a"/><circle id="map-player" r="4" fill="#fff6cf" stroke="#fff6cf" stroke-width="4" stroke-opacity=".18"/>
+      </svg>
+      <div class="map-foot"><i></i><span id="map-status">THE GARDEN IS SLEEPING</span><span>01</span></div>
+    </aside>
+    <section class="welcome glass" id="welcome" aria-labelledby="welcome-title">
+      <div class="eyebrow">YOU ARE THE KEEPER</div>
+      <h2 id="welcome-title">Bring the wonder back.</h2>
+      <p>Wake three ancient beacons. Find their rhythm.<br>Slip past the sentinels. Let the garden bloom.</p>
+      <button class="primary" id="start" disabled><span>Growing your garden…</span><span aria-hidden="true">↗</span></button>
+      <div class="welcome-foot"><span>WASD / CLICK TO EXPLORE</span><span>A SHORT ADVENTURE</span></div>
+    </section>
+    <section id="mission" class="mission glass" hidden aria-label="Mission status">
+      <div class="eyebrow">RESTORE THE GARDEN</div>
+      <div class="mission-line"><strong id="beacon-count">0 <span>/ 3</span></strong><span>beacons<br>awakened</span><div id="health" aria-label="3 lives remaining">◆ ◆ ◆</div></div>
+      <p id="objective">Find a sleeping beacon.</p>
+      <div class="dash-track"><span id="dash-fill"></span></div><div class="dash-label"><span>SPACE · DASH</span><span id="time">00:00</span></div>
+    </section>
+    <div id="tuning" class="tuning glass" hidden>
+      <div class="eyebrow" id="tune-heading">MATCH THE LIGHT</div>
+      <div class="tune-track"><span class="tune-window"></span><span id="tune-cursor"></span></div>
+      <p id="tune-copy">Press <kbd>E</kbd> when the light enters the gold band</p>
+    </div>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <footer class="controls">
+      <div><span><kbd>W A S D</kbd> Walk</span><span class="desktop-hint">or click the ground</span><span><kbd>E</kbd> Tune</span><span><kbd>SPACE</kbd> Dash</span></div>
+      <div class="view-controls"><button id="camera" title="Change camera view"><span aria-hidden="true">⌑</span> <span id="camera-label">Camera</span></button><span class="live-dot"></span><span class="live-label">A LIVING LITTLE WORLD</span></div>
+    </footer>
+    <div class="touch-controls" id="touch-controls" aria-label="Touch controls" hidden>
+      <div class="dpad"><button data-direction="up" aria-label="Walk up">↑</button><button data-direction="left" aria-label="Walk left">←</button><button data-direction="down" aria-label="Walk down">↓</button><button data-direction="right" aria-label="Walk right">→</button></div>
+      <div class="touch-actions"><button id="touch-dash">Dash</button><button id="touch-tune">Tune</button></div>
+    </div>
+    <dialog id="menu" aria-labelledby="menu-title">
+      <div class="eyebrow">TAKE A BREATH</div><h2 id="menu-title">The garden can wait.</h2>
+      <label class="setting">Rendering quality<select id="quality"><option value="high">Beautiful</option><option value="low">Performance</option></select></label>
+      <label class="setting">Gentle motion<input type="checkbox" id="motion"></label>
+      <p class="menu-help">Walk with WASD, arrows, the touch pad, or a ground click. Beside a beacon, press E or tap Tune while the marker is in the gold band. Find three notes, one each cycle. Space or Dash slips through danger. Wake all three, then tune the circular gate.</p>
+      <button id="resume" class="primary">Return to the garden <span>↗</span></button><button id="restart" class="text-button">Start a new journey</button>
+    </dialog>
+    <dialog id="ending" aria-labelledby="ending-title">
+      <div class="end-sigil" aria-hidden="true">✧</div><div class="eyebrow" id="ending-eyebrow">THE GARDEN REMEMBERS</div><h2 id="ending-title">A little light.<br>A world awakened.</h2><p id="ending-copy"></p><button id="again" class="primary">Wander again <span>↗</span></button>
+    </dialog>
+    <section id="fallback" class="fallback" hidden><div class="eyebrow">LUMEN · THE SUNKEN GARDEN</div><h2>The garden needs WebGL 2.</h2><p id="fallback-copy">Enable hardware acceleration in your browser, then reload to enter this 3D world.</p><button class="primary" onclick="location.reload()">Try again <span>↗</span></button></section>
+    <noscript><div class="fallback"><h2>Let the garden wake.</h2><p>Enable JavaScript to play this 3D adventure.</p></div></noscript>
+  </main>
+  <script type="module" src="./main.mjs"></script>
+</body>
+</html>

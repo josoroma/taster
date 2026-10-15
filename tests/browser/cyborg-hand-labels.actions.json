@@ -1,0 +1,53 @@
+[
+  [
+    "until",
+    "Boolean(window.__dextra?.stats().webgl)",
+    15000
+  ],
+  [
+    "eval",
+    "(() => {\n  const assert = (condition, message) => { if (!condition) throw new Error(`DEXTRA label regression: ${message}`); };\n  assert(document.querySelector('#scene-frame').clientWidth >= 500, 'run this fixture at desktop width (1440 recommended)');\n  const visible = element => {\n    for (let node = element; node instanceof Element; node = node.parentElement) {\n      const style = getComputedStyle(node);\n      if (node.hidden || style.display === 'none' || style.visibility === 'hidden' || style.visibility === 'collapse' || Number(style.opacity) === 0) return false;\n    }\n    return true;\n  };\n  const check = (context, expected = []) => {\n    const labels = [...document.querySelectorAll('#callouts .callout')].filter(visible);\n    const paths = [...document.querySelectorAll('#leader-lines path')].filter(visible);\n    const circles = [...document.querySelectorAll('#leader-lines circle')].filter(visible);\n    const names = labels.map(element => element.textContent.trim());\n    assert(labels.length === paths.length && paths.length === circles.length, `${context}: ${labels.length} labels / ${paths.length} paths / ${circles.length} anchor dots`);\n    for (const name of expected) assert(names.includes(name), `${context}: missing ${name}; visible: ${names.join(', ')}`);\n    for (const label of labels) {\n      const part = label.dataset.part;\n      assert(Boolean(part), `${context}: callout lacks semantic part identifier`);\n      const groups = [...document.querySelectorAll('#leader-lines g[data-part]')].filter(group => visible(group) && group.dataset.part === part);\n      assert(groups.length === 1, `${context}: ${part} must have exactly one matching connector group`);\n      assert(groups[0].querySelectorAll('path').length === 1 && groups[0].querySelectorAll('circle').length === 1, `${context}: ${part} connector must contain one path and one anchor dot`);\n      const path = groups[0].querySelector('path');\n      const circle = groups[0].querySelector('circle');\n      assert(visible(path) && visible(circle), `${context}: ${part} connector is hidden while its label is visible`);\n      const endpoint = path.getPointAtLength(path.getTotalLength());\n      assert(Math.hypot(Number(circle.getAttribute('cx')) - endpoint.x, Number(circle.getAttribute('cy')) - endpoint.y) < .1, `${context}: ${part} leader and anchor dot do not meet`);\n      const rect = label.getBoundingClientRect();\n      assert([rect.x, rect.y, rect.width, rect.height].every(Number.isFinite) && rect.width > 0 && rect.height > 0, `${context}: invalid label bounds`);\n    }\n    const anchors = circles.map(circle => {\n      const values = ['cx', 'cy', 'r'].map(name => Number(circle.getAttribute(name)));\n      assert(values.every(Number.isFinite) && values[2] > 0, `${context}: invalid anchor-dot geometry`);\n      return values;\n    });\n    for (const path of paths) {\n      const data = path.getAttribute('d') || '';\n      const values = (data.match(/[-+]?(?:\\d*\\.\\d+|\\d+\\.?\\d*)(?:e[-+]?\\d+)?/gi) || []).map(Number);\n      assert(data.length > 0 && !/NaN|Infinity|undefined/.test(data) && values.length >= 4 && values.every(Number.isFinite), `${context}: invalid leader path ${data}`);\n      assert(Number.isFinite(path.getTotalLength()) && path.getTotalLength() > 0, `${context}: empty leader path`);\n      const endpoint = path.getPointAtLength(path.getTotalLength());\n      assert(anchors.some(([x, y]) => Math.hypot(x - endpoint.x, y - endpoint.y) < .1), `${context}: leader has no matching anchor dot`);\n    }\n    return names;\n  };\n  window.__dextraLabelRegression = {assert, check, expected: ['Articulated fingers', 'Opposing thumb', 'Wrist interface']};\n  window.__dextra.seek(0);\n  return {ready: true, labels: check('initial view', window.__dextraLabelRegression.expected)};\n})()"
+  ],
+  [
+    "eval",
+    "(() => {\n  const {check, expected} = window.__dextraLabelRegression;\n  let samples = 0;\n  for (const direction of [1, -1]) {\n    for (let step = 0; step <= 200; step++) {\n      const grip = direction === 1 ? step / 200 : 1 - step / 200;\n      window.__dextra.setPose({grip, separation: 0});\n      check(`${direction === 1 ? 'closing' : 'opening'} grip=${grip.toFixed(3)}`, expected);\n      samples++;\n    }\n  }\n  return {passed: 'dense forward and reverse closure', samples};\n})()"
+  ],
+  [
+    "eval",
+    "(async () => {\n  const {assert,check,expected}=window.__dextraLabelRegression;\n  window.__dextra.seek(4);\n  const initial=new Map([...document.querySelectorAll('#callouts .callout')].map(label=>[label.dataset.part,{label,left:label.style.left,top:label.style.top}]));\n  const speed=document.querySelector('#speed');speed.value='2';speed.dispatchEvent(new Event('change'));\n  document.querySelector('#play').click();\n  let frames=0,previous=performance.now(),total=0;\n  return await new Promise((resolve,reject)=>{\n    const deadline=performance.now()+30000;\n    function sample(now){\n      try{\n        assert(now<deadline,'timed playback did not finish closure and release');\n        if(window.__dextra.stats().time>=18){\n          window.__dextra.pause();\n          speed.value='1';speed.dispatchEvent(new Event('change'));\n          assert(frames>30,'too few rendered frames to verify timed playback');\n          resolve({passed:'timed closure, hold, and release without disappearing or jumping labels',frames,meanFrameMs:Math.round(total/frames)});return;\n        }\n        check('timed playback',expected);\n        for(const label of document.querySelectorAll('#callouts .callout')){\n          const prior=initial.get(label.dataset.part);\n          assert(prior?.label===label,'callout was removed and recreated during playback');\n          assert(label.style.left===prior.left&&label.style.top===prior.top,'callout changed its screen slot during playback');\n        }\n        total+=now-previous;previous=now;frames++;\n        requestAnimationFrame(sample);\n      }catch(error){window.__dextra.pause();reject(error);}\n    }\n    requestAnimationFrame(sample);\n  });\n})()"
+  ],
+  [
+    "click",
+    "[data-view=\"palm\"]"
+  ],
+  [
+    "until",
+    "!window.__dextra.stats().scene.camera.transitioning",
+    10000
+  ],
+  [
+    "eval",
+    "(() => {\n  const {assert, check} = window.__dextraLabelRegression;\n  window.__dextra.setPose({grip: 0, separation: 0});\n  window.__dextra.select('actuators');\n  const names = check('assembled palm view');\n  assert(!names.includes('Actuator bank'), 'covered actuators must remain occluded even when selected');\n  assert(!names.includes('Dorsal carapace'), 'back shell must remain occluded from the assembled palm view');\n  return {passed: 'meaningful occlusion', labels: names};\n})()"
+  ],
+  [
+    "eval",
+    "window.__dextra.setPose({grip: 0, separation: 1}); window.__dextra.select('actuators'); 'Layers separated'"
+  ],
+  [
+    "click",
+    "[data-view=\"back\"]"
+  ],
+  [
+    "until",
+    "!window.__dextra.stats().scene.camera.transitioning",
+    10000
+  ],
+  [
+    "eval",
+    "(() => {\n  const {check} = window.__dextraLabelRegression;\n  return {passed: 'exposed actuator positive control', labels: check('separated back view', ['Actuator bank'])};\n})()"
+  ],
+  [
+    "eval",
+    "(() => {\n  const {assert, check, expected} = window.__dextraLabelRegression;\n  window.__dextra.seek(0);\n  const control = document.querySelector('#show-labels');\n  assert(control.checked, 'labels should start enabled');\n  control.click();\n  assert(!control.checked, 'label toggle did not disable');\n  assert(check('labels disabled').length === 0, 'disabled labels and connectors must all be hidden');\n  control.click();\n  assert(control.checked, 'label toggle did not enable');\n  return {passed: 'labels and connectors toggle together', labels: check('labels restored', expected)};\n})()"
+  ]
+]

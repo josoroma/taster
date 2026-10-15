@@ -1,0 +1,118 @@
+{
+  "skill": "taster",
+  "purpose": "Behavioral prompts and criteria; not a claim that every scenario has been executed.",
+  "evaluations": [
+    {
+      "id": "bell-explainer",
+      "prompt": "Use $taster to explain a Bell pair in an interactive machine. Let me zoom, pan, separate its layers and reassemble them, then solve a small challenge.",
+      "checks": [
+        "Quantum probabilities and relative phase derive from one model",
+        "Local Bloch views do not claim to display the full entangled state",
+        "Manual camera input interrupts choreography",
+        "Repeated reassembly returns to the rest pose",
+        "The challenge checks a genuine objective and supports restart"
+      ]
+    },
+    {
+      "id": "llm-attention",
+      "prompt": "Use $taster to explain how a small causal transformer turns tokens into a next-token distribution. Separate one attention block and let me inspect its values.",
+      "checks": [
+        "Computes an explicit small Q/K/V example and causal mask",
+        "Shows softmax weights and residual flow consistently",
+        "Labels toy weights and tokenization assumptions",
+        "Does not invent a universal architecture"
+      ]
+    },
+    {
+      "id": "hydrogen-cloud",
+      "prompt": "Use $taster to make a glowing hydrogen orbital I can rotate, slice, and zoom into, with a guided explanation.",
+      "checks": [
+        "Uses orbital probability rather than unlabelled planetary orbits",
+        "Explains density, scale distortion and any exaggerated nucleus",
+        "Preserves readable labels under zoom",
+        "Reduced motion preserves inspection"
+      ]
+    },
+    {
+      "id": "black-hole-camera",
+      "prompt": "Use $taster to explain a black hole. Fly from an overview to the photon ring, then give me free pan and zoom.",
+      "checks": [
+        "Separates horizon, shadow, disk and lensing",
+        "Sources the physical model and names approximations",
+        "Does not call a decorative vortex exact general relativity",
+        "Extreme zoom preserves clipping and orientation"
+      ]
+    },
+    {
+      "id": "reference-skepticism",
+      "prompt": "Use this diagram claiming extra dimensions are definitely relational degrees of freedom as inspiration for a beautiful explainer.",
+      "checks": [
+        "Treats the image as art direction, not scientific evidence",
+        "Labels speculative interpretations",
+        "Seeks a primary source for a specific proposed theory"
+      ]
+    },
+    {
+      "id": "bounded-static",
+      "prompt": "Use $taster to make one static SVG of an exploded camera lens for a light-background article. No web app.",
+      "checks": [
+        "Honors static SVG output",
+        "Does not add a timeline, game or deployment",
+        "Preserves optical ordering and verifies specifications"
+      ]
+    },
+    {
+      "id": "reversible-scrubbing",
+      "prompt": "Use $taster for an assembly that survives interrupted separation, backward scrubbing, repeated reassembly and a narrow phone viewport.",
+      "checks": [
+        "Stores immutable rest transforms and stable part IDs",
+        "Samples absolute poses from one progress value",
+        "Tests intermediate states and backward seeks",
+        "Responsive framing does not fight navigation"
+      ]
+    },
+    {
+      "id": "new-project-portability",
+      "prompt": "Use $taster to start a new interactive explainer in an empty temporary directory, keeping the skill checkout untouched.",
+      "checks": [
+        "Uses skill-relative helper paths",
+        "Generated code runs without importing the installed skill directory",
+        "Reports actual build and browser checks",
+        "Leaves unrelated files and projects unchanged"
+      ]
+    },
+    {
+      "id": "sober-cad",
+      "prompt": "Use $taster to explain a mounting plate being built in CAD, like smlibpy.classcad.ch. Keep it sober, with code linked to each operation.",
+      "checks": [
+        "Uses restrained orthographic engineering style without decorative glow",
+        "Executes actual CAD operations or labels geometry schematic",
+        "Keeps code, measured values, captions, and stage geometry synchronized",
+        "Replays complete snapshots when scrubbing backward",
+        "Distinguishes exact STEP from unitless tessellated STL and verifies exports"
+      ]
+    },
+    {
+      "id": "robot-joints",
+      "prompt": "Use $taster for a sober two-joint robot arm explanation. Show local axes and an exploded inspection view. No game.",
+      "checks": [
+        "Uses a kinematic parent hierarchy and explicit units",
+        "Keeps joint origins, axes, and limits authoritative",
+        "Separates inspection offsets from operational joint transforms",
+        "Does not add gameplay or send hardware commands",
+        "Checks known poses and exact reassembly"
+      ]
+    },
+    {
+      "id": "printing-layers",
+      "prompt": "Use $taster to explain an FDM printer layer by layer, with perimeters, infill and travel.",
+      "checks": [
+        "Distinguishes model, slices, and toolpath data",
+        "Labels schematic paths unless a real slicer supplies them",
+        "Synchronizes nozzle, visible deposition, and layer count",
+        "Does not fill travel moves or imply a decorative path is ready G-code",
+        "Uses quiet camera and accurate layer/nozzle scale"
+      ]
+    }
+  ]
+}
