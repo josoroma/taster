@@ -8,7 +8,11 @@ await rm(dist, { recursive:true, force:true });
 await mkdir(dist, { recursive:true });
 await access(resolve(root,'index.html'));
 // Optional files keep generated single-example projects independent of the showcase.
-for (const path of ['index.html', 'favicon.svg', 'LICENSE', 'README.md', 'assets', 'kit', 'examples']) {
+// Include every available translation, such as README-ES.md or README-PT-BR.md.
+const readmes = (await readdir(root, { withFileTypes:true }))
+  .filter(entry => entry.isFile() && /^README(?:-[a-z0-9]+)*\.md$/i.test(entry.name))
+  .map(entry => entry.name);
+for (const path of ['index.html', 'favicon.svg', 'LICENSE', ...readmes, 'assets', 'kit', 'examples']) {
   try { await access(resolve(root,path)); } catch { continue; }
   await cp(resolve(root, path), resolve(dist, path), { recursive:true });
 }

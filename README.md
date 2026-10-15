@@ -1,5 +1,7 @@
 # Taster
 
+Languages: **English** · [Español](README-ES.md)
+
 <a href="https://josoroma.github.io/taster/"><img src="assets/showcase/logo.svg" alt="Taster" width="220"></a>
 
 **Ideas you can play, inspect, and understand.** [Explore the live showcase](https://josoroma.github.io/taster/) · [View the repository](https://github.com/josoroma/taster)
@@ -100,6 +102,7 @@ taster/
 ├── SKILL.md                     Skill entry point and working principles
 ├── agents/openai.yaml           Skill discovery metadata
 ├── README.md                    Setup, project guide, and prompt collection
+├── README-ES.md                 Spanish documentation and prompt collection
 ├── index.html                   Public showcase with live example links
 ├── kit/                         Camera, timeline, assembly, technical viewer
 ├── assets/fonts/                Shared local fonts and license notices
