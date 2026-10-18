@@ -1,15 +1,15 @@
 ---
 name: taster
-description: Create playable browser games and interactive science or engineering explainers, from cinematic worlds to sober CAD, robotics, and 3D-printing animations. Use for model-driven scenes, camera inspection, reversible exploded views, construction sequences, and scrubbable explanations; not ordinary websites, data dashboards, or static image generation.
+description: Create interactive science and engineering explainers, molecular and biomolecular structure animations, playable browser games, editorial or interactive diagrams, and HTML-to-video films. Use for inspectable models, reversible assemblies, source-backed molecular views, architecture and process diagrams, and deterministic video compositions; not ordinary websites or data dashboards.
 metadata:
-  short-description: "Build games and science or engineering explainers"
+  short-description: "Build science, games, diagrams, and explanatory video"
 ---
 
 # Taster
 
 Turn an idea into an experience someone can explore, understand, and play. A beautiful scene should reveal a mechanism: the viewer changes something, sees a consequence, and discovers why it happened. Build detailed, inspectable 3D worlds, scientific instruments, and abstract mathematical spaces. Do not force every subject into a machine metaphor.
 
-Present the skill and its agents under Taster’s own identity. Keep required third-party attribution in license notices.
+Present the skill and its agents under Taster’s own identity. For artifacts explaining Taster, use [its existing identity](references/identity.md); for other subjects, follow the requested visual direction. Preserve required third-party notices and identify external tools or source data accurately.
 
 ## Start from one prompt
 
@@ -18,6 +18,9 @@ Infer the audience, format, visual direction, and smallest complete interaction 
 - **Game:** establish a goal, meaningful player actions, visible consequences, a completion state, and replay. Finish a small compelling loop before expanding the world.
 - **Explainer:** establish one question, reveal the mechanism, let the viewer change a variable or inspect a part, and show the resulting evidence. Add a puzzle only when requested or useful to that explanation.
 - **Both:** let a short guided sequence teach the same rules the player then uses. The score must reward understanding or skill, not contradict the model.
+- **Molecular structure:** choose a scientific question, identify the structure or schematic, and connect residue/atom selection, representations, and measured distances to the same coordinates. Read the molecular guide before choosing a renderer or animating conformations.
+- **Diagram:** choose the relationship the reader should understand, then a topology that expresses it. Deliver static SVG/HTML or interactive inspection as requested; a diagram does not require a game or a 3D scene. Read the diagram guide for layout, exports, and architecture semantics.
+- **Video:** define the audience, message, duration, and aspect ratio; author a deterministic composition and render the requested video file. Keep the browser preview and encoded deliverable distinct. Read the video guide for Hyperframes and export verification.
 
 Choose the renderer automatically from the task: semantic HTML/SVG for crisp planar mechanisms; Canvas for dense 2D motion; Three.js/WebGL for spatial inspection, lighting, volumes, orbital cameras, or immersive games. Retain a suitable existing stack. Export stills or video only when requested; a still-image reference does not change an interactive request into an image task.
 
@@ -34,6 +37,10 @@ Read only the resources needed for the task:
 | [references/camera-and-assembly.md](references/camera-and-assembly.md) | Zoom, pan, orbit, focus, tours, exploded views, reassembly, and timeline design. |
 | [references/scientific-storytelling.md](references/scientific-storytelling.md) | Scientific claims, honest visual metaphors, equations, sources, and domain-specific traps. |
 | [references/engineering-explainers.md](references/engineering-explainers.md) | Sober CAD construction, robotics kinematics, 3D-printing sequences, technical lines, units, and real geometry exports. |
+| [references/molecular-structures.md](references/molecular-structures.md) | Experimental or predicted structures, atom/residue identity, molecular representations, trajectories, and honest scientific motion. |
+| [references/diagrams.md](references/diagrams.md) | Editorial and interactive diagrams informed by Diagram Design and Archify, labeled relationships, accessible inspection, and SVG exports. |
+| [references/video.md](references/video.md) | HTML-to-video with Hyperframes, deterministic timelines, assets, rendering, and media verification. |
+| [references/identity.md](references/identity.md) | Existing Taster colors, typography, logo, and editorial design for Taster-branded artifacts. |
 | [references/kit.md](references/kit.md) | Actual runtime APIs, starter copying, and browser verification commands. |
 | `kit/motion.mjs` | Deterministic transport, stage progress, immutable rest poses, and reversible assembly. |
 | `kit/camera-rig.mjs` | One camera controller for user gestures and interruptible scripted shots. |
@@ -44,6 +51,9 @@ Read only the resources needed for the task:
 | `examples/brain-atlas/` | Cerebra: labeled biological structures, contextual hints, and reversible separation. |
 | `examples/particle-atlas/` | INNERSPACE: guided scale changes, particle inspection, and a sourced elementary-particle atlas. |
 | `examples/cyborg-hand/` | DEXTRA: articulated joint chains, open/fist poses, reversible shell separation, and component inspection. |
+| `examples/molecular-lab/` | Molecular inspection using bundled experimental coordinates, residue selection, and controllable explanatory animation. |
+| `examples/taster-diagram/` | A branded, interactive map explaining Taster with an editable SVG export. |
+| `examples/taster-film/` | A branded Taster film, deterministic HTML composition, browser preview, and rendered video. |
 
 For a new project, copy the closest working example into an empty destination:
 
@@ -51,7 +61,7 @@ For a new project, copy the closest working example into an empty destination:
 node /absolute/path/to/taster/scripts/create-project.mjs /absolute/path/to/project --template bell-lab
 ```
 
-Use `--template lumen` for a movement-based game, `--template workshop` for sober engineering, `--template ai-history` for a short explanatory film, `--template brain-atlas` for labeled biological inspection, `--template particle-atlas` for a journey into matter, or `--template cyborg-hand` for a conceptual articulated mechanism. Adapt the subject, model, lesson, and geometry together. Do not retain unrelated example claims or UI. Existing projects can reuse individual helpers without being replaced by a starter. Installation, publishing, accounts, and external services are separate from creating a local artifact; do not add them implicitly.
+Use `--template lumen` for a movement-based game, `--template workshop` for sober engineering, `--template ai-history` for a chapter-based browser animation, `--template brain-atlas` for labeled biological inspection, `--template particle-atlas` for a journey into matter, or `--template cyborg-hand` for a conceptual articulated mechanism. Use `--template molecular-lab` for molecular structure inspection, `--template taster-diagram` for an interactive diagram, and `--template taster-film` for HTML-to-video. Adapt the subject, model, lesson, and geometry together. Do not retain unrelated example claims or UI. Existing projects can reuse individual helpers without being replaced by a starter. Installation, publishing, accounts, and external services are separate from creating a local artifact; do not add them implicitly.
 
 ## Build the experience
 
@@ -70,4 +80,4 @@ Use `--template lumen` for a movement-based game, `--template workshop` for sobe
 - Verify behavioral invariants: known model outcomes, normalization/conservation where applicable, pause/seek/replay, repeated assembly round-trips, camera interruption, and a complete playthrough. Use focused tests for meaningful rules, not assertions that merely repeat markup or helper implementation.
 - Test desktop and a narrow touch layout, focused keyboard navigation, reset, and reduced motion. Inspect browser errors. Check the production build as well as the development page. Report exact checks performed and remaining limitations without inventing performance numbers.
 
-Deliver editable source, a runnable link or command, brief controls, and the scientific scope where relevant. Preserve existing playable artifacts when adding another experience. A local preview is not a published site; do not claim deployment unless it occurred.
+Deliver editable source, a runnable link or command, brief controls, and the scientific scope where relevant. For diagrams, include the requested portable export; for video, include the encoded file and reproducible render command, stating any incomplete render explicitly. Preserve existing playable artifacts when adding another experience. A local preview is not a published site; do not claim deployment unless it occurred.

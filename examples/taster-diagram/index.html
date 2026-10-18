@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f3f2eb">
+  <meta name="description" content="An interactive field guide to Taster: follow a question into a model, a visual, and an editable experience.">
+  <title>Taster — One idea. Many ways in.</title>
+  <link rel="icon" href="../../assets/showcase/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip-link" href="#workbench">Skip to the diagram</a>
+  <div class="page">
+    <header class="masthead">
+      <a class="brand" href="../../" aria-label="Taster home"><img src="../../assets/showcase/logo.svg" width="174" height="48" alt="Taster"></a>
+      <p>A FIELD GUIDE <span>/</span> 01</p>
+      <a class="back-link" href="../../">All experiences <span aria-hidden="true">↗</span></a>
+    </header>
+    <main>
+      <section class="introduction" aria-labelledby="page-title">
+        <div><p class="eyebrow"><span class="small-star" aria-hidden="true">✳</span> A practice for curious minds</p><h1 id="page-title">One idea.<br><em>Many ways in.</em></h1></div>
+        <div class="introduction-copy"><p>Taster makes ideas<br>you can <strong>get your hands on.</strong></p><p class="lede">From a molecule to a mechanism, a diagram to a film. Explore how a question becomes something you can inspect, change, and understand.</p><a href="#workbench" class="text-link">Follow the thinking <span aria-hidden="true">↓</span></a></div>
+      </section>
+      <section id="workbench" aria-labelledby="workbench-title">
+        <div class="workbench-heading"><div><p class="eyebrow">Inside the practice</p><h2 id="workbench-title">The shape of an explanation.</h2></div><span class="live-caption"><span aria-hidden="true"></span> Interactive diagram</span></div>
+        <div class="route-bar"><span class="route-label">Explore a form</span><div class="route-options" role="group" aria-label="Explanation form"><button type="button" data-route="all" aria-pressed="true">Overview</button><button type="button" data-route="molecular" aria-pressed="false">Molecular</button><button type="button" data-route="diagram" aria-pressed="false">Diagram</button><button type="button" data-route="video" aria-pressed="false">Video</button></div><button type="button" id="export" class="export-button">Download SVG <span aria-hidden="true">↗</span></button></div>
+        <div class="workbench-body">
+          <div class="drawing-column">
+            <div class="drawing-header"><p id="route-kicker">One practice. Many forms.</p><div class="view-controls" role="group" aria-label="Diagram view"><button type="button" id="zoom-out" aria-label="Zoom out">−</button><output id="zoom-level" aria-live="off">100%</output><button type="button" id="zoom-in" aria-label="Zoom in">+</button><button type="button" id="reset-view">Fit</button></div></div>
+            <div id="diagram-viewport" tabindex="0" role="group" aria-label="Diagram viewport. Drag to pan, plus or minus to zoom, Home to fit." aria-describedby="diagram-help"><svg id="diagram" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 680" role="group" aria-labelledby="diagram-title diagram-description"><title id="diagram-title">The Taster workflow</title><desc id="diagram-description">Prompt defines the question for the model. The model drives representation. Representation enables interaction. Interaction reveals behavior for verification. Verification checks delivery and can revise the model. Select a stage to read its details.</desc></svg></div>
+            <div class="drawing-footer"><p id="diagram-help">Select a stage to look closer. <span>Drag to pan · + / − to zoom · Home to fit</span></p><span class="diagram-key"><i></i> Workflow <i class="dashed"></i> Revision</span></div>
+          </div>
+          <aside id="stage-detail" aria-labelledby="detail-title">
+            <div class="detail-top"><span id="detail-number">01 / 06</span><span id="detail-type">Prompt</span></div>
+            <p class="detail-kicker" id="detail-name">Start with a question</p>
+            <h3 id="detail-title">Begin with the thing you want to understand.</h3>
+            <p id="detail-description"></p>
+            <ul id="detail-evidence"></ul>
+            <div class="trace-controls"><label for="trace-mode">See the connections</label><select id="trace-mode"><option value="none">All relationships</option><option value="related">Related to this stage</option><option value="forward">Follow the output</option></select><p id="trace-note">Every line is an authored relationship.</p></div>
+            <div class="stage-navigation"><button type="button" id="previous-stage" aria-label="Previous stage">←</button><p><span id="stage-position">1</span> of 6</p><button type="button" id="next-stage" aria-label="Next stage">→</button></div>
+          </aside>
+        </div>
+        <p id="status" class="status" role="status" aria-live="polite"></p>
+      </section>
+      <section class="takeaway" aria-labelledby="takeaway-title"><div><p class="eyebrow" id="outcome-label">The shared thread</p><h2 id="takeaway-title">An idea made inspectable.</h2></div><p id="route-description">Taster turns a question into an experience you can explore. Follow the work from the first prompt to the editable result.</p></section>
+      <div class="capabilities" aria-label="Selected form principles"><span>Science &amp; engineering</span><span>Playable worlds</span><span>Molecules · diagrams · video</span></div>
+    </main>
+    <footer class="page-footer"><p>Made with Taster. Made to be understood.</p><a href="./README.md">Source notes &amp; controls <span aria-hidden="true">↗</span></a></footer>
+  </div>
+  <noscript><p class="noscript">This interactive guide needs JavaScript. Taster’s workflow is: prompt → model → representation → interaction → verification → editable delivery. Verification can send the model back for revision.</p></noscript>
+  <script type="module" src="./main.mjs"></script>
+</body>
+</html>

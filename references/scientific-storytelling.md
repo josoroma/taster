@@ -41,6 +41,8 @@ Use orbital wavefunctions, probability density, energy levels, or a clearly labe
 
 For molecular assembly, define whether bonds are a connectivity diagram, a geometric approximation, or a force model. A beautiful DNA helix can explain base pairing and structure without pretending to simulate molecular dynamics. Mark enlarged components and artificial spacing.
 
+For experimental and predicted biomolecular structures, ligand interfaces, trajectories, and molecular rendering choices, read [molecular-structures.md](molecular-structures.md). Structural coordinates support geometric inspection; a moving camera or representation transition is not a dynamics trajectory.
+
 ## LLMs and transformers
 
 Choose the architecture being explained. Show tokenization, embeddings, positional information, attention, feed-forward operations, residual paths, and next-token distributions only as applicable. The original [Transformer paper](https://arxiv.org/abs/1706.03762) describes a particular encoder-decoder architecture; it is not a specification for every contemporary LLM.

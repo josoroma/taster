@@ -12,9 +12,9 @@ await access(resolve(root,'index.html'));
 const readmes = (await readdir(root, { withFileTypes:true }))
   .filter(entry => entry.isFile() && /^README(?:-[a-z0-9]+)*\.md$/i.test(entry.name))
   .map(entry => entry.name);
-for (const path of ['index.html', 'favicon.svg', 'LICENSE', ...readmes, 'assets', 'kit', 'examples']) {
+for (const path of ['index.html', 'favicon.svg', 'LICENSE', 'SKILL.md', ...readmes, 'references', 'assets', 'kit', 'examples']) {
   try { await access(resolve(root,path)); } catch { continue; }
-  await cp(resolve(root, path), resolve(dist, path), { recursive:true });
+  await cp(resolve(root, path), resolve(dist, path), { recursive:true, filter: source => !source.split(/[\\/]/).includes('.hyperframes') });
 }
 // This is already-built static content, including ES modules and CAD exports.
 await writeFile(resolve(dist, '.nojekyll'), '');

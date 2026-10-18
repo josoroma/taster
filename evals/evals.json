@@ -113,6 +113,50 @@
         "Does not fill travel moves or imply a decorative path is ready G-code",
         "Uses quiet camera and accurate layer/nozzle scale"
       ]
+    },
+    {
+      "id": "biomolecular-structure",
+      "prompt": "Use $taster to explain a protein–ligand interface with experimental structure coordinates. Let me inspect chains, residues, representations and measured contacts, and scrub the explanation.",
+      "checks": [
+        "Records structure ID, assembly/model, method, provenance, coordinate units and missing-data choices",
+        "Preserves atom and residue identities across rendering and picking",
+        "Reports distances from original coordinates, with contact cutoffs distinguished from chemical bonds",
+        "Does not describe a static structure or camera animation as molecular dynamics",
+        "Manual navigation interrupts camera motion and reduced motion preserves inspection"
+      ]
+    },
+    {
+      "id": "branded-diagram",
+      "prompt": "Use $taster to explain Taster in an interactive editorial diagram inspired by Diagram Design and Archify, using Taster’s existing identity. Include a portable SVG.",
+      "checks": [
+        "Topology and labeled edge semantics express the actual workflow",
+        "Uses the existing logo, local typefaces and semantic brand colors",
+        "Selection and keyboard inspection reveal meaningful content",
+        "Export embeds needed assets and retains an accessible title and description",
+        "Checks full and focused routes for clipping and label collisions at desktop and narrow sizes"
+      ]
+    },
+    {
+      "id": "hyperframes-video",
+      "prompt": "Use $taster to produce a branded short video explaining Taster with Hyperframes, editable HTML and a rendered MP4.",
+      "checks": [
+        "Provides an actual deterministic Hyperframes-compatible composition and pinned render instructions",
+        "Waits for required local assets before frame capture",
+        "Repeated and reverse seeking to a timestamp reproduce the same scene",
+        "Exports and inspects encoded frames, dimensions, frame rate and duration",
+        "Does not call a browser preview an encoded video or claim an unexecuted render succeeded"
+      ]
+    },
+    {
+      "id": "molecular-trajectory",
+      "prompt": "Use $taster to visualize my molecular dynamics trajectory with receptor, membrane and solvent. Let me scrub time and inspect a selected lipid.",
+      "checks": [
+        "Validates topology-to-frame atom mapping and physical time units",
+        "Handles periodic boundaries and alignment explicitly without fabricating missing frames",
+        "Bounds geometry cost and preserves selected molecule identity",
+        "Labels any interpolated frames and distinguishes structural metrics from decorative motion",
+        "Reports unsupported file formats or absent trajectory data rather than substituting a simulated result"
+      ]
     }
   ]
 }

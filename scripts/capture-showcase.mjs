@@ -13,14 +13,17 @@ const examples=[
  {id:'brain-atlas',width:1600,height:1150,selector:'.canvas-wrap',ready:'window.__brainAtlas?.stats().webgl',actions:[['click','#separate'],['wait',1800]]},
  {id:'particle-atlas',width:1600,height:1150,selector:'#scene-frame',ready:'window.__particleAtlas?.stats().webgl',actions:[['eval','window.__particleAtlas.seek(7)'],['wait',500]]},
  {id:'cyborg-hand',width:1600,height:1150,selector:'#scene-frame',ready:'window.__dextra?.stats().webgl',actions:[['eval','window.__dextra.seek(0)'],['wait',500]]},
+ {id:'molecular-lab',width:1440,height:1100,selector:'.workbench',ready:'window.__molecularLab?.ready',actions:[]},
+ {id:'taster-diagram',width:1440,height:1100,selector:'#diagram',ready:'window.__tasterDiagram?.ready',actions:[]},
+ {id:'taster-film',path:'examples/taster-film/composition/',width:1280,height:720,selector:'#film',region:[0,0,1280,720],ready:'window.tasterFilm?.ready',actions:[['eval','window.tasterFilm.ready'],['eval','window.tasterFilm.renderAt(17)']]},
 ];
 try{
  for(const e of examples){
   if(process.argv[2] && process.argv[2]!==e.id)continue;
-  const actions=[['until',e.ready,20000],...e.actions,['scroll',e.selector],['wait',250],['eval',`(()=>{const r=document.querySelector(${JSON.stringify(e.selector)}).getBoundingClientRect();return {width:r.width,height:r.height}})()`],['shot',resolve(`assets/showcase/${e.id}.png`),e.selector,1]];
+  const actions=[['until',e.ready,20000],...e.actions,['scroll',e.selector],['wait',250],['eval',`(()=>{const r=document.querySelector(${JSON.stringify(e.selector)}).getBoundingClientRect();return {width:r.width,height:r.height}})()`],['shot',resolve(`assets/showcase/${e.id}.png`),e.selector,1,e.region]];
   const path=join(temp,`${e.id}.json`);writeFileSync(path,JSON.stringify(actions));
   console.log(`Capturing ${e.id}`);
-  const run=spawnSync(process.execPath,['scripts/drive.mjs',new URL(`examples/${e.id}/`,base).href,'--actions',path,'--width',String(e.width),'--height',String(e.height)],{stdio:'inherit'});
+  const run=spawnSync(process.execPath,['scripts/drive.mjs',new URL(e.path||`examples/${e.id}/`,base).href,'--actions',path,'--width',String(e.width),'--height',String(e.height)],{stdio:'inherit'});
   if(run.status!==0)throw new Error(`${e.id} capture failed`);
  }
  const collageActions=join(temp,'collage.json');

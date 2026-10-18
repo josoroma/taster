@@ -1,0 +1,13 @@
+import { spawnSync } from 'node:child_process';
+import { fileURLToPath } from 'node:url';
+import { resolve,dirname } from 'node:path';
+const directory=dirname(fileURLToPath(import.meta.url));
+const mode=process.argv[2]||'render';
+if(!['render','check','preview','snapshot'].includes(mode))throw new Error('Use render, check, preview, or snapshot.');
+const args=['--yes','--package','hyperframes@0.8.171','--','hyperframes',mode];
+if(mode==='render')args.push('--fps','30','--quality','looks','--workers','2','--output',resolve(directory,'taster-film.mp4'));
+if(mode==='snapshot')args.push('--at','2,9,17,25');
+args.push(...process.argv.slice(3));
+const result=spawnSync(process.platform==='win32'?'npx.cmd':'npx',args,{cwd:resolve(directory,'composition'),stdio:'inherit',env:{...process.env,DO_NOT_TRACK:'1'}});
+if(result.error)throw result.error;
+process.exit(result.status??1);

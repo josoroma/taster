@@ -6,14 +6,14 @@ Languages: **English** · [Español](README-ES.md)
 
 **Ideas you can play, inspect, and understand.** [Explore the live showcase](https://josoroma.github.io/taster/) · [View the repository](https://github.com/josoroma/taster)
 
-[![A collage of Taster's seven interactive examples, from playable worlds to science and engineering explainers](assets/showcase/taster-collage.png)](https://josoroma.github.io/taster/)
+[![A collage of Taster's ten examples: Lumen, Bell Lab, Workshop, SHIFT, Cerebra, INNERSPACE, DEXTRA, FOLD, Taster diagram, and Taster film](assets/showcase/taster-collage.png)](https://josoroma.github.io/taster/)
 
 ## Contents
 
 - [About Taster](#about-taster)
 - [What it handles](#what-it-handles)
 - [Use the skill](#use-the-skill)
-- [Run the seven included projects](#run-the-seven-included-projects)
+- [Run the ten included projects](#run-the-ten-included-projects)
 - [Repository structure](#repository-structure)
 - [Start an independent project](#start-an-independent-project)
 - [Build and verify](#build-and-verify)
@@ -29,6 +29,9 @@ Languages: **English** · [Español](README-ES.md)
     - [Cerebra](#cerebra)
     - [INNERSPACE](#innerspace)
     - [DEXTRA](#dextra)
+    - [FOLD](#fold)
+    - [Taster diagram](#taster-diagram)
+    - [Taster film](#taster-film)
   - [More project ideas](#more-project-ideas)
     - [Quantum computing and atoms](#quantum-computing-and-atoms)
     - [LLMs and computing](#llms-and-computing)
@@ -43,7 +46,7 @@ Languages: **English** · [Español](README-ES.md)
 
 ## About Taster
 
-**Taster is a reusable skill for explanatory animations, interactive engineering models, and playable worlds.** Its toolkit combines detailed scenes, camera inspection, reversible assembly, and animation driven by a model.
+**Taster is a reusable skill for interactive science, molecular structures, engineering models, playable worlds, diagrams, and explanatory video.** Its toolkit combines detailed scenes, camera inspection, reversible assembly, and animation driven by a model.
 
 Give it a subject, an audience, and the insight you want someone to discover. Taster chooses a suitable representation, builds the model, choreographs the explanation, and checks the result in a browser. You can ask for a sober technical drawing, an inspectable 3D mechanism, a cinematic science scene, or a complete small game without choosing a rendering library first.
 
@@ -63,6 +66,9 @@ the mechanism, inspect its parts, and reassemble it exactly.
 | Scientific models | Connect geometry, equations, readouts, and captions to the same state; identify assumptions and visual metaphors. |
 | Sober engineering | Inspect orthographic linework, hidden edges, dimensions, construction stages, robot frames, or deposition paths. |
 | Playable experiences | Learn rules, act on a model, receive feedback, reach a clear completion state, and restart. |
+| Molecular structures | Inspect experimental or predicted coordinates, select residues, compare representations, and distinguish inspection motion from dynamics. |
+| Diagrams | Explore labeled workflows and architecture, inspect relationships, and export editable SVG using a coherent visual identity. |
+| Video | Preview a deterministic HTML composition, scrub its chapters, and render a reproducible MP4 with Hyperframes. |
 | Accessible inspection | Use keyboard and touch alternatives, reduced motion, readable captions, and responsive layouts. |
 
 The skill adapts the presentation to the subject. Engineering explanations default to quiet surfaces and precise lines. Scientific scenes can use cinematic lighting when it clarifies the idea. A game is optional, and unfamiliar scientific claims need appropriate sources.
@@ -80,11 +86,11 @@ If that destination already exists, inspect it before changing anything. Invoke 
 
 A useful prompt names the subject, audience, central question, desired interaction, and visual style. Add supplied files, units, scientific assumptions, or required exports when they matter. Leave implementation choices open unless you already have a stack or workflow to preserve. See the [included projects and additional prompts](#examples) for starting points.
 
-## Run the seven included projects
+## Run the ten included projects
 
-All seven complete projects live in [`examples/`](examples/README.md). They share local fonts and runtime helpers from the repository root.
+All ten complete projects live in [`examples/`](examples/README.md). They share local fonts and runtime helpers from the repository root.
 
-Requirements: **Node.js 22+** and a modern browser. The 3D examples need WebGL 2; SHIFT uses Canvas 2D. Playback needs no API keys or remote assets.
+Requirements: **Node.js 22+** and a modern browser. The 3D examples need WebGL 2; SHIFT uses Canvas 2D, and the diagram and film use SVG/HTML. Playback needs no API keys or remote assets.
 
 ```sh
 npm ci
@@ -109,14 +115,17 @@ taster/
 ├── assets/showcase/             Taster logo, screenshots, and collage
 ├── examples/
 │   ├── README.md                Example overview and adaptation notes
-│   ├── index.html               Catalog linking to all seven examples
+│   ├── index.html               Catalog linking to all ten examples
 │   ├── lumen/                   Game page, styles, source, and guide
 │   ├── bell-lab/                Quantum page, styles, and source
 │   ├── workshop/                CAD page, styles, source, and CAD assets
 │   ├── ai-history/              Animated film, chapter model, and source guide
 │   ├── brain-atlas/             3D brain, regional information, and assembly
 │   ├── particle-atlas/          Journey into matter and known-particle atlas
-│   └── cyborg-hand/             Articulated hand, mechanism tour, and inspection
+│   ├── cyborg-hand/             Articulated hand, mechanism tour, and inspection
+│   ├── molecular-lab/           Experimental protein coordinates and interactive inspection
+│   ├── taster-diagram/          Branded workflow diagram and SVG export
+│   └── taster-film/             Branded HTML composition, preview, and rendered video
 ├── references/                  Motion, science, engineering, runtime guides
 ├── scripts/                     Generation, builds, CAD rebuild, browser checks
 ├── tests/                       Model, geometry, and motion checks
@@ -145,6 +154,9 @@ npm start
 | `brain-atlas` | Labeled biological structures, reversible separation, and contextual inspection. |
 | `particle-atlas` | Guided journeys across scientific scales, particle inspection, and sourced taxonomy. |
 | `cyborg-hand` | Articulated mechanisms, reversible outer-shell separation, and restrained futuristic inspection. |
+| `molecular-lab` | Sourced protein coordinates, residue inspection, molecular representations, and guided explanation. |
+| `taster-diagram` | Branded editorial diagrams with selectable stages, relationship inspection, and SVG export. |
+| `taster-film` | Deterministic HTML-to-video compositions, a browser preview, and a pinned Hyperframes renderer. |
 
 The generator copies one example, its required toolkit, local assets, tests, and scripts. The generated project works independently of the installed skill. Adapt the model, labels, visual mappings, and learning objective together; a change of subject usually needs more than replacement text.
 
@@ -194,6 +206,10 @@ Open `http://localhost:8080/`. The output includes the showcase, examples, toolk
 | [Camera and assembly](references/camera-and-assembly.md) | Camera ownership, tours, focus, separation paths, reassembly, and scrubbing. |
 | [Scientific storytelling](references/scientific-storytelling.md) | Sources, honest visual encodings, model assumptions, and domain-specific pitfalls. |
 | [Engineering explainers](references/engineering-explainers.md) | CAD construction, robotics, additive manufacturing, line conventions, and real exports. |
+| [Molecular structures](references/molecular-structures.md) | Structural provenance, residues, atom representations, trajectories, and scientific limits. |
+| [Diagrams](references/diagrams.md) | Editorial hierarchy, diagram semantics, interactive inspection, and SVG export. |
+| [Video](references/video.md) | Hyperframes composition, deterministic seeking, rendering, and encoded-media verification. |
+| [Taster identity](references/identity.md) | Existing logo, typography, palette, and editorial design for Taster artifacts. |
 | [Runtime API](references/kit.md) | Helper signatures, integration examples, copying projects, and browser verification. |
 | [Working examples](examples/README.md) | What each included project demonstrates and how to adapt it. |
 | [Evaluation cases](evals/evals.json) | Realistic requests and the behaviors a good result should satisfy. |
@@ -210,7 +226,9 @@ INNERSPACE illustrates known particle structure and Standard Model classificatio
 
 DEXTRA is a conceptual kinematic demonstrator: joint poses and separation are driven by a deterministic model. Its procedural geometry is illustrative, with no validated force analysis, manufacturing tolerances, or production CAD exports.
 
-New subjects require suitable models and sources. Video export is not bundled; current examples are browser experiences with editable source and support for still captures. A requested export or new simulation needs its own implementation and verification.
+FOLD uses bundled experimental crambin coordinates from [RCSB PDB 1CRN](https://www.rcsb.org/structure/1CRN). Its guided motion explains a static structure; it does not simulate folding or molecular dynamics.
+
+The diagram approach draws on [Diagram Design](https://github.com/cathrynlavery/diagram-design) and [Archify](https://github.com/tt-a1i/archify), while keeping Taster’s own typography, palette, and wordmark. The film uses [Hyperframes](https://github.com/heygen-com/hyperframes) for HTML-to-video rendering; see its [reproducible render instructions](examples/taster-film/README.md). New subjects still require suitable models and sources.
 
 ## Examples
 
@@ -218,7 +236,7 @@ Choose an included project to explore a working implementation, or use the addit
 
 ### Included projects and their prompts
 
-These seven projects are available in `examples/`. Each entry includes its public preview and a reusable prompt describing that project.
+These ten projects are available in `examples/`. Each entry includes a preview and a reusable prompt describing that project. The three new examples link to local previews.
 
 #### Lumen — The Sunken Garden
 
@@ -302,6 +320,56 @@ and restrained green accents. Add pan, zoom, orbit, camera presets, component
 labels, live joint angles, and a reversible 32-second motion study. Let the open
 hand separate into inspectable layers and reassemble exactly. Treat it as a
 conceptual kinematic mechanism, with no unsupported force or manufacturing claims.
+```
+
+#### FOLD
+
+Source: [`examples/molecular-lab/`](examples/molecular-lab/) · [Local preview](http://localhost:5173/taster/examples/molecular-lab/)
+
+```text
+$taster build FOLD, an interactive 3D field study of the protein crambin for
+curious beginners. Bundle the experimental RCSB PDB 1CRN coordinates and their
+provenance. Let me orbit, pan, zoom, select any of its 46 residues, switch between
+a backbone ribbon and atoms with sticks, and inspect the three disulfide links
+with sulfur-to-sulfur distances calculated from the coordinates in ångströms.
+Add a 24-second guided explanation with play, pause, reverse, scrub, and reset,
+plus keyboard, touch, and reduced-motion support. Keep atomic positions fixed
+and identify the animation as a tour of a static structure, not a folding or
+molecular dynamics simulation. Use a calm molecular field-study presentation.
+```
+
+#### Taster diagram
+
+Source: [`examples/taster-diagram/`](examples/taster-diagram/) · [Local preview](http://localhost:5173/taster/examples/taster-diagram/)
+
+```text
+$taster create an interactive diagram explaining how Taster turns a question
+into a model, a visual representation, an interaction, a verified explanation,
+and editable source. Use Taster's existing wordmark, local DM Sans and Italiana,
+warm paper, forest-green ink, lime highlights, fine rules, and numbered stages.
+Draw on Diagram Design's editorial hierarchy and Archify's inspectable graph
+relationships. Let me select each stage, inspect related connections, follow the
+forward path, and see the revision loop. Include overview, molecular, diagram,
+and video explanations, with pan, zoom, fit, and accessible keyboard controls.
+Adapt the layout for mobile and export the complete diagram as a standalone SVG
+with embedded fonts, a title, and a description.
+```
+
+#### Taster film
+
+Source: [`examples/taster-film/`](examples/taster-film/) · [Local preview](http://localhost:5173/taster/examples/taster-film/)
+
+```text
+$taster create a 28-second video introducing Taster: ideas made explorable,
+models that can be inspected, molecular structures, diagrams, video, and the
+editable source delivered with each experience. Preserve Taster's wordmark,
+local DM Sans and Italiana, warm paper, forest-green ink, and lime accents.
+Build four captioned chapters using editable SVG/HTML artwork and deterministic
+motion driven by absolute time. Use Hyperframes to render a silent H.264 MP4 at
+1280 × 720 and 30 fps. Include a responsive browser preview with play, pause,
+chapter jumps, scrubbing, frame stepping, and restart; start paused and support
+reduced motion. Bundle all assets, document the pinned render command, and
+verify the encoded video's duration, dimensions, frame rate, and sampled frames.
 ```
 
 ### More project ideas

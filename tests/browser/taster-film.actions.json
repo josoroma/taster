@@ -1,0 +1,85 @@
+[
+  [
+    "until",
+    "window.tasterPlayer?.getState().ready",
+    15000
+  ],
+  [
+    "eval",
+    "(() => { const p=window.tasterPlayer; if(p.getState().playing)throw new Error('Film must not autoplay'); if(document.documentElement.scrollWidth>innerWidth)throw new Error('Preview overflows'); p.seek(9); const d=document.querySelector('#composition').contentDocument; window.filmBaseline=d.querySelector('#film').innerHTML; p.seek(27);p.seek(0);p.seek(9);if(d.querySelector('#film').innerHTML!==window.filmBaseline)throw new Error('Reverse seek did not reproduce the same frame'); return 'Reverse seek and initial pause pass'; })()"
+  ],
+  [
+    "scroll",
+    "#play"
+  ],
+  [
+    "click",
+    "#play"
+  ],
+  [
+    "until",
+    "window.tasterPlayer.getState().time>9.05",
+    5000
+  ],
+  [
+    "scroll",
+    "#play"
+  ],
+  [
+    "click",
+    "#play"
+  ],
+  [
+    "eval",
+    "window.filmPausedAt=window.tasterPlayer.getState().time; if(window.tasterPlayer.getState().playing)throw new Error('Pause failed'); 'Paused'"
+  ],
+  [
+    "wait",
+    200
+  ],
+  [
+    "eval",
+    "if(window.tasterPlayer.getState().time!==window.filmPausedAt)throw new Error('Paused time advanced'); 'Pause holds exact frame'"
+  ],
+  [
+    "scroll",
+    "button[data-time='13']"
+  ],
+  [
+    "click",
+    "button[data-time='13']"
+  ],
+  [
+    "eval",
+    "(() => { const state=window.tasterPlayer.getState();if(state.playing||state.time!==14.1)throw new Error('Chapter jump did not open settled frame'); const cards=document.querySelector('#composition').contentDocument.querySelectorAll('.form-card');if([...cards].some(card=>Number(card.style.opacity)<.99))throw new Error('Chapter content is hidden'); if(!document.querySelector('#chapter-caption').textContent.includes('molecular'))throw new Error('Readable caption did not follow chapter');return 'Settled chapter and readable caption pass'; })()"
+  ],
+  [
+    "eval",
+    "window.tasterPlayer.seek(28); 'At endpoint'"
+  ],
+  [
+    "scroll",
+    "#play"
+  ],
+  [
+    "click",
+    "#play"
+  ],
+  [
+    "until",
+    "window.tasterPlayer.getState().playing&&window.tasterPlayer.getState().time>0&&window.tasterPlayer.getState().time<2",
+    5000
+  ],
+  [
+    "scroll",
+    "#play"
+  ],
+  [
+    "click",
+    "#play"
+  ],
+  [
+    "eval",
+    "window.tasterPlayer.seek(3); 'Replay from endpoint passes; restored overview'"
+  ]
+]

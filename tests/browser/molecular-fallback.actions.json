@@ -1,0 +1,35 @@
+[
+  [
+    "until",
+    "window.__molecularLab?.ready",
+    10000
+  ],
+  [
+    "eval",
+    "(()=>{const s=window.__molecularLab.stats();if(s.webgl||document.querySelector('#fallback').hidden||s.atomCount!==327)throw Error('fallback state');return s.error;})()"
+  ],
+  [
+    "scroll",
+    "[data-residue='A:16']"
+  ],
+  [
+    "click",
+    "[data-residue='A:16']"
+  ],
+  [
+    "eval",
+    "(()=>{if(window.__molecularLab.stats().selected!=='A:16'||!document.querySelector('#residue-note').textContent.includes('2.05'))throw Error('text inspection');return document.querySelector('#residue-note').textContent;})()"
+  ],
+  [
+    "scroll",
+    "[data-bridge='A:4-A:32']"
+  ],
+  [
+    "click",
+    "[data-bridge='A:4-A:32']"
+  ],
+  [
+    "eval",
+    "(()=>{if(window.__molecularLab.stats().selected!=='A:4'||!document.querySelector('#focus-residue').disabled)throw Error('fallback controls');return {usefulFallback:true};})()"
+  ]
+]

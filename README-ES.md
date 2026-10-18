@@ -6,14 +6,14 @@ Idiomas: [English](README.md) · **Español**
 
 **Ideas con las que puedes jugar, explorar y aprender.** [Explora la galería interactiva](https://josoroma.github.io/taster/) · [Visita el repositorio](https://github.com/josoroma/taster)
 
-[![Collage de los siete ejemplos interactivos de Taster: mundos jugables y explicaciones de ciencia e ingeniería](assets/showcase/taster-collage.png)](https://josoroma.github.io/taster/)
+[![Collage de los diez ejemplos de Taster: mundos jugables, ciencia, ingeniería, estructuras moleculares, diagramas y video](assets/showcase/taster-collage.png)](https://josoroma.github.io/taster/)
 
 ## Contenido
 
 - [Acerca de Taster](#acerca-de-taster)
 - [Qué permite hacer](#qué-permite-hacer)
 - [Usar el skill](#usar-el-skill)
-- [Ejecutar los siete proyectos incluidos](#ejecutar-los-siete-proyectos-incluidos)
+- [Ejecutar los diez proyectos incluidos](#ejecutar-los-diez-proyectos-incluidos)
 - [Estructura del repositorio](#estructura-del-repositorio)
 - [Iniciar un proyecto independiente](#iniciar-un-proyecto-independiente)
 - [Compilar y verificar](#compilar-y-verificar)
@@ -29,6 +29,9 @@ Idiomas: [English](README.md) · **Español**
     - [Cerebra](#cerebra)
     - [INNERSPACE](#innerspace)
     - [DEXTRA](#dextra)
+    - [FOLD](#fold)
+    - [Diagrama de Taster](#diagrama-de-taster)
+    - [Video de Taster](#video-de-taster)
   - [Más ideas de proyectos](#más-ideas-de-proyectos)
     - [Computación cuántica y átomos](#computación-cuántica-y-átomos)
     - [LLMs y computación](#llms-y-computación)
@@ -43,7 +46,7 @@ Idiomas: [English](README.md) · **Español**
 
 ## Acerca de Taster
 
-**Taster es un skill reutilizable para crear animaciones explicativas, modelos interactivos de ingeniería y mundos jugables.** Sus herramientas combinan escenas detalladas, exploración con la cámara, ensamblajes reversibles y animaciones basadas en un modelo.
+**Taster es un skill reutilizable para crear ciencia interactiva, estructuras moleculares, modelos de ingeniería, mundos jugables, diagramas y videos explicativos.** Sus herramientas combinan escenas detalladas, exploración con la cámara, ensamblajes reversibles y animaciones basadas en un modelo.
 
 Dale un tema, un público y la idea que quieres ayudar a descubrir. Taster elige una representación adecuada, construye el modelo, organiza la explicación y comprueba el resultado en un navegador. Puedes pedir un dibujo técnico sobrio, un mecanismo 3D que se pueda explorar, una escena científica cinematográfica o un pequeño juego completo sin tener que elegir primero una biblioteca de renderizado.
 
@@ -63,6 +66,9 @@ la línea de tiempo del mecanismo, explorar sus piezas y volver a ensamblarlo co
 | Modelos científicos | Vincular la geometría, las ecuaciones, las lecturas y los textos explicativos a un mismo estado; identificar los supuestos y las metáforas visuales. |
 | Ingeniería sobria | Explorar trazados ortográficos, aristas ocultas, cotas, etapas de construcción, sistemas de referencia robóticos o trayectorias de deposición. |
 | Experiencias jugables | Aprender reglas, actuar sobre un modelo, recibir respuestas a sus acciones, alcanzar un final claro y reiniciar. |
+| Estructuras moleculares | Inspeccionar coordenadas, seleccionar residuos y distinguir la animación de inspección de una trayectoria de dinámica molecular. |
+| Diagramas | Explorar procesos y arquitecturas con relaciones etiquetadas y exportar SVG con una identidad visual coherente. |
+| Video | Recorrer una composición HTML determinista y renderizar un MP4 reproducible con Hyperframes. |
 | Exploración accesible | Usar alternativas de teclado y controles táctiles, movimiento reducido, textos legibles y diseños adaptables. |
 
 El skill adapta la presentación al tema. Las explicaciones de ingeniería usan, por defecto, superficies discretas y líneas precisas. Las escenas científicas pueden incorporar iluminación cinematográfica cuando ayuda a aclarar la idea. Incluir un juego es opcional, y las afirmaciones científicas poco conocidas necesitan fuentes adecuadas.
@@ -80,11 +86,11 @@ Si el destino ya existe, revísalo antes de cambiar nada. Invoca **`$taster`** e
 
 Un prompt útil indica el tema, el público, la pregunta central, la interacción deseada y el estilo visual. Añade los archivos proporcionados, las unidades, los supuestos científicos o los formatos de exportación requeridos cuando sean relevantes. Deja abiertas las decisiones de implementación, salvo que ya tengas tecnologías o un flujo de trabajo que quieras conservar. Consulta los [proyectos incluidos y los prompts adicionales](#ejemplos) como punto de partida.
 
-## Ejecutar los siete proyectos incluidos
+## Ejecutar los diez proyectos incluidos
 
-Los siete proyectos completos se encuentran en [`examples/`](examples/README.md). Comparten fuentes tipográficas locales y utilidades de ejecución desde la raíz del repositorio.
+Los diez proyectos completos se encuentran en [`examples/`](examples/README.md). Comparten fuentes tipográficas locales y utilidades de ejecución desde la raíz del repositorio.
 
-Requisitos: **Node.js 22+** y un navegador moderno. Los ejemplos 3D necesitan WebGL 2; SHIFT usa Canvas 2D. La reproducción no necesita claves de API ni recursos remotos.
+Requisitos: **Node.js 22+** y un navegador moderno. Los ejemplos 3D necesitan WebGL 2; SHIFT usa Canvas 2D, y el diagrama y la película usan SVG/HTML. La reproducción no necesita claves de API ni recursos remotos.
 
 ```sh
 npm ci
@@ -109,14 +115,17 @@ taster/
 ├── assets/showcase/             Logotipo de Taster, capturas de pantalla y collage
 ├── examples/
 │   ├── README.md                Resumen de los ejemplos y notas para adaptarlos
-│   ├── index.html               Catálogo con enlaces a los siete ejemplos
+│   ├── index.html               Catálogo con enlaces a los diez ejemplos
 │   ├── lumen/                   Página del juego, estilos, código fuente y guía
 │   ├── bell-lab/                Página de computación cuántica, estilos y código fuente
 │   ├── workshop/                Página CAD, estilos, código fuente y recursos CAD
 │   ├── ai-history/              Película animada, modelo de capítulos y guía del código
 │   ├── brain-atlas/             Cerebro 3D, información de sus regiones y ensamblaje
 │   ├── particle-atlas/          Viaje al interior de la materia y atlas de partículas conocidas
-│   └── cyborg-hand/             Mano articulada, recorrido del mecanismo y exploración
+│   ├── cyborg-hand/             Mano articulada, recorrido del mecanismo y exploración
+│   ├── molecular-lab/           Coordenadas experimentales de una proteína y exploración
+│   ├── taster-diagram/          Diagrama de Taster y exportación SVG
+│   └── taster-film/             Composición HTML, vista previa y video renderizado
 ├── references/                  Guías de movimiento, ciencia, ingeniería y ejecución
 ├── scripts/                     Generación, compilación, reconstrucción CAD y comprobaciones del navegador
 ├── tests/                       Comprobaciones de modelos, geometría y movimiento
@@ -145,6 +154,9 @@ npm start
 | `brain-atlas` | Estructuras biológicas etiquetadas, separación reversible y exploración con información contextual. |
 | `particle-atlas` | Recorridos guiados por distintas escalas científicas, exploración de partículas y clasificación respaldada por fuentes. |
 | `cyborg-hand` | Mecanismos articulados, separación reversible de la cubierta exterior y exploración con una estética futurista sobria. |
+| `molecular-lab` | Estructuras de proteínas con procedencia, selección de residuos y representaciones moleculares. |
+| `taster-diagram` | Diagramas interactivos con identidad visual, relaciones etiquetadas y exportación SVG. |
+| `taster-film` | Composiciones HTML deterministas y video renderizado con Hyperframes. |
 
 El generador copia un ejemplo, las herramientas que necesita, los recursos locales, las pruebas y los scripts. El proyecto generado funciona de forma independiente del skill instalado. Adapta en conjunto el modelo, las etiquetas, las representaciones visuales y el objetivo de aprendizaje; cambiar de tema suele exigir algo más que sustituir textos.
 
@@ -194,6 +206,10 @@ Abre `http://localhost:8080/`. Los archivos generados incluyen la galería, los 
 | [Cámara y ensamblaje](references/camera-and-assembly.md) | Control de la cámara, recorridos, enfoque, trayectorias de separación, reensamblaje y navegación por la línea de tiempo. |
 | [Narración científica](references/scientific-storytelling.md) | Fuentes, representaciones visuales fieles, supuestos del modelo y errores frecuentes de cada disciplina. |
 | [Explicaciones de ingeniería](references/engineering-explainers.md) | Construcción CAD, robótica, fabricación aditiva, convenciones de líneas y exportaciones reales. |
+| [Estructuras moleculares](references/molecular-structures.md) | Procedencia, residuos, representaciones, trayectorias y límites científicos. |
+| [Diagramas](references/diagrams.md) | Jerarquía editorial, relaciones, exploración y exportación SVG. |
+| [Video](references/video.md) | Composiciones Hyperframes, línea de tiempo, renderizado y verificación. |
+| [Identidad de Taster](references/identity.md) | Logotipo, tipografía y colores existentes. |
 | [API de ejecución](references/kit.md) | Firmas de las utilidades, ejemplos de integración, copia de proyectos y verificación en el navegador. |
 | [Ejemplos funcionales](examples/README.md) | Qué demuestra cada proyecto incluido y cómo adaptarlo. |
 | [Casos de evaluación](evals/evals.json) | Solicitudes realistas y comportamientos que debe cumplir un buen resultado. |
@@ -210,7 +226,9 @@ INNERSPACE ilustra la estructura conocida de las partículas y la clasificación
 
 DEXTRA es una demostración cinemática conceptual: las posiciones de las articulaciones y la separación dependen de un modelo determinista. Su geometría generada por código es ilustrativa y no incluye un análisis de fuerzas validado, tolerancias de fabricación ni exportaciones CAD para producción.
 
-Los nuevos temas requieren modelos y fuentes adecuados. La exportación de video no está incluida; los ejemplos actuales son experiencias para navegador con código fuente editable y soporte para capturas de imágenes. Cualquier exportación o simulación nueva que se solicite necesita su propia implementación y verificación.
+FOLD usa coordenadas experimentales de crambina de [RCSB PDB 1CRN](https://www.rcsb.org/structure/1CRN). Su animación facilita inspeccionar una estructura estática; no simula el plegamiento ni la dinámica molecular.
+
+El ejemplo de diagramas toma principios de [Diagram Design](https://github.com/cathrynlavery/diagram-design) y [Archify](https://github.com/tt-a1i/archify), conservando la identidad de Taster. El ejemplo de video utiliza [Hyperframes](https://github.com/heygen-com/hyperframes) y contiene un MP4, una vista previa y [comandos de renderizado reproducibles](examples/taster-film/README.md). Los nuevos temas requieren modelos y fuentes adecuados.
 
 ## Ejemplos
 
@@ -218,7 +236,7 @@ Elige un proyecto incluido para explorar una implementación funcional, o usa la
 
 ### Proyectos incluidos y sus prompts
 
-Estos siete proyectos están disponibles en `examples/`. Cada entrada incluye su vista previa pública y un prompt reutilizable que describe el proyecto.
+Estos diez proyectos están disponibles en `examples/`. Cada entrada incluye una vista previa y un prompt reutilizable que describe el proyecto. Los tres ejemplos nuevos enlazan a la vista previa local.
 
 #### Lumen — The Sunken Garden
 
@@ -311,6 +329,38 @@ las articulaciones en tiempo real y un estudio de movimiento reversible de
 32 segundos. Permite separar la mano abierta en capas que puedan inspeccionarse
 y volver a ensamblarse con exactitud. Trátala como un mecanismo cinemático
 conceptual, sin afirmaciones no fundamentadas sobre fuerzas o fabricación.
+```
+
+#### FOLD
+
+Código: [`examples/molecular-lab/`](examples/molecular-lab/) · [Vista previa local](http://localhost:5173/taster/examples/molecular-lab/)
+
+```text
+$taster crea una explicación molecular interactiva de la crambina 1CRN.
+Incluye las coordenadas experimentales, su procedencia y selección de residuos.
+Permite comparar representaciones e inspeccionar los puentes disulfuro.
+Distingue la animación de inspección de la dinámica molecular.
+```
+
+#### Diagrama de Taster
+
+Código: [`examples/taster-diagram/`](examples/taster-diagram/) · [Vista previa local](http://localhost:5173/taster/examples/taster-diagram/)
+
+```text
+$taster explica cómo funciona Taster con un diagrama editorial interactivo.
+Usa su logotipo, DM Sans, Italiana, fondo de papel, verde bosque y acentos lima.
+Permite explorar las etapas y las rutas molecular, de diagramas y de video,
+y exportar un SVG autónomo.
+```
+
+#### Video de Taster
+
+Código: [`examples/taster-film/`](examples/taster-film/) · [Vista previa local](http://localhost:5173/taster/examples/taster-film/)
+
+```text
+$taster produce un video breve que explique Taster usando su identidad visual.
+Incluye una composición HTML determinista para Hyperframes, una vista previa
+con controles de reproducción, el MP4 y el comando exacto para renderizarlo.
 ```
 
 ### Más ideas de proyectos

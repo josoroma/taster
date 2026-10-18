@@ -1,6 +1,6 @@
 # Complete examples
 
-Run `npm install` and `npm start` from the repository root. Open `/taster/` for the example catalog. All seven examples live in their own folders under `examples/` and use local assets; shared runtime helpers and fonts remain at the repository root.
+Run `npm install` and `npm start` from the repository root. Open `/taster/` for the example catalog. All ten examples live in their own folders under `examples/` and use local assets; shared runtime helpers and fonts remain at the repository root.
 
 | Example | What to borrow | Source and route |
 | --- | --- | --- |
@@ -11,6 +11,21 @@ Run `npm install` and `npm start` from the repository root. Open `/taster/` for 
 | **Cerebra** | Folded biological forms, selectable labels, contextual hints, and reversible separation | [examples/brain-atlas/](brain-atlas/); `/taster/examples/brain-atlas/` |
 | **INNERSPACE** | Probability-cloud illustration, staged scale changes, nucleon inspection, and known-particle metadata | [examples/particle-atlas/](particle-atlas/); `/taster/examples/particle-atlas/` |
 | **DEXTRA** | Parent-child joint articulation, open/fist poses, reversible shell separation, and component labels | [examples/cyborg-hand/](cyborg-hand/); `/taster/examples/cyborg-hand/` |
+| **FOLD** | Bundled experimental coordinates, residue selection, molecular representations, and geometric measurements | [examples/molecular-lab/](molecular-lab/); `/taster/examples/molecular-lab/` |
+| **Taster diagram** | Branded SVG workflow, selectable nodes and routes, pan/zoom, and standalone export | [examples/taster-diagram/](taster-diagram/); `/taster/examples/taster-diagram/` |
+| **Taster film** | Deterministic HTML composition, a scrubbable browser preview, and Hyperframes video rendering | [examples/taster-film/](taster-film/); `/taster/examples/taster-film/` |
+
+## FOLD
+
+[FOLD](molecular-lab/README.md) explores the experimental structure of crambin, PDB **1CRN**. Inspect residues, compare representations, and follow a guided explanation of the folded structure and its disulfide links. Coordinates and provenance are bundled locally. The animation changes the view and representation; it is not a folding simulation or a molecular dynamics trajectory. Start with `--template molecular-lab` and replace the structural data and explanations together.
+
+## Taster diagram
+
+[The Taster diagram](taster-diagram/README.md) explains the workflow from a question to an editable artifact. It uses Taster’s existing wordmark, local fonts, warm paper, forest green, and lime accents. Inspect stages and the molecular, diagram, and video routes, navigate with keyboard controls, and export an SVG. Start with `--template taster-diagram`; the graph and explanatory content remain editable.
+
+## Taster film
+
+[The Taster film](taster-film/README.md) explains Taster through a deterministic HTML composition using its existing identity. The example includes a browser preview, an encoded video, and a pinned Hyperframes render command. Seeking samples absolute time; rendering does not record a live wall clock. Start with `--template taster-film`. Re-rendering has separate tool requirements described in its README; watching the supplied film does not.
 
 ## DEXTRA
 
