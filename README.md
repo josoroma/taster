@@ -13,7 +13,7 @@ Languages: **English** · [Español](README-ES.md)
 - [About Taster](#about-taster)
 - [What it handles](#what-it-handles)
 - [Use the skill](#use-the-skill)
-- [Run the ten included projects](#run-the-ten-included-projects)
+- [Explore the ten included projects](#explore-the-ten-included-projects)
 - [Repository structure](#repository-structure)
 - [Start an independent project](#start-an-independent-project)
 - [Build and verify](#build-and-verify)
@@ -86,18 +86,18 @@ If that destination already exists, inspect it before changing anything. Invoke 
 
 A useful prompt names the subject, audience, central question, desired interaction, and visual style. Add supplied files, units, scientific assumptions, or required exports when they matter. Leave implementation choices open unless you already have a stack or workflow to preserve. See the [included projects and additional prompts](#examples) for starting points.
 
-## Run the ten included projects
+## Explore the ten included projects
 
-All ten complete projects live in [`examples/`](examples/README.md). They share local fonts and runtime helpers from the repository root.
+Explore the [examples gallery](https://josoroma.github.io/taster/examples/) without installing anything. All ten complete projects have editable source in [`examples/`](examples/README.md), with bundled fonts and shared runtime helpers.
 
-Requirements: **Node.js 22+** and a modern browser. The 3D examples need WebGL 2; SHIFT uses Canvas 2D, and the diagram and film use SVG/HTML. Playback needs no API keys or remote assets.
+To run and edit the source, use **Node.js 22+** and a modern browser. The 3D examples need WebGL 2; SHIFT uses Canvas 2D, and the diagram and film use SVG/HTML. Playback needs no API keys or external assets.
 
 ```sh
 npm ci
 npm start
 ```
 
-Open the [local showcase](http://localhost:5173/taster/), or explore the [public showcase](https://josoroma.github.io/taster/) without installing anything. The final [Included projects and their prompts](#included-projects-and-their-prompts) section pairs every project with its source folder, live preview, and a reusable prompt.
+Use the address printed by `npm start` to work on your copy. The final [Included projects and their prompts](#included-projects-and-their-prompts) section pairs every project with its source folder, published example, and a reusable prompt.
 
 Use `PORT=8080 npm start` to choose a different port.
 
@@ -187,7 +187,7 @@ The public showcase lives at **[josoroma.github.io/taster](https://josoroma.gith
 
 The [GitHub Actions workflow](.github/workflows/pages.yml) builds and deploys the site whenever changes reach `main`; it can also be started manually from the repository's Actions tab. It installs the locked dependencies, runs the tests, builds with `npm run build`, and publishes `dist/` to GitHub Pages. In the repository's **Settings → Pages**, choose **GitHub Actions** as the source.
 
-To check the exact static output locally:
+To check the generated static output before publishing:
 
 ```sh
 npm ci
@@ -196,7 +196,7 @@ npm run build
 python3 -m http.server 8080 --directory dist
 ```
 
-Open `http://localhost:8080/`. The output includes the showcase, examples, toolkit, fonts, and vendored rendering dependencies. Relative links work both here and beneath GitHub Pages' `/taster/` path.
+Open the address printed by the HTTP server. The output includes the showcase, examples, toolkit, fonts, and vendored rendering dependencies. Relative links work both here and beneath GitHub Pages' `/taster/` path.
 
 ## Reading map
 
@@ -236,7 +236,7 @@ Choose an included project to explore a working implementation, or use the addit
 
 ### Included projects and their prompts
 
-These ten projects are available in `examples/`. Each entry includes a preview and a reusable prompt describing that project. The three new examples link to local previews.
+These ten projects are available in `examples/`. Each entry links to the published example and includes a reusable prompt describing that project.
 
 #### Lumen — The Sunken Garden
 
@@ -324,7 +324,7 @@ conceptual kinematic mechanism, with no unsupported force or manufacturing claim
 
 #### FOLD
 
-Source: [`examples/molecular-lab/`](examples/molecular-lab/) · [Local preview](http://localhost:5173/taster/examples/molecular-lab/)
+Source: [`examples/molecular-lab/`](examples/molecular-lab/) · [Explore live](https://josoroma.github.io/taster/examples/molecular-lab/)
 
 ```text
 $taster build FOLD, an interactive 3D field study of the protein crambin for
@@ -340,7 +340,7 @@ molecular dynamics simulation. Use a calm molecular field-study presentation.
 
 #### Taster diagram
 
-Source: [`examples/taster-diagram/`](examples/taster-diagram/) · [Local preview](http://localhost:5173/taster/examples/taster-diagram/)
+Source: [`examples/taster-diagram/`](examples/taster-diagram/) · [Explore live](https://josoroma.github.io/taster/examples/taster-diagram/)
 
 ```text
 $taster create an interactive diagram explaining how Taster turns a question
@@ -357,7 +357,7 @@ with embedded fonts, a title, and a description.
 
 #### Taster film
 
-Source: [`examples/taster-film/`](examples/taster-film/) · [Local preview](http://localhost:5173/taster/examples/taster-film/)
+Source: [`examples/taster-film/`](examples/taster-film/) · [Watch live](https://josoroma.github.io/taster/examples/taster-film/)
 
 ```text
 $taster create a 28-second video introducing Taster: ideas made explorable,

@@ -2,7 +2,11 @@
 
 An interactive diagram explaining how Taster turns a question into a model, a visual representation, an interaction, a verified explanation, and editable source. Switch among overview, molecular structure, diagram, and video examples without changing the underlying workflow.
 
-Run `npm start` from the repository root and open `/taster/examples/taster-diagram/`. The example uses native HTML, SVG, and JavaScript modules, with no diagram library, account, external API, or runtime network dependency. Serve the files over HTTP so module imports and the font-embedding export can load.
+[Explore the Taster diagram](https://josoroma.github.io/taster/examples/taster-diagram/). The example uses native HTML, SVG, and JavaScript modules, with no diagram library, account, external API, or external runtime dependency.
+
+## Run the source
+
+Run `npm install` and `npm start` from the repository root, then open the address printed by the server and choose **The Taster map** from the example catalog. Serve the files over HTTP so module imports and the font-embedding export can load.
 
 ## Controls
 
@@ -19,7 +23,7 @@ The narrow layout rearranges the same six stages into three rows. Reduced motion
 - `src/model.mjs` holds authored nodes, typed relationships, explanation text, topology traversal, and responsive layout.
 - `src/diagram.mjs` renders the SVG and exports a complete static diagram.
 - `main.mjs` owns selection, accessible details, viewport state, and browser download.
-- [taster-workflow.svg](./taster-workflow.svg) is a ready-to-share standalone overview with embedded local fonts. Regenerate it with `node examples/taster-diagram/export.mjs` from the repository root.
+- [taster-workflow.svg](https://josoroma.github.io/taster/examples/taster-diagram/taster-workflow.svg) is a ready-to-share standalone overview with embedded local fonts. Regenerate it with `node examples/taster-diagram/export.mjs` from the repository root.
 
 The diagram represents Taster's authoring practice. It is not a telemetry trace, a service architecture, or a claim that all work happens in a rigid sequence. The dashed verification-to-model relationship explicitly represents revision.
 

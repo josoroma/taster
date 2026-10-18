@@ -2,16 +2,18 @@
 
 A complete, small browser adventure included in `examples/lumen/`. Explore a handcrafted procedural 3D water garden as a mechanical keeper, restore three ancient beacons, avoid the sentinels, and reopen the gate.
 
-## Play locally
+[Play Lumen](https://josoroma.github.io/taster/examples/lumen/) in a browser with WebGL 2.
 
-Requires Node.js 22+ and a browser with WebGL 2. Run these commands from the repository root:
+## Run the source
+
+Requires Node.js 22+. Run these commands from the repository root:
 
 ```sh
 npm install
 npm start
 ```
 
-Open **http://localhost:5173/taster/examples/lumen/**. The root URL opens the example catalog. To use a different port, run `PORT=8080 npm start`.
+Open the address printed by the server and choose **Lumen** from the example catalog. To use a different port, run `PORT=8080 npm start`.
 
 ## How to play
 

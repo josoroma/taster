@@ -2,15 +2,20 @@
 
 A 90-second interactive film about selected milestones of the Transformer era, from *Attention Is All You Need* to the open question of AGI. Seven chapters use original code-drawn diagrams, warm paper, cobalt, and vermilion. No stock footage, generated images, external fonts, or network-dependent runtime assets.
 
+[Watch SHIFT](https://josoroma.github.io/taster/examples/ai-history/).
+
+## Run the source
+
 From the Taster repository root:
 
 ```sh
 npm install
 npm start
-# http://localhost:5173/taster/examples/ai-history/
 npm test
 npm run build
 ```
+
+Open the address printed by the server and choose **SHIFT** from the example catalog.
 
 The production page is `dist/examples/ai-history/index.html`. Serve `dist/` over HTTP. This example needs the shared `kit/motion.mjs` and `assets/fonts/` directory; use Taster's project generator when copying it independently.
 

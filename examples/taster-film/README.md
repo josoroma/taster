@@ -1,8 +1,12 @@
 # Ideas, made explorable
 
-A 28-second Taster identity film with a playable browser preview and an actual local MP4. The original Taster mark, paper-and-ink palette, DM Sans, and Italiana carry through the entire film. It is intentionally silent; captions contain the complete story.
+A 28-second Taster identity film with a [playable browser preview](https://josoroma.github.io/taster/examples/taster-film/) and a [rendered MP4](https://josoroma.github.io/taster/examples/taster-film/taster-film.mp4). The original Taster mark, paper-and-ink palette, DM Sans, and Italiana carry through the entire film. It is intentionally silent; captions contain the complete story.
 
-From the repository root, run `npm start` and open `/examples/taster-film/` (or `/taster/examples/taster-film/` when using the repository's base-path server). The source preview has play/pause, scrub, restart, and chapter buttons. Space toggles playback when the page itself has focus; left/right arrows step one frame; Shift+left/right steps one second. Chapter buttons open 1.1 seconds into a chapter so its entrance has settled. Playback pauses when the page is hidden and never starts automatically. A readable caption also appears below the film on narrow screens.
+The browser preview has play/pause, scrub, restart, and chapter buttons. Space toggles playback when the page itself has focus; left/right arrows step one frame; Shift+left/right steps one second. Chapter buttons open 1.1 seconds into a chapter so its entrance has settled. Playback pauses when the page is hidden and never starts automatically. A readable caption also appears below the film on narrow screens.
+
+## Run the source
+
+From the repository root, run `npm install` and `npm start`, then open the address printed by the server and choose **Taster, in motion** from the example catalog.
 
 ## Deliverables
 
@@ -64,7 +68,7 @@ The model tests cover all 840 frame indices, every cut, the endpoint, invalid se
 
 Verified delivery: all five Node tests pass; official HyperFrames check passes nine runtime/layout samples and all 73 contrast checks, with four scene-organization warnings. The browser fixture passes at 390 × 844 with reduced motion, including no autoplay, exact reverse-seek DOM equality, play/pause, a stable paused frame, settled chapter jumps, the readable caption, and replay from the endpoint; the console is clean. Desktop controls and layout were also inspected. `ffprobe` confirms H.264, 1280 × 720, 30/1 fps, 840 frames, and 28.000 seconds. Decoded frames were inspected at the opening, closing, every cut boundary, and all scene midpoints. The 1.8 MB file was rendered with screenshot capture on the hardware GPU.
 
-This is a local deliverable. It has not been uploaded or published. Browser font rasterization and video encoder versions can change compressed bytes across platforms even with the same deterministic authored state.
+Browser font rasterization and video encoder versions can change compressed bytes across platforms even with the same deterministic authored state.
 
 ## Provenance
 

@@ -1,53 +1,55 @@
 # Complete examples
 
-Run `npm install` and `npm start` from the repository root. Open `/taster/` for the example catalog. All ten examples live in their own folders under `examples/` and use local assets; shared runtime helpers and fonts remain at the repository root.
+Explore all ten examples in the [example catalog](https://josoroma.github.io/taster/examples/).
 
-| Example | What to borrow | Source and route |
-| --- | --- | --- |
-| **Bell Lab** | Camera inspection, reversible assembly, a deterministic chapter timeline, model-driven readouts, and a three-part puzzle | [examples/bell-lab/](bell-lab/), `kit/`; `/taster/examples/bell-lab/` |
-| **Lumen: The Sunken Garden** | Procedural world construction, movement, hazards, timed objectives, touch controls, sound, completion and restart | [examples/lumen/](lumen/); `/taster/examples/lumen/` |
-| **Workshop** | Restrained orthographic linework, genuine topology edges, code-linked CAD snapshots, measured readouts, and STEP/STL downloads | [examples/workshop/](workshop/), `kit/technical-viewer.mjs`, `examples/workshop/assets/cad-plate/`; `/taster/examples/workshop/` |
-| **SHIFT** | Deterministic chapter animation, kinetic diagrams, captions, and source context | [examples/ai-history/](ai-history/); `/taster/examples/ai-history/` |
-| **Cerebra** | Folded biological forms, selectable labels, contextual hints, and reversible separation | [examples/brain-atlas/](brain-atlas/); `/taster/examples/brain-atlas/` |
-| **INNERSPACE** | Probability-cloud illustration, staged scale changes, nucleon inspection, and known-particle metadata | [examples/particle-atlas/](particle-atlas/); `/taster/examples/particle-atlas/` |
-| **DEXTRA** | Parent-child joint articulation, open/fist poses, reversible shell separation, and component labels | [examples/cyborg-hand/](cyborg-hand/); `/taster/examples/cyborg-hand/` |
-| **FOLD** | Bundled experimental coordinates, residue selection, molecular representations, and geometric measurements | [examples/molecular-lab/](molecular-lab/); `/taster/examples/molecular-lab/` |
-| **Taster diagram** | Branded SVG workflow, selectable nodes and routes, pan/zoom, and standalone export | [examples/taster-diagram/](taster-diagram/); `/taster/examples/taster-diagram/` |
-| **Taster film** | Deterministic HTML composition, a scrubbable browser preview, and Hyperframes video rendering | [examples/taster-film/](taster-film/); `/taster/examples/taster-film/` |
+To edit and run the source, use `npm install` and `npm start` from the repository root, then open the address printed by the server. Each example lives in its own folder under `examples/` and uses bundled assets; shared runtime helpers and fonts remain at the repository root.
+
+| Example | What to borrow | Source | Demo |
+| --- | --- | --- | --- |
+| **Bell Lab** | Camera inspection, reversible assembly, a deterministic chapter timeline, model-driven readouts, and a three-part puzzle | [examples/bell-lab/](bell-lab/), `kit/` | [Open example](https://josoroma.github.io/taster/examples/bell-lab/) |
+| **Lumen: The Sunken Garden** | Procedural world construction, movement, hazards, timed objectives, touch controls, sound, completion and restart | [examples/lumen/](lumen/) | [Open example](https://josoroma.github.io/taster/examples/lumen/) |
+| **Workshop** | Restrained orthographic linework, genuine topology edges, code-linked CAD snapshots, measured readouts, and STEP/STL downloads | [examples/workshop/](workshop/), `kit/technical-viewer.mjs`, `examples/workshop/assets/cad-plate/` | [Open example](https://josoroma.github.io/taster/examples/workshop/) |
+| **SHIFT** | Deterministic chapter animation, kinetic diagrams, captions, and source context | [examples/ai-history/](ai-history/) | [Open example](https://josoroma.github.io/taster/examples/ai-history/) |
+| **Cerebra** | Folded biological forms, selectable labels, contextual hints, and reversible separation | [examples/brain-atlas/](brain-atlas/) | [Open example](https://josoroma.github.io/taster/examples/brain-atlas/) |
+| **INNERSPACE** | Probability-cloud illustration, staged scale changes, nucleon inspection, and known-particle metadata | [examples/particle-atlas/](particle-atlas/) | [Open example](https://josoroma.github.io/taster/examples/particle-atlas/) |
+| **DEXTRA** | Parent-child joint articulation, open/fist poses, reversible shell separation, and component labels | [examples/cyborg-hand/](cyborg-hand/) | [Open example](https://josoroma.github.io/taster/examples/cyborg-hand/) |
+| **FOLD** | Bundled experimental coordinates, residue selection, molecular representations, and geometric measurements | [examples/molecular-lab/](molecular-lab/) | [Open example](https://josoroma.github.io/taster/examples/molecular-lab/) |
+| **Taster diagram** | Branded SVG workflow, selectable nodes and routes, pan/zoom, and standalone export | [examples/taster-diagram/](taster-diagram/) | [Open example](https://josoroma.github.io/taster/examples/taster-diagram/) |
+| **Taster film** | Deterministic HTML composition, a scrubbable browser preview, and Hyperframes video rendering | [examples/taster-film/](taster-film/) | [Open example](https://josoroma.github.io/taster/examples/taster-film/) |
 
 ## FOLD
 
-[FOLD](molecular-lab/README.md) explores the experimental structure of crambin, PDB **1CRN**. Inspect residues, compare representations, and follow a guided explanation of the folded structure and its disulfide links. Coordinates and provenance are bundled locally. The animation changes the view and representation; it is not a folding simulation or a molecular dynamics trajectory. Start with `--template molecular-lab` and replace the structural data and explanations together.
+[FOLD](https://josoroma.github.io/taster/examples/molecular-lab/) explores the experimental structure of crambin, PDB **1CRN**. Inspect residues, compare representations, and follow a guided explanation of the folded structure and its disulfide links. Coordinates and provenance are bundled with the source. The animation changes the view and representation; it is not a folding simulation or a molecular dynamics trajectory. Start with `--template molecular-lab` and replace the structural data and explanations together.
 
 ## Taster diagram
 
-[The Taster diagram](taster-diagram/README.md) explains the workflow from a question to an editable artifact. It uses Taster’s existing wordmark, local fonts, warm paper, forest green, and lime accents. Inspect stages and the molecular, diagram, and video routes, navigate with keyboard controls, and export an SVG. Start with `--template taster-diagram`; the graph and explanatory content remain editable.
+[The Taster diagram](https://josoroma.github.io/taster/examples/taster-diagram/) explains the workflow from a question to an editable artifact. It uses Taster’s existing wordmark, local fonts, warm paper, forest green, and lime accents. Inspect stages and the molecular, diagram, and video routes, navigate with keyboard controls, and export an SVG. Start with `--template taster-diagram`; the graph and explanatory content remain editable.
 
 ## Taster film
 
-[The Taster film](taster-film/README.md) explains Taster through a deterministic HTML composition using its existing identity. The example includes a browser preview, an encoded video, and a pinned Hyperframes render command. Seeking samples absolute time; rendering does not record a live wall clock. Start with `--template taster-film`. Re-rendering has separate tool requirements described in its README; watching the supplied film does not.
+[The Taster film](https://josoroma.github.io/taster/examples/taster-film/) explains Taster through a deterministic HTML composition using its existing identity. The example includes a browser preview, an encoded video, and a pinned Hyperframes render command. Seeking samples absolute time; rendering does not record a live wall clock. Start with `--template taster-film`. Re-rendering has separate tool requirements described in [the film guide](taster-film/README.md); watching the supplied film does not.
 
 ## DEXTRA
 
-[DEXTRA](cyborg-hand/README.md) is a 32-second interactive study of a futuristic robotic hand. Follow the fingers from full extension into a closed fist, reveal the mechanism beneath its outer shell, and inspect the components with labels, pan, zoom, and orbit. Graphite surfaces and restrained mint accents keep the moving joints readable. Pause, scrub backward, and replay to inspect the same pose from another angle.
+[DEXTRA](https://josoroma.github.io/taster/examples/cyborg-hand/) is a 32-second interactive study of a futuristic robotic hand. Follow the fingers from full extension into a closed fist, reveal the mechanism beneath its outer shell, and inspect the components with labels, pan, zoom, and orbit. Graphite surfaces and restrained mint accents keep the moving joints readable. Pause, scrub backward, and replay to inspect the same pose from another angle.
 
 The mechanism is a conceptual kinematic demonstrator. Its geometry and coordinated joint motion explain articulation; they do not establish actuator performance, load capacity, manufacturing clearances, or production-ready CAD. Start with `--template cyborg-hand` for an inspectable mechanical assembly, replacing its geometry and motion model together.
 
 ## INNERSPACE
 
-[INNERSPACE](particle-atlas/README.md) is a 78-second interactive journey from a helium atom into its nucleus and nucleons, through the quark picture, and into the Standard Model atlas. Inspect 17 familiar elementary-particle entries, compare proton and neutron valence charges, and use pan, zoom, orbit, timeline scrubbing, and reversible playback. Display rotation moves the diagram; it does not portray quantum spin as literal turning.
+[INNERSPACE](https://josoroma.github.io/taster/examples/particle-atlas/) is a 78-second interactive journey from a helium atom into its nucleus and nucleons, through the quark picture, and into the Standard Model atlas. Inspect 17 familiar elementary-particle entries, compare proton and neutron valence charges, and use pan, zoom, orbit, timeline scrubbing, and reversible playback. Display rotation moves the diagram; it does not portray quantum spin as literal turning.
 
 The probability cloud and geometric models are schematic. The final stop distinguishes the boundary of confirmed substructure from open research questions. Start with `--template particle-atlas` to adapt a guided scientific journey with a browsable taxonomy.
 
 ## SHIFT
 
-[SHIFT](ai-history/README.md) is a 90-second browser film about selected AI developments from 2017 onward. Seven chapters connect attention, scale, instruction following, multimodality, tool use, and the open question of AGI. All visuals are drawn in code with a distinct paper, cobalt, and vermilion palette. Use play/pause, the scrubber, chapter selection, and playback speed to inspect the explanation. Sources and the limits of the visual metaphors are included.
+[SHIFT](https://josoroma.github.io/taster/examples/ai-history/) is a 90-second browser film about selected AI developments from 2017 onward. Seven chapters connect attention, scale, instruction following, multimodality, tool use, and the open question of AGI. All visuals are drawn in code with a distinct paper, cobalt, and vermilion palette. Use play/pause, the scrubber, chapter selection, and playback speed to inspect the explanation. Sources and the limits of the visual metaphors are included.
 
 The animation samples absolute time, so seeking backward reproduces the same visual state. AGI is an unresolved research goal in this story, with no predicted arrival date. Start with `--template ai-history` to adapt the film; replace both the narrative and diagrams for a new subject.
 
 ## Cerebra
 
-[Cerebra](brain-atlas/README.md) explores the brain through a folded, color-coded 3D model. Select a region for its location, roles, and network context. Separate the model to inspect deeper structures and reveal additional labels, then reassemble it exactly. Camera controls support orbit, zoom, pan, focus, and overview.
+[Cerebra](https://josoroma.github.io/taster/examples/brain-atlas/) explores the brain through a folded, color-coded 3D model. Select a region for its location, roles, and network context. Separate the model to inspect deeper structures and reveal additional labels, then reassemble it exactly. Camera controls support orbit, zoom, pan, focus, and overview.
 
 The geometry and region boundaries are educational schematics, not patient data. Separation is a viewing aid; brain regions operate through connected networks. Start with `--template brain-atlas` for a biological inspection lesson, preserving the distinction between spatial parts and distributed functions.
 

@@ -4,7 +4,9 @@ A future robotic hand, rendered as an inspectable mechanism. Open the fingers, c
 
 The complete 32-second sequence moves from extension to closure, holds the fist, releases it, separates the open mechanism, and reassembles it. All visual geometry is generated in code. This is an interactive browser example; no rendered video or audio track is included.
 
-## Run
+[Explore DEXTRA](https://josoroma.github.io/taster/examples/cyborg-hand/).
+
+## Run the source
 
 From the Taster root:
 
@@ -13,7 +15,7 @@ npm install
 npm start
 ```
 
-Open [DEXTRA](http://localhost:5173/taster/examples/cyborg-hand/). `npm run build` creates the static entry at `dist/examples/cyborg-hand/index.html`.
+Open the address printed by the server and choose **DEXTRA** from the example catalog. `npm run build` creates the static entry at `dist/examples/cyborg-hand/index.html`.
 
 ## Explore
 

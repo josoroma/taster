@@ -2,7 +2,11 @@
 
 Explore crambin through a backbone ribbon, an atomic view, a residue sequence, and three measured disulfide links. This is Taster's molecular structure starter: an explanation backed by inspectable coordinate data.
 
-From the repository root, run `npm install` and `npm start`, then open [the example](http://localhost:5173/taster/examples/molecular-lab/). No runtime network requests leave the local server. All fonts, coordinates, and rendering dependencies are local. To create an independent project, run `node scripts/create-project.mjs /absolute/empty/destination --template molecular-lab` from the original Taster checkout.
+[Explore FOLD](https://josoroma.github.io/taster/examples/molecular-lab/). All fonts, coordinates, and rendering dependencies are bundled with the example; no external runtime services are required.
+
+## Run the source
+
+From the repository root, run `npm install` and `npm start`, then open the address printed by the server and choose **FOLD** from the example catalog. To create an independent project, run `node scripts/create-project.mjs /absolute/empty/destination --template molecular-lab` from the original Taster checkout.
 
 ## Explore
 

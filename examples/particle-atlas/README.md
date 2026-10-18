@@ -4,7 +4,9 @@ A journey into matter: cross an electron probability cloud, enter a helium-4 nuc
 
 This is a rendered, interactive browser experience. All visual geometry is generated in code; no video export or narrated audio track is included.
 
-## Run
+[Explore INNERSPACE](https://josoroma.github.io/taster/examples/particle-atlas/).
+
+## Run the source
 
 From the Taster root:
 
@@ -13,7 +15,7 @@ npm install
 npm start
 ```
 
-Open [INNERSPACE](http://localhost:5173/taster/examples/particle-atlas/). `npm run build` produces the static entry at `dist/examples/particle-atlas/index.html`.
+Open the address printed by the server and choose **INNERSPACE** from the example catalog. `npm run build` produces the static entry at `dist/examples/particle-atlas/index.html`.
 
 ## Explore
 

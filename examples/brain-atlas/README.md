@@ -2,6 +2,10 @@
 
 A quiet interactive field guide to the brain. Inspect a procedural folded brain, select eight region families, separate the model to reveal deeper structures, and put it together again. Descriptions, thought experiments and relationship notes remain available even without WebGL.
 
+[Explore Cerebra](https://josoroma.github.io/taster/examples/brain-atlas/).
+
+## Run the source
+
 From the Taster root:
 
 ```sh
@@ -9,7 +13,7 @@ npm install
 npm start
 ```
 
-Open [Cerebra](http://localhost:5173/taster/examples/brain-atlas/). Build with `npm run build`; the static entry is `dist/examples/brain-atlas/index.html`.
+Open the address printed by the server and choose **Cerebra** from the example catalog. Build with `npm run build`; the static entry is `dist/examples/brain-atlas/index.html`.
 
 ## Explore
 

@@ -13,7 +13,7 @@ Idiomas: [English](README.md) · **Español**
 - [Acerca de Taster](#acerca-de-taster)
 - [Qué permite hacer](#qué-permite-hacer)
 - [Usar el skill](#usar-el-skill)
-- [Ejecutar los diez proyectos incluidos](#ejecutar-los-diez-proyectos-incluidos)
+- [Explorar los diez proyectos incluidos](#explorar-los-diez-proyectos-incluidos)
 - [Estructura del repositorio](#estructura-del-repositorio)
 - [Iniciar un proyecto independiente](#iniciar-un-proyecto-independiente)
 - [Compilar y verificar](#compilar-y-verificar)
@@ -86,18 +86,18 @@ Si el destino ya existe, revísalo antes de cambiar nada. Invoca **`$taster`** e
 
 Un prompt útil indica el tema, el público, la pregunta central, la interacción deseada y el estilo visual. Añade los archivos proporcionados, las unidades, los supuestos científicos o los formatos de exportación requeridos cuando sean relevantes. Deja abiertas las decisiones de implementación, salvo que ya tengas tecnologías o un flujo de trabajo que quieras conservar. Consulta los [proyectos incluidos y los prompts adicionales](#ejemplos) como punto de partida.
 
-## Ejecutar los diez proyectos incluidos
+## Explorar los diez proyectos incluidos
 
-Los diez proyectos completos se encuentran en [`examples/`](examples/README.md). Comparten fuentes tipográficas locales y utilidades de ejecución desde la raíz del repositorio.
+Explora la [galería de ejemplos](https://josoroma.github.io/taster/examples/) sin instalar nada. Los diez proyectos completos tienen código editable en [`examples/`](examples/README.md), con fuentes tipográficas incluidas y utilidades de ejecución compartidas.
 
-Requisitos: **Node.js 22+** y un navegador moderno. Los ejemplos 3D necesitan WebGL 2; SHIFT usa Canvas 2D, y el diagrama y la película usan SVG/HTML. La reproducción no necesita claves de API ni recursos remotos.
+Para ejecutar y editar el código, usa **Node.js 22+** y un navegador moderno. Los ejemplos 3D necesitan WebGL 2; SHIFT usa Canvas 2D, y el diagrama y la película usan SVG/HTML. La reproducción no necesita claves de API ni recursos externos.
 
 ```sh
 npm ci
 npm start
 ```
 
-Abre la [galería local](http://localhost:5173/taster/) o explora la [galería pública](https://josoroma.github.io/taster/) sin instalar nada. La sección final [Proyectos incluidos y sus prompts](#proyectos-incluidos-y-sus-prompts) reúne cada proyecto con su carpeta de código fuente, su vista previa pública y un prompt reutilizable.
+Usa la dirección que muestra `npm start` para trabajar en tu copia. La sección final [Proyectos incluidos y sus prompts](#proyectos-incluidos-y-sus-prompts) reúne cada proyecto con su carpeta de código fuente, su ejemplo publicado y un prompt reutilizable.
 
 Usa `PORT=8080 npm start` para elegir otro puerto.
 
@@ -187,7 +187,7 @@ La galería pública está en **[josoroma.github.io/taster](https://josoroma.git
 
 El [flujo de trabajo de GitHub Actions](.github/workflows/pages.yml) compila y despliega el sitio cuando llegan cambios a `main`; también se puede iniciar manualmente desde la pestaña Actions del repositorio. Instala las dependencias con sus versiones fijadas, ejecuta las pruebas, compila con `npm run build` y publica `dist/` en GitHub Pages. En **Settings → Pages** del repositorio, elige **GitHub Actions** como origen.
 
-Para comprobar localmente los archivos estáticos exactos que se publicarán:
+Para comprobar los archivos estáticos generados antes de publicarlos:
 
 ```sh
 npm ci
@@ -196,7 +196,7 @@ npm run build
 python3 -m http.server 8080 --directory dist
 ```
 
-Abre `http://localhost:8080/`. Los archivos generados incluyen la galería, los ejemplos, las herramientas, las fuentes tipográficas y las dependencias de renderizado incluidas localmente. Los enlaces relativos funcionan tanto aquí como bajo la ruta `/taster/` de GitHub Pages.
+Abre la dirección que muestra el servidor HTTP. Los archivos generados incluyen la galería, los ejemplos, las herramientas, las fuentes tipográficas y las dependencias de renderizado incluidas. Los enlaces relativos funcionan tanto aquí como bajo la ruta `/taster/` de GitHub Pages.
 
 ## Guía de lectura
 
@@ -236,7 +236,7 @@ Elige un proyecto incluido para explorar una implementación funcional, o usa la
 
 ### Proyectos incluidos y sus prompts
 
-Estos diez proyectos están disponibles en `examples/`. Cada entrada incluye una vista previa y un prompt reutilizable que describe el proyecto. Los tres ejemplos nuevos enlazan a la vista previa local.
+Estos diez proyectos están disponibles en `examples/`. Cada entrada enlaza al ejemplo publicado e incluye un prompt reutilizable que describe el proyecto.
 
 #### Lumen — The Sunken Garden
 
@@ -333,7 +333,7 @@ conceptual, sin afirmaciones no fundamentadas sobre fuerzas o fabricación.
 
 #### FOLD
 
-Código: [`examples/molecular-lab/`](examples/molecular-lab/) · [Vista previa local](http://localhost:5173/taster/examples/molecular-lab/)
+Código: [`examples/molecular-lab/`](examples/molecular-lab/) · [Explorar en línea](https://josoroma.github.io/taster/examples/molecular-lab/)
 
 ```text
 $taster crea una explicación molecular interactiva de la crambina 1CRN.
@@ -344,7 +344,7 @@ Distingue la animación de inspección de la dinámica molecular.
 
 #### Diagrama de Taster
 
-Código: [`examples/taster-diagram/`](examples/taster-diagram/) · [Vista previa local](http://localhost:5173/taster/examples/taster-diagram/)
+Código: [`examples/taster-diagram/`](examples/taster-diagram/) · [Explorar en línea](https://josoroma.github.io/taster/examples/taster-diagram/)
 
 ```text
 $taster explica cómo funciona Taster con un diagrama editorial interactivo.
@@ -355,7 +355,7 @@ y exportar un SVG autónomo.
 
 #### Video de Taster
 
-Código: [`examples/taster-film/`](examples/taster-film/) · [Vista previa local](http://localhost:5173/taster/examples/taster-film/)
+Código: [`examples/taster-film/`](examples/taster-film/) · [Ver en línea](https://josoroma.github.io/taster/examples/taster-film/)
 
 ```text
 $taster produce un video breve que explique Taster usando su identidad visual.
