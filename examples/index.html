@@ -14,7 +14,10 @@
     body{margin:0}
     main{max-width:1250px;margin:auto;padding:35px 38px 60px}
     header{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:0 0 30px;border-bottom:1px solid #34373d;font-size:12px;letter-spacing:3px}
-    header span:last-child{color:#8b929d;font-size:10px;letter-spacing:2px}
+    .header-actions{display:flex;align-items:center;gap:24px}
+    .edition{color:#8b929d;font-size:10px;letter-spacing:2px}
+    .repo-link{display:inline-flex;align-items:center;justify-content:space-between;gap:16px;min-height:44px;padding:10px 14px;border:1px solid #46513e;border-radius:5px;color:#d9ed92;font-size:12px;letter-spacing:0;text-decoration:none;white-space:nowrap}
+    .repo-link:hover{background:#293127;border-color:#adbc99}
     .intro{padding:70px 0 45px}
     .eyebrow{font-size:10px;letter-spacing:2px;color:#ccac8c}
     h1{font-size:clamp(32px,4.3vw,57px);font-weight:400;letter-spacing:-2px;margin:16px 0}
@@ -53,8 +56,9 @@
     }
     @media(max-width:700px){
       main{padding:25px 22px 40px}
-      header{align-items:flex-start;font-size:10px;letter-spacing:2px}
-      header span:last-child{font-size:8px;text-align:right;max-width:90px;line-height:1.6}
+      header{font-size:10px;letter-spacing:2px;gap:12px}
+      .edition{display:none}
+      .repo-link{font-size:11px;padding:10px 12px;gap:12px}
       .intro{padding:40px 0 25px}
       h1{letter-spacing:-1px}
       .grid{grid-template-columns:1fr;gap:24px}
@@ -71,7 +75,7 @@
 </head>
 <body>
 <main id="examples">
-  <header><span>TASTER / EXAMPLES</span><span>TEN COMPLETE STUDIES</span></header>
+  <header><span>TASTER / EXAMPLES</span><div class="header-actions"><span class="edition">TEN COMPLETE STUDIES</span><a class="repo-link" href="https://github.com/josoroma/taster" aria-label="Taster repository on GitHub">GitHub <span aria-hidden="true">↗</span></a></div></header>
   <section class="intro"><div class="eyebrow">EXPLORE. UNDERSTAND. PLAY.</div><h1>A little curiosity. Ten worlds.</h1><p>Follow an idea through time. Look inside a living system. Trace a mechanism from intention to motion. Ten complete experiences, each with editable source.</p></section>
   <figure class="collection-collage">
     <img src="../assets/showcase/taster-collage.png" width="1600" height="960" fetchpriority="high" alt="All ten Taster examples: Lumen, DEXTRA, Bell Lab, Cerebra, INNERSPACE, Workshop, SHIFT, FOLD, The Taster map, and Taster, in motion.">
