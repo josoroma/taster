@@ -6,6 +6,10 @@ import {join,resolve} from 'node:path';
 const base=process.env.TASTER_PREVIEW_URL||'http://localhost:5173/taster/';
 const temp=mkdtempSync(join(tmpdir(),'taster-showcase-'));
 const examples=[
+ {id:'arduino-lab',width:1440,height:1100,selector:'.spark-stage',ready:'window.__arduinoLab?.ready',actions:[['eval','document.fonts.ready']]},
+ {id:'machine-lab',width:1440,height:1100,selector:'.workbench',ready:'window.__machineLab?.ready',actions:[['eval','document.fonts.ready']]},
+ {id:'motion-lab',width:1440,height:1100,selector:'.preview',ready:'window.__cue?.getState().ready',actions:[['eval','document.fonts.ready'],['eval',"window.__cue.select('002'); window.__cue.seek(1.25)"]]},
+ {id:'paper-lab',width:1440,height:1100,selector:'#reader',ready:'window.__paperLab?.ready',actions:[['eval','document.fonts.ready'],['eval','window.__paperLab.seek(38)']]},
  {id:'lumen',width:1200,height:780,selector:'#game',ready:'window.__lumen && !document.querySelector("#start").disabled',actions:[['click','#start'],['wait',800]]},
  {id:'bell-lab',width:1680,height:1100,selector:'.stage',ready:'window.__bellLab?.stats()',actions:[['click','[data-chapter="2"]'],['wait',1200]]},
  {id:'workshop',width:1760,height:1150,selector:'.viewport',ready:'window.__workshop?.getState().ready',actions:[['click','[data-step="3"]'],['wait',900]]},
@@ -27,7 +31,7 @@ try{
   if(run.status!==0)throw new Error(`${e.id} capture failed`);
  }
  const collageActions=join(temp,'collage.json');
- writeFileSync(collageActions,JSON.stringify([['until','Array.from(document.images).every(i=>i.complete&&i.naturalWidth>0)',10000],['eval','document.fonts.ready.then(()=>true)'],['shot',resolve('assets/showcase/taster-collage.png'),'#collage',1,[0,0,1600,960]]]));
- const collage=spawnSync(process.execPath,['scripts/drive.mjs',new URL('assets/showcase/collage.html',base).href,'--actions',collageActions,'--width','1600','--height','960'],{stdio:'inherit'});
+ writeFileSync(collageActions,JSON.stringify([['until','Array.from(document.images).every(i=>i.complete&&i.naturalWidth>0)',10000],['eval','document.fonts.ready.then(()=>true)'],['shot',resolve('assets/showcase/taster-collage.png'),'#collage',1,[0,0,1600,1280]]]));
+ const collage=spawnSync(process.execPath,['scripts/drive.mjs',new URL('assets/showcase/collage.html',base).href,'--actions',collageActions,'--width','1600','--height','1280'],{stdio:'inherit'});
  if(collage.status!==0)throw new Error('Collage capture failed');
 }finally{rmSync(temp,{recursive:true,force:true});}

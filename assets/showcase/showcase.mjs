@@ -9,9 +9,13 @@ filters.addEventListener('click',event=>{
   $('#result-count').textContent=String(count).padStart(2,'0');
 });
 const prompts={
+  arduino:'Help my 12-year-old imagine an Arduino project like SPARK. Start with a browser experiment using an LED, button, and knob. Let them predict, change, and explain what happens. Include an explicit Uno R3 pin map, a series resistor, and a downloadable sketch that matches the preview. Label the model’s limits and offer one creative extension.',
   mechanism:'Create a robotic hand that opens, closes into a fist, and reveals its inner mechanism. Let me pan, zoom, separate the armor, and reassemble it. Make the motion precise and the design quietly futuristic.',
   science:'Take me on a journey from an atom to its nucleus and quarks. Use careful labels, changes of scale, and a timeline I can scrub. Explain what is measured, what is a visual metaphor, and where our knowledge ends.',
-  world:'Build a playable garden where I restore three ancient machines by learning their rhythms. Give the world atmospheric lighting, satisfying movement, readable goals, and an ending that changes the landscape.'
+  world:'Build a playable garden where I restore three ancient machines by learning their rhythms. Give the world atmospheric lighting, satisfying movement, readable goals, and an ending that changes the landscape.',
+  book:'Turn a short lesson on wave superposition into a Papermorph-inspired interactive book like LEAF. Use three chapters, a phase control, seekable animation, a readable transcript, optional narration, and a quiz with explanatory feedback. Keep scientific assumptions and sources visible.',
+  machine:'Build a slider-crank like CRANK, inspired by machine-skill. Derive its motion and SI readouts from crank radius, rod length, angle, and speed. Let me inspect the parts, reveal the guard, pause, scrub, and reset. State the rigid-body assumptions.',
+  motion:'Make a Motion Prompt lab like CUE with Pop-in, Stagger, Mask reveal, Overshoot, Anticipation, and Motion path. Keep pack/ID attribution, deterministic SVG previews, duration and intensity controls, seek, replay, and copyable prompts. Start paused for reduced motion.'
 };
 let currentPrompt='mechanism';
 $('.prompt-tabs').addEventListener('click',event=>{

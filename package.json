@@ -3,7 +3,7 @@
   "version": "1.2.0",
   "private": true,
   "type": "module",
-  "description": "A reusable skill and rendering kit for science, molecular structures, engineering, playable worlds, diagrams, and video.",
+  "description": "A reusable skill and rendering kit for science, molecular structures, engineering, beginner Arduino projects, interactive books, machines, named motion, playable worlds, diagrams, and video.",
   "scripts": {
     "start": "node scripts/serve.mjs",
     "dev": "node scripts/serve.mjs",

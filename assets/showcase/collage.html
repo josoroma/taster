@@ -2,23 +2,24 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>Taster — ten things to explore</title>
+<title>Taster — fourteen things to explore</title>
 <style>
 @font-face{font-family:DM;src:url('../fonts/dm-sans-500.ttf') format('truetype')}
 *{box-sizing:border-box}html,body{margin:0;background:#151916;color:#f0eee5;font-family:DM,Arial,sans-serif}
-.collage{width:1600px;height:960px;padding:24px;background:radial-gradient(ellipse at 45% 0,#293328 0,transparent 55%),#151916}
+.collage{width:1600px;height:1280px;padding:24px;background:radial-gradient(ellipse at 45% 0,#293328 0,transparent 55%),#151916}
 .caption{height:37px;display:flex;justify-content:space-between;align-items:flex-start;padding:0 2px;font:10px ui-monospace,monospace;letter-spacing:2px;color:#b8c1af}.caption b{font-weight:400;color:#d9ed92}.dot{display:inline-block;width:6px;height:6px;border-radius:50%;background:#d9ed92;vertical-align:middle;margin-right:10px}
-.grid{height:841px;display:grid;grid-template-columns:repeat(12,minmax(0,1fr));grid-template-rows:306px 239px 268px;gap:14px}
+.grid{height:1161px;display:grid;grid-template-columns:repeat(12,minmax(0,1fr));grid-template-rows:306px 239px 268px 306px;gap:14px}
 .tile{position:relative;grid-column:span 3;border:1px solid #394238;border-radius:9px;overflow:hidden;background:#0f1412}.tile img{position:absolute;width:100%;height:calc(100% - 39px);left:0;top:0;object-fit:cover}
 .label{position:absolute;left:0;bottom:0;right:0;height:39px;display:flex;align-items:center;gap:10px;padding:0 14px;background:#1c231d;border-top:1px solid #394238;font-size:12px;font-weight:500;letter-spacing:.15px}.label .index{color:#d9ed92;font:9px ui-monospace,monospace;letter-spacing:1px}.label em{font-size:10px;font-weight:400;font-style:normal;color:#a8b29e;margin-left:auto}.label .arrow{color:#d9ed92;font-size:16px;margin-left:6px}
 .lumen{grid-column:span 6}.lumen img{object-position:48% 76%}.dextra img{object-position:50% 44%;object-fit:contain;background:#141c1c}.bell img{object-position:50% 43%;object-fit:contain;background:#18212f}.brain img{object-position:51% 48%}.particles img{object-position:50% 51%}.workshop img{object-fit:contain;background:#202328}.shift img{object-fit:contain;background:#f3eee4}
 .molecular,.diagram,.film{grid-column:span 4}.molecular img{width:calc(100% + 8px);left:-4px;object-position:50% 32%;object-fit:cover;background:#10211f}.diagram img,.film img{object-fit:contain;background:#f3f2eb}.molecular,.diagram,.film{border-color:#657149}.molecular .index,.diagram .index,.film .index{background:#d9ed92;color:#273026;padding:4px 5px;border-radius:2px}
+.paper,.machine,.motion,.arduino{grid-column:span 3;border-color:#657149}.paper img,.motion img,.arduino img{object-fit:contain;background:#f5f2e9}.machine img{object-fit:contain;background:#182329}.paper .index,.machine .index,.motion .index,.arduino .index{background:#d9ed92;color:#273026;padding:4px 5px;border-radius:2px}
 .foot{height:34px;display:flex;align-items:flex-end;justify-content:space-between;color:#a8b29e;font:9px ui-monospace,monospace;letter-spacing:1.4px}.foot span:last-child{color:#c5cfbb}
 </style>
 </head>
 <body>
 <main class="collage" id="collage">
-<header class="caption"><b><i class="dot"></i>MADE WITH TASTER</b><span>SCIENCE · MECHANISMS · GAMES · DIAGRAMS · VIDEO</span></header>
+<header class="caption"><b><i class="dot"></i>MADE WITH TASTER</b><span>SCIENCE · ARDUINO · MACHINES · GAMES · BOOKS · MOTION · DIAGRAMS · VIDEO</span></header>
 <div class="grid">
 <article class="tile lumen"><img src="./lumen.png" alt="A keeper explores the sunken garden"><div class="label"><span class="index">01</span>Lumen<em>A little world to get lost in</em><span class="arrow">↗</span></div></article>
 <article class="tile dextra"><img src="./cyborg-hand.png" alt="An articulated robotic hand with component labels"><div class="label"><span class="index">02</span>DEXTRA<em>Kinematics</em><span class="arrow">↗</span></div></article>
@@ -30,8 +31,12 @@
 <article class="tile molecular"><img src="./molecular-lab.png" alt="Crambin's experimental protein structure with a measured disulfide link"><div class="label"><span class="index">08</span>FOLD<em>Molecular structure</em><span class="arrow">↗</span></div></article>
 <article class="tile diagram"><img src="./taster-diagram.png" alt="Six connected stages in Taster's interactive workflow diagram"><div class="label"><span class="index">09</span>The Taster map<em>Interactive diagram</em><span class="arrow">↗</span></div></article>
 <article class="tile film"><img src="./taster-film.png" alt="Taster's branded film showing molecules, diagrams, and video"><div class="label"><span class="index">10</span>Taster, in motion<em>HTML to video</em><span class="arrow">↗</span></div></article>
+<article class="tile paper"><img src="./paper-lab.png" alt="LEAF's interactive book with two wave traces, their sum, and a phase experiment"><div class="label"><span class="index">11</span>LEAF<em>Interactive book</em><span class="arrow">↗</span></div></article>
+<article class="tile machine"><img src="./machine-lab.png" alt="CRANK's inspectable slider-crank machine with displacement and velocity readouts"><div class="label"><span class="index">12</span>CRANK<em>Machine kinematics</em><span class="arrow">↗</span></div></article>
+<article class="tile motion"><img src="./motion-lab.png" alt="CUE's Stagger motion preview with seven bars at different stages of movement"><div class="label"><span class="index">13</span>CUE<em>Motion vocabulary</em><span class="arrow">↗</span></div></article>
+<article class="tile arduino"><img src="./arduino-lab.png" alt="SPARK's labeled Arduino circuit with an LED, pushbutton, and knob"><div class="label"><span class="index">14</span>SPARK<em>Arduino inventions</em><span class="arrow">↗</span></div></article>
 </div>
-<footer class="foot"><span>TEN REAL PROJECTS. EVERY FRAME RENDERED IN CODE.</span><span>OPEN. EXPLORE. MAKE IT YOURS.</span></footer>
+<footer class="foot"><span>FOURTEEN REAL PROJECTS. EVERY FRAME RENDERED IN CODE.</span><span>OPEN. EXPLORE. MAKE IT YOURS.</span></footer>
 </main>
 </body>
 </html>

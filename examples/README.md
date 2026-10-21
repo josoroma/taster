@@ -1,6 +1,6 @@
 # Complete examples
 
-Explore all ten examples in the [example catalog](https://josoroma.github.io/taster/examples/).
+Explore all fourteen examples in the [example catalog](https://josoroma.github.io/taster/examples/).
 
 To edit and run the source, use `npm install` and `npm start` from the repository root, then open the address printed by the server. Each example lives in its own folder under `examples/` and uses bundled assets; shared runtime helpers and fonts remain at the repository root.
 
@@ -16,6 +16,28 @@ To edit and run the source, use `npm install` and `npm start` from the repositor
 | **FOLD** | Bundled experimental coordinates, residue selection, molecular representations, and geometric measurements | [examples/molecular-lab/](molecular-lab/) | [Open example](https://josoroma.github.io/taster/examples/molecular-lab/) |
 | **Taster diagram** | Branded SVG workflow, selectable nodes and routes, pan/zoom, and standalone export | [examples/taster-diagram/](taster-diagram/) | [Open example](https://josoroma.github.io/taster/examples/taster-diagram/) |
 | **Taster film** | Deterministic HTML composition, a scrubbable browser preview, and Hyperframes video rendering | [examples/taster-film/](taster-film/) | [Open example](https://josoroma.github.io/taster/examples/taster-film/) |
+| **LEAF** | Interactive chapters, wave superposition, transcripts, optional speech, and a quiz | [examples/paper-lab/](paper-lab/) | [Open example](paper-lab/) |
+| **CRANK** | Analytic kinematics, model-driven 3D machinery, numerical readouts, and guard inspection | [examples/machine-lab/](machine-lab/) | [Open example](machine-lab/) |
+| **CUE** | Named effects, deterministic SVG previews, adjustable parameters, and reusable prompts | [examples/motion-lab/](motion-lab/) | [Open example](motion-lab/) |
+| **SPARK** | Child-led Arduino ideas, illustrated circuits, predict/try/explain, and matching downloadable sketches | [examples/arduino-lab/](arduino-lab/) | [Open example locally](arduino-lab/) |
+
+## SPARK / Arduino Lab
+
+[`arduino-lab/`](arduino-lab/README.md) is an original invention bench inspired by [Learn Arduino](https://learn-arduino-red.vercel.app/). Choose Lighthouse, Secret signal, or Firefly; name the invention, predict the outcome, and try it with a cycle-time slider, brightness knob, and hold button. Inspect the circuit’s components, complete a wiring checklist, pause or step time, and download the matching `.ino` sketch. The model starts paused and supports keyboard controls and reduced motion.
+
+The explicit baseline is an **Arduino Uno R3** with an LED and 330 Ω series resistor on D9, an active-low `INPUT_PULLUP` button from D2 to GND, and a 10 kΩ potentiometer with its wiper on A0. The JavaScript model illustrates programmed behavior and qualitative LED brightness; it is neither an arbitrary C++ runner nor an electrical circuit simulator, and it does not establish a tested physical build. The circuit illustration omits a breadboard and simplifies the button’s terminals. Start with `--template arduino-lab`, then follow [the Arduino guide](../references/arduino-projects.md) when changing boards, parts, or wiring. The dedicated [`$arduino-inventor` skill](../skills/arduino-inventor/SKILL.md) can also start from a child’s story without hardware.
+
+## LEAF / Paper Lab
+
+[`paper-lab/`](paper-lab/README.md) adapts Papermorph’s chapter-based reading workflow into an original lesson on wave superposition. Read three chapters, vary phase, scrub the animation, read or optionally listen to the transcript, and answer a quiz. The starter uses original text; adapting a PDF requires extracting and mapping the supplied source first. Start with `--template paper-lab` and read [the interactive-books guide](../references/interactive-books.md).
+
+## CRANK / Machine Lab
+
+[`machine-lab/`](machine-lab/README.md) follows machine-skill’s model-first approach with an ideal slider-crank. Geometry and SI readouts share analytic kinematics. Inspect the 3D mechanism, adjust controls, reveal its guard, pause, seek, and reset. This is a kinematic teaching model. Start with `--template machine-lab` and read [the machine guide](../references/machine-simulations.md) before changing the mechanism or adding dynamics.
+
+## CUE / Motion Lab
+
+[`motion-lab/`](motion-lab/README.md) demonstrates six named concepts from Motion Prompt: Pop-in, Stagger, Mask reveal, Overshoot, Anticipation, and Motion path. Select an effect, adjust duration/intensity, scrub deterministically, and copy a prompt. Source pack/IDs stay attached to the examples; the local implementation is a subset. Start with `--template motion-lab` and read [the motion vocabulary guide](../references/motion-vocabulary.md).
 
 ## FOLD
 

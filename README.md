@@ -6,14 +6,16 @@ Languages: **English** · [Español](README-ES.md)
 
 **Ideas you can play, inspect, and understand.** [Explore the live showcase](https://josoroma.github.io/taster/) · [View the repository](https://github.com/josoroma/taster)
 
-[![A collage of Taster's ten examples: Lumen, Bell Lab, Workshop, SHIFT, Cerebra, INNERSPACE, DEXTRA, FOLD, Taster diagram, and Taster film](assets/showcase/taster-collage.png)](https://josoroma.github.io/taster/)
+[![All fourteen Taster examples: Lumen, Bell Lab, Workshop, SHIFT, Cerebra, INNERSPACE, DEXTRA, FOLD, Taster diagram, Taster film, LEAF, CRANK, CUE, and SPARK](assets/showcase/taster-collage.png)](https://josoroma.github.io/taster/)
+
+New workflows and ready-to-use `$taster` prompts: [LEAF · interactive book](#leaf), [CRANK · machine simulation](#crank), [CUE · named motion](#cue), and [SPARK · Arduino inventions for kids](#spark).
 
 ## Contents
 
 - [About Taster](#about-taster)
 - [What it handles](#what-it-handles)
 - [Use the skill](#use-the-skill)
-- [Explore the ten included projects](#explore-the-ten-included-projects)
+- [Explore the fourteen included projects](#explore-the-fourteen-included-projects)
 - [Repository structure](#repository-structure)
 - [Start an independent project](#start-an-independent-project)
 - [Build and verify](#build-and-verify)
@@ -32,11 +34,16 @@ Languages: **English** · [Español](README-ES.md)
     - [FOLD](#fold)
     - [Taster diagram](#taster-diagram)
     - [Taster film](#taster-film)
+    - [LEAF](#leaf)
+    - [CRANK](#crank)
+    - [CUE](#cue)
+    - [SPARK](#spark)
   - [More project ideas](#more-project-ideas)
     - [Quantum computing and atoms](#quantum-computing-and-atoms)
     - [LLMs and computing](#llms-and-computing)
     - [Space and time](#space-and-time)
     - [Mathematics and physics](#mathematics-and-physics)
+    - [Arduino inventions for kids](#arduino-inventions-for-kids)
     - [Robotics and mechanisms](#robotics-and-mechanisms)
     - [CAD and manufacturing](#cad-and-manufacturing)
     - [3D printing](#3d-printing)
@@ -46,7 +53,7 @@ Languages: **English** · [Español](README-ES.md)
 
 ## About Taster
 
-**Taster is a reusable skill for interactive science, molecular structures, engineering models, playable worlds, diagrams, and explanatory video.** Its toolkit combines detailed scenes, camera inspection, reversible assembly, and animation driven by a model.
+**Taster is a reusable skill for interactive science, molecular structures, engineering models, interactive books, Arduino inventions for kids, named motion, playable worlds, diagrams, and explanatory video.** Its toolkit combines detailed scenes, camera inspection, reversible assembly, and animation driven by a model.
 
 Give it a subject, an audience, and the insight you want someone to discover. Taster chooses a suitable representation, builds the model, choreographs the explanation, and checks the result in a browser. You can ask for a sober technical drawing, an inspectable 3D mechanism, a cinematic science scene, or a complete small game without choosing a rendering library first.
 
@@ -69,6 +76,10 @@ the mechanism, inspect its parts, and reassemble it exactly.
 | Molecular structures | Inspect experimental or predicted coordinates, select residues, compare representations, and distinguish inspection motion from dynamics. |
 | Diagrams | Explore labeled workflows and architecture, inspect relationships, and export editable SVG using a coherent visual identity. |
 | Video | Preview a deterministic HTML composition, scrub its chapters, and render a reproducible MP4 with Hyperframes. |
+| Interactive books | Read chapters, explore animated explanations, use transcripts and optional narration, and check understanding. |
+| Machine simulation | Inspect a mechanism whose geometry, motion, and numerical readouts come from one model. |
+| Named motion | Compare named effects, scrub their timing, adjust parameters, and reuse a precise prompt. |
+| Arduino inventions | Imagine a project, predict its behavior, try a browser model, inspect wiring, and adapt a readable Arduino sketch. |
 | Accessible inspection | Use keyboard and touch alternatives, reduced motion, readable captions, and responsive layouts. |
 
 The skill adapts the presentation to the subject. Engineering explanations default to quiet surfaces and precise lines. Scientific scenes can use cinematic lighting when it clarifies the idea. A game is optional, and unfamiliar scientific claims need appropriate sources.
@@ -84,20 +95,29 @@ ln -s "$PWD" "$HOME/.agents/skills/taster"
 
 If that destination already exists, inspect it before changing anything. Invoke **`$taster`** in a prompt or select **Taster** from the skills picker. A new session may be needed after installation. The repository is named `taster`; its prompt identifier is `$taster`.
 
+For a dedicated invention companion, install the bundled [Arduino Inventor skill](skills/arduino-inventor/SKILL.md) from the repository root and invoke **`$arduino-inventor`**:
+
+```sh
+mkdir -p "$HOME/.codex/skills"
+ln -s "$PWD/skills/arduino-inventor" "$HOME/.codex/skills/arduino-inventor"
+```
+
+Inspect an existing destination before changing it. A new session may be needed for discovery. This companion helps a child imagine, choose, predict, and debug at their own pace; no board or age is required to start imagining. `$taster` also supports Arduino projects and can build an interactive browser lesson. See [SPARK’s ready-to-use prompt](#spark) and [the Arduino guide](references/arduino-projects.md).
+
 A useful prompt names the subject, audience, central question, desired interaction, and visual style. Add supplied files, units, scientific assumptions, or required exports when they matter. Leave implementation choices open unless you already have a stack or workflow to preserve. See the [included projects and additional prompts](#examples) for starting points.
 
-## Explore the ten included projects
+## Explore the fourteen included projects
 
-Explore the [examples gallery](https://josoroma.github.io/taster/examples/) without installing anything. All ten complete projects have editable source in [`examples/`](examples/README.md), with bundled fonts and shared runtime helpers.
+Explore the [examples gallery](https://josoroma.github.io/taster/examples/) without installing anything. All fourteen complete projects have editable source in [`examples/`](examples/README.md), with bundled fonts and shared runtime helpers.
 
-To run and edit the source, use **Node.js 22+** and a modern browser. The 3D examples need WebGL 2; SHIFT uses Canvas 2D, and the diagram and film use SVG/HTML. Playback needs no API keys or external assets.
+To run and edit the source, use **Node.js 22+** and a modern browser. The 3D examples need WebGL 2; SHIFT uses Canvas 2D, and the diagram, film, LEAF, CUE, and SPARK use SVG/HTML. LEAF’s optional speech uses the browser’s available voices. Playback needs no API keys or external assets.
 
 ```sh
 npm ci
 npm start
 ```
 
-Use the address printed by `npm start` to work on your copy. The final [Included projects and their prompts](#included-projects-and-their-prompts) section pairs every project with its source folder, published example, and a reusable prompt.
+Use the address printed by `npm start` to work on your copy. The final [Included projects and their prompts](#included-projects-and-their-prompts) section pairs every project with its source folder, preview location, and a reusable prompt.
 
 Use `PORT=8080 npm start` to choose a different port.
 
@@ -107,6 +127,7 @@ Use `PORT=8080 npm start` to choose a different port.
 taster/
 ├── SKILL.md                     Skill entry point and working principles
 ├── agents/openai.yaml           Skill discovery metadata
+├── skills/arduino-inventor/      Dedicated child-friendly invention skill
 ├── README.md                    Setup, project guide, and prompt collection
 ├── README-ES.md                 Spanish documentation and prompt collection
 ├── index.html                   Public showcase with live example links
@@ -115,7 +136,7 @@ taster/
 ├── assets/showcase/             Taster logo, screenshots, and collage
 ├── examples/
 │   ├── README.md                Example overview and adaptation notes
-│   ├── index.html               Catalog linking to all ten examples
+│   ├── index.html               Catalog linking to all fourteen examples
 │   ├── lumen/                   Game page, styles, source, and guide
 │   ├── bell-lab/                Quantum page, styles, and source
 │   ├── workshop/                CAD page, styles, source, and CAD assets
@@ -125,8 +146,12 @@ taster/
 │   ├── cyborg-hand/             Articulated hand, mechanism tour, and inspection
 │   ├── molecular-lab/           Experimental protein coordinates and interactive inspection
 │   ├── taster-diagram/          Branded workflow diagram and SVG export
-│   └── taster-film/             Branded HTML composition, preview, and rendered video
-├── references/                  Motion, science, engineering, runtime guides
+│   ├── taster-film/             Branded HTML composition, preview, and rendered video
+│   ├── paper-lab/               LEAF interactive book, transcript, animation, and quiz
+│   ├── machine-lab/             CRANK kinematic machine and 3D inspection
+│   ├── motion-lab/              CUE named motion previews and prompt builder
+│   └── arduino-lab/             SPARK inventions, circuit view, and Arduino sketches
+├── references/                  Motion, science, engineering, books, runtime guides
 ├── scripts/                     Generation, builds, CAD rebuild, browser checks
 ├── tests/                       Model, geometry, and motion checks
 └── evals/evals.json              Skill evaluation prompts and criteria
@@ -157,6 +182,10 @@ npm start
 | `molecular-lab` | Sourced protein coordinates, residue inspection, molecular representations, and guided explanation. |
 | `taster-diagram` | Branded editorial diagrams with selectable stages, relationship inspection, and SVG export. |
 | `taster-film` | Deterministic HTML-to-video compositions, a browser preview, and a pinned Hyperframes renderer. |
+| `paper-lab` | Papermorph-inspired interactive chapters, animated concepts, transcripts, optional speech, and quizzes. |
+| `machine-lab` | Machine-skill-inspired mechanisms with analytic kinematics, numerical readouts, and 3D inspection. |
+| `motion-lab` | Motion Prompt-inspired named effects, adjustable deterministic previews, and copyable prompts. |
+| `arduino-lab` | Child-friendly Arduino invention lab with a behavior model, pin plan, prediction challenges, and downloadable sketches. |
 
 The generator copies one example, its required toolkit, local assets, tests, and scripts. The generated project works independently of the installed skill. Adapt the model, labels, visual mappings, and learning objective together; a change of subject usually needs more than replacement text.
 
@@ -209,6 +238,10 @@ Open the address printed by the HTTP server. The output includes the showcase, e
 | [Molecular structures](references/molecular-structures.md) | Structural provenance, residues, atom representations, trajectories, and scientific limits. |
 | [Diagrams](references/diagrams.md) | Editorial hierarchy, diagram semantics, interactive inspection, and SVG export. |
 | [Video](references/video.md) | Hyperframes composition, deterministic seeking, rendering, and encoded-media verification. |
+| [Interactive books](references/interactive-books.md) | Source-to-chapter planning, narration, animation, and quizzes inspired by Papermorph. |
+| [Machine simulations](references/machine-simulations.md) | Model selection, units, geometry, inspection, and optional machine films. |
+| [Motion vocabulary](references/motion-vocabulary.md) | Resolving Motion Prompt pack/IDs, timing effects, and building precise prompts. |
+| [Arduino projects](references/arduino-projects.md) | Child-led ideas, board assumptions, circuit planning, readable sketches, prediction, and debugging. |
 | [Taster identity](references/identity.md) | Existing logo, typography, palette, and editorial design for Taster artifacts. |
 | [Runtime API](references/kit.md) | Helper signatures, integration examples, copying projects, and browser verification. |
 | [Working examples](examples/README.md) | What each included project demonstrates and how to adapt it. |
@@ -230,13 +263,17 @@ FOLD uses bundled experimental crambin coordinates from [RCSB PDB 1CRN](https://
 
 The diagram approach draws on [Diagram Design](https://github.com/cathrynlavery/diagram-design) and [Archify](https://github.com/tt-a1i/archify), while keeping Taster’s own typography, palette, and wordmark. The film uses [Hyperframes](https://github.com/heygen-com/hyperframes) for HTML-to-video rendering; see its [reproducible render instructions](examples/taster-film/README.md). New subjects still require suitable models and sources.
 
+[Papermorph](https://github.com/DozenTwelve/Papermorph), [machine-skill](https://github.com/AirsupHQ/machine-skill), and [Motion Prompt](https://github.com/showheyohtaki/motion-prompt) inform three additional workflows. Their guides link the upstream sources; LEAF, CRANK, and CUE are original Taster implementations. This adds authoring guidance and runnable starters, without installing upstream skills or promising engine/API compatibility. LEAF uses original lesson text and ideal linear waves; CRANK models rigid-body kinematics; CUE demonstrates six named effects from a local subset. PDF extraction, production narration, machine dynamics, and the full motion catalog require task-specific work.
+
+[Learn Arduino](https://learn-arduino-red.vercel.app/) by Dilum Sanjaya inspires the hands-on learning progression for Arduino Inventor and SPARK. SPARK is an original Taster example for an explicitly assumed **Arduino Uno R3**: its JavaScript behavior model links controls, an illustrated circuit, and generated `.ino` code. It does not compile or execute arbitrary C++, solve circuit voltages, connect to a board, or establish that a physical build was tested. Follow [the board-specific guide](references/arduino-projects.md) before adapting the wiring.
+
 ## Examples
 
 Choose an included project to explore a working implementation, or use the additional ideas to start something new. Each prompt appears once. Adapt the audience, source files, dimensions, and learning goal to your project.
 
 ### Included projects and their prompts
 
-These ten projects are available in `examples/`. Each entry links to the published example and includes a reusable prompt describing that project.
+These fourteen projects are available in `examples/`. Each entry identifies its source and preview location and includes a reusable prompt describing that project.
 
 #### Lumen — The Sunken Garden
 
@@ -372,9 +409,65 @@ reduced motion. Bundle all assets, document the pinned render command, and
 verify the encoded video's duration, dimensions, frame rate, and sampled frames.
 ```
 
+#### LEAF
+
+Source and guide: [`examples/paper-lab/`](examples/paper-lab/README.md) · Local preview: `/examples/paper-lab/` · Template: `paper-lab`
+
+An interactive reading lesson on wave superposition, inspired by Papermorph. Follow three chapters, scrub the wave illustration, change relative phase, read the transcript, optionally listen with browser speech, and answer a knowledge check.
+
+```text
+$taster turn an original short lesson on wave superposition into a Papermorph-style
+interactive book. Use three chapters, a phase control, seekable SVG animation,
+a readable transcript, optional narration, and a quiz with explanatory feedback.
+Keep the scientific assumptions and source references visible.
+```
+
+#### CRANK
+
+Source and guide: [`examples/machine-lab/`](examples/machine-lab/README.md) · Local preview: `/examples/machine-lab/` · Template: `machine-lab`
+
+A machine-skill-inspired slider-crank that links the 3D assembly to analytic kinematics. Inspect the crank, connecting rod, and slider, adjust the mechanism, reveal its guard, and compare displacement and velocity at different angles.
+
+```text
+$taster build an interactive slider-crank in the spirit of machine-skill.
+Derive the motion from crank radius, rod length, angle, and speed. Show SI readouts,
+let me inspect the mechanism and reveal the guard, and support pause, scrub, and reset.
+State the rigid-body assumptions; keep geometry and readouts on the same model.
+```
+
+#### CUE
+
+Source and guide: [`examples/motion-lab/`](examples/motion-lab/README.md) · Local preview: `/examples/motion-lab/` · Template: `motion-lab`
+
+A Motion Prompt study of Pop-in, Stagger, Mask reveal, Overshoot, Anticipation, and Motion path. Select a named effect, adjust its duration and intensity, inspect it at any timestamp, and copy a prompt with its upstream identity. The preview is an original local implementation of those concepts.
+
+```text
+$taster make a small Motion Prompt lab with Pop-in, Stagger, Mask reveal, Overshoot,
+Anticipation, and Motion path. Preserve pack/ID attribution, demonstrate each effect
+with deterministic SVG motion, and offer seek, replay, duration, intensity,
+and a copyable prompt. Start paused for reduced motion.
+```
+
+#### SPARK
+
+Source and guide: [`examples/arduino-lab/`](examples/arduino-lab/README.md) · Local preview: `/examples/arduino-lab/` · Template: `arduino-lab`
+
+An Arduino invention bench for a child’s first ideas. Choose a Lighthouse, Secret signal, or Firefly; name the invention, predict what happens, and try it. Adjust the cycle time and brightness knob, hold the button, inspect components and the wiring checklist, pause or step time, and download the matching `.ino` sketch. The circuit uses an explicitly assumed Uno R3, an LED with a 330 Ω resistor on D9, an `INPUT_PULLUP` button on D2, and a 10 kΩ potentiometer on A0. Browser behavior and qualitative glow are separate from electrical or physical validation.
+
+```text
+$taster help my 12-year-old imagine an Arduino invention, inspired by Learn Arduino.
+We have not confirmed a hardware kit yet. Offer three ideas and let my child
+choose and name one. Start with a SPARK-style browser lab with predict → try →
+explain, inspectable parts, and simple controls.
+Use an explicit Uno R3 example with a D9 LED and 330 Ω resistor, a D2 pull-up
+button, and an A0 knob. Include a parts and pin table, a readable downloadable
+.ino sketch, and one small debugging challenge. Explain what the browser model
+checks and what still needs a real board; adapt the wiring once our board is known.
+```
+
 ### More project ideas
 
-The following 47 prompts describe additional projects or adaptations. Their subjects are not bundled as complete examples; the agent needs to implement and verify the requested model and interactions.
+The following 50 prompts describe additional projects or adaptations. Their subjects are not bundled as complete examples; the agent needs to implement and verify the requested model and interactions.
 
 #### Quantum computing and atoms
 
@@ -534,6 +627,36 @@ the boundary conditions, travel speeds, and energy accounting for the chosen mod
 $taster explain diffusion by comparing seeded random walks with a concentration
 profile. Let me change the step rate and inspect mean squared displacement,
 with a clear distinction between individual trajectories and ensemble statistics.
+```
+
+#### Arduino inventions for kids
+
+**An invention from a story**
+
+```text
+$arduino-inventor I want to make something for a tiny astronaut’s bedroom.
+Give me three ideas using lights and buttons. Let me choose a favorite, name it,
+and predict what it does. I don’t have a board yet; start with a paper plan
+or browser behavior model and explain each part in friendly language.
+```
+
+**A creature that sends a signal**
+
+```text
+$arduino-inventor help my 12-year-old invent a cardboard firefly that sends a secret
+light signal. We have an Uno R3, an LED, a 330 ohm resistor, a button, and wires.
+Start with one working behavior, include a clear pin table and commented sketch,
+and let my child change the pattern after predicting the result.
+```
+
+**A plant that can ask for help**
+
+```text
+$taster turn my child’s idea for a plant-care reminder into a small Arduino
+exploration. Offer a pretend sensor slider first and let them choose the message
+or light signal. Before suggesting physical wiring, identify our actual board
+and sensor module. Keep simulated readings separate from real measurements,
+and include one experiment and a friendly debugging clue.
 ```
 
 #### Robotics and mechanisms

@@ -6,14 +6,16 @@ Idiomas: [English](README.md) · **Español**
 
 **Ideas con las que puedes jugar, explorar y aprender.** [Explora la galería interactiva](https://josoroma.github.io/taster/) · [Visita el repositorio](https://github.com/josoroma/taster)
 
-[![Collage de los diez ejemplos de Taster: mundos jugables, ciencia, ingeniería, estructuras moleculares, diagramas y video](assets/showcase/taster-collage.png)](https://josoroma.github.io/taster/)
+[![Los catorce ejemplos de Taster: Lumen, Bell Lab, Workshop, SHIFT, Cerebra, INNERSPACE, DEXTRA, FOLD, diagrama de Taster, video de Taster, LEAF, CRANK, CUE y SPARK](assets/showcase/taster-collage.png)](https://josoroma.github.io/taster/)
+
+Nuevos flujos con prompts de `$taster` listos para usar: [LEAF · libro interactivo](#leaf), [CRANK · simulación de máquinas](#crank), [CUE · efectos de movimiento](#cue) y [SPARK · inventos Arduino para niños](#spark).
 
 ## Contenido
 
 - [Acerca de Taster](#acerca-de-taster)
 - [Qué permite hacer](#qué-permite-hacer)
 - [Usar el skill](#usar-el-skill)
-- [Explorar los diez proyectos incluidos](#explorar-los-diez-proyectos-incluidos)
+- [Explorar los catorce proyectos incluidos](#explorar-los-catorce-proyectos-incluidos)
 - [Estructura del repositorio](#estructura-del-repositorio)
 - [Iniciar un proyecto independiente](#iniciar-un-proyecto-independiente)
 - [Compilar y verificar](#compilar-y-verificar)
@@ -32,11 +34,16 @@ Idiomas: [English](README.md) · **Español**
     - [FOLD](#fold)
     - [Diagrama de Taster](#diagrama-de-taster)
     - [Video de Taster](#video-de-taster)
+    - [LEAF](#leaf)
+    - [CRANK](#crank)
+    - [CUE](#cue)
+    - [SPARK](#spark)
   - [Más ideas de proyectos](#más-ideas-de-proyectos)
     - [Computación cuántica y átomos](#computación-cuántica-y-átomos)
     - [LLMs y computación](#llms-y-computación)
     - [Espacio y tiempo](#espacio-y-tiempo)
     - [Matemáticas y física](#matemáticas-y-física)
+    - [Inventos Arduino para niños](#inventos-arduino-para-niños)
     - [Robótica y mecanismos](#robótica-y-mecanismos)
     - [CAD y fabricación](#cad-y-fabricación)
     - [Impresión 3D](#impresión-3d)
@@ -46,7 +53,7 @@ Idiomas: [English](README.md) · **Español**
 
 ## Acerca de Taster
 
-**Taster es un skill reutilizable para crear ciencia interactiva, estructuras moleculares, modelos de ingeniería, mundos jugables, diagramas y videos explicativos.** Sus herramientas combinan escenas detalladas, exploración con la cámara, ensamblajes reversibles y animaciones basadas en un modelo.
+**Taster es un skill reutilizable para crear ciencia interactiva, estructuras moleculares, modelos de ingeniería, libros interactivos, inventos Arduino para niños, efectos de movimiento, mundos jugables, diagramas y videos explicativos.** Sus herramientas combinan escenas detalladas, exploración con la cámara, ensamblajes reversibles y animaciones basadas en un modelo.
 
 Dale un tema, un público y la idea que quieres ayudar a descubrir. Taster elige una representación adecuada, construye el modelo, organiza la explicación y comprueba el resultado en un navegador. Puedes pedir un dibujo técnico sobrio, un mecanismo 3D que se pueda explorar, una escena científica cinematográfica o un pequeño juego completo sin tener que elegir primero una biblioteca de renderizado.
 
@@ -69,6 +76,10 @@ la línea de tiempo del mecanismo, explorar sus piezas y volver a ensamblarlo co
 | Estructuras moleculares | Inspeccionar coordenadas, seleccionar residuos y distinguir la animación de inspección de una trayectoria de dinámica molecular. |
 | Diagramas | Explorar procesos y arquitecturas con relaciones etiquetadas y exportar SVG con una identidad visual coherente. |
 | Video | Recorrer una composición HTML determinista y renderizar un MP4 reproducible con Hyperframes. |
+| Libros interactivos | Leer capítulos, explorar explicaciones animadas, consultar transcripciones, escuchar narración opcional y comprobar lo aprendido. |
+| Simulación de máquinas | Inspeccionar mecanismos cuya geometría, movimiento y lecturas numéricas proceden de un mismo modelo. |
+| Efectos de movimiento | Comparar efectos con nombre, recorrer su animación, ajustar parámetros y reutilizar un prompt preciso. |
+| Inventos Arduino | Imaginar un proyecto, predecir su comportamiento, probar un modelo en el navegador, explorar el cableado y adaptar un sketch legible. |
 | Exploración accesible | Usar alternativas de teclado y controles táctiles, movimiento reducido, textos legibles y diseños adaptables. |
 
 El skill adapta la presentación al tema. Las explicaciones de ingeniería usan, por defecto, superficies discretas y líneas precisas. Las escenas científicas pueden incorporar iluminación cinematográfica cuando ayuda a aclarar la idea. Incluir un juego es opcional, y las afirmaciones científicas poco conocidas necesitan fuentes adecuadas.
@@ -84,20 +95,29 @@ ln -s "$PWD" "$HOME/.agents/skills/taster"
 
 Si el destino ya existe, revísalo antes de cambiar nada. Invoca **`$taster`** en un prompt o selecciona **Taster** en el selector de skills. Puede ser necesario iniciar una nueva sesión después de instalarlo. El repositorio se llama `taster`; su identificador en los prompts es `$taster`.
 
+Para tener un compañero dedicado a inventar, instala el [skill Arduino Inventor](skills/arduino-inventor/SKILL.md) incluido desde la raíz del repositorio e invoca **`$arduino-inventor`**:
+
+```sh
+mkdir -p "$HOME/.codex/skills"
+ln -s "$PWD/skills/arduino-inventor" "$HOME/.codex/skills/arduino-inventor"
+```
+
+Revisa cualquier destino existente antes de cambiarlo. Puede ser necesario iniciar una nueva sesión para descubrirlo. El compañero ayuda a imaginar, elegir, predecir y depurar al ritmo de cada niño; no hace falta tener una placa ni indicar la edad para empezar a imaginar. `$taster` también admite proyectos Arduino y puede crear una lección interactiva en el navegador. Consulta [el prompt de SPARK](#spark) y [la guía de Arduino](references/arduino-projects.md).
+
 Un prompt útil indica el tema, el público, la pregunta central, la interacción deseada y el estilo visual. Añade los archivos proporcionados, las unidades, los supuestos científicos o los formatos de exportación requeridos cuando sean relevantes. Deja abiertas las decisiones de implementación, salvo que ya tengas tecnologías o un flujo de trabajo que quieras conservar. Consulta los [proyectos incluidos y los prompts adicionales](#ejemplos) como punto de partida.
 
-## Explorar los diez proyectos incluidos
+## Explorar los catorce proyectos incluidos
 
-Explora la [galería de ejemplos](https://josoroma.github.io/taster/examples/) sin instalar nada. Los diez proyectos completos tienen código editable en [`examples/`](examples/README.md), con fuentes tipográficas incluidas y utilidades de ejecución compartidas.
+Explora la [galería de ejemplos](https://josoroma.github.io/taster/examples/) sin instalar nada. Los catorce proyectos completos tienen código editable en [`examples/`](examples/README.md), con fuentes tipográficas incluidas y utilidades de ejecución compartidas.
 
-Para ejecutar y editar el código, usa **Node.js 22+** y un navegador moderno. Los ejemplos 3D necesitan WebGL 2; SHIFT usa Canvas 2D, y el diagrama y la película usan SVG/HTML. La reproducción no necesita claves de API ni recursos externos.
+Para ejecutar y editar el código, usa **Node.js 22+** y un navegador moderno. Los ejemplos 3D necesitan WebGL 2; SHIFT usa Canvas 2D, y el diagrama, la película, LEAF, CUE y SPARK usan SVG/HTML. La narración opcional de LEAF utiliza las voces disponibles en el navegador. La reproducción no necesita claves de API ni recursos externos.
 
 ```sh
 npm ci
 npm start
 ```
 
-Usa la dirección que muestra `npm start` para trabajar en tu copia. La sección final [Proyectos incluidos y sus prompts](#proyectos-incluidos-y-sus-prompts) reúne cada proyecto con su carpeta de código fuente, su ejemplo publicado y un prompt reutilizable.
+Usa la dirección que muestra `npm start` para trabajar en tu copia. La sección final [Proyectos incluidos y sus prompts](#proyectos-incluidos-y-sus-prompts) reúne cada proyecto con su carpeta de código fuente, su ubicación de vista previa y un prompt reutilizable.
 
 Usa `PORT=8080 npm start` para elegir otro puerto.
 
@@ -107,6 +127,7 @@ Usa `PORT=8080 npm start` para elegir otro puerto.
 taster/
 ├── SKILL.md                     Punto de entrada del skill y principios de trabajo
 ├── agents/openai.yaml           Metadatos para descubrir el skill
+├── skills/arduino-inventor/      Skill para inventar Arduino con niños
 ├── README.md                    Instalación, guía de proyectos y colección de prompts
 ├── README-ES.md                 Versión en español de esta guía
 ├── index.html                   Galería pública con enlaces a los ejemplos en ejecución
@@ -115,7 +136,7 @@ taster/
 ├── assets/showcase/             Logotipo de Taster, capturas de pantalla y collage
 ├── examples/
 │   ├── README.md                Resumen de los ejemplos y notas para adaptarlos
-│   ├── index.html               Catálogo con enlaces a los diez ejemplos
+│   ├── index.html               Catálogo con enlaces a los catorce ejemplos
 │   ├── lumen/                   Página del juego, estilos, código fuente y guía
 │   ├── bell-lab/                Página de computación cuántica, estilos y código fuente
 │   ├── workshop/                Página CAD, estilos, código fuente y recursos CAD
@@ -125,8 +146,12 @@ taster/
 │   ├── cyborg-hand/             Mano articulada, recorrido del mecanismo y exploración
 │   ├── molecular-lab/           Coordenadas experimentales de una proteína y exploración
 │   ├── taster-diagram/          Diagrama de Taster y exportación SVG
-│   └── taster-film/             Composición HTML, vista previa y video renderizado
-├── references/                  Guías de movimiento, ciencia, ingeniería y ejecución
+│   ├── taster-film/             Composición HTML, vista previa y video renderizado
+│   ├── paper-lab/               LEAF: libro interactivo, transcripción, animación y cuestionario
+│   ├── machine-lab/             CRANK: máquina cinemática y exploración 3D
+│   ├── motion-lab/              CUE: efectos con nombre y generador de prompts
+│   └── arduino-lab/             SPARK: inventos, circuito y sketches Arduino
+├── references/                  Guías de movimiento, ciencia, ingeniería, libros y ejecución
 ├── scripts/                     Generación, compilación, reconstrucción CAD y comprobaciones del navegador
 ├── tests/                       Comprobaciones de modelos, geometría y movimiento
 └── evals/evals.json              Prompts y criterios de evaluación del skill
@@ -157,6 +182,10 @@ npm start
 | `molecular-lab` | Estructuras de proteínas con procedencia, selección de residuos y representaciones moleculares. |
 | `taster-diagram` | Diagramas interactivos con identidad visual, relaciones etiquetadas y exportación SVG. |
 | `taster-film` | Composiciones HTML deterministas y video renderizado con Hyperframes. |
+| `paper-lab` | Capítulos inspirados en Papermorph con animación, transcripción, narración opcional y cuestionarios. |
+| `machine-lab` | Mecanismos inspirados en machine-skill con cinemática analítica, lecturas numéricas y exploración 3D. |
+| `motion-lab` | Efectos de Motion Prompt con vistas previas deterministas, parámetros ajustables y prompts reutilizables. |
+| `arduino-lab` | Laboratorio de inventos Arduino para niños con modelo de comportamiento, plan de pines, predicciones y sketches descargables. |
 
 El generador copia un ejemplo, las herramientas que necesita, los recursos locales, las pruebas y los scripts. El proyecto generado funciona de forma independiente del skill instalado. Adapta en conjunto el modelo, las etiquetas, las representaciones visuales y el objetivo de aprendizaje; cambiar de tema suele exigir algo más que sustituir textos.
 
@@ -209,6 +238,10 @@ Abre la dirección que muestra el servidor HTTP. Los archivos generados incluyen
 | [Estructuras moleculares](references/molecular-structures.md) | Procedencia, residuos, representaciones, trayectorias y límites científicos. |
 | [Diagramas](references/diagrams.md) | Jerarquía editorial, relaciones, exploración y exportación SVG. |
 | [Video](references/video.md) | Composiciones Hyperframes, línea de tiempo, renderizado y verificación. |
+| [Libros interactivos](references/interactive-books.md) | Planificar capítulos, narración, animaciones y cuestionarios a partir de fuentes, siguiendo ideas de Papermorph. |
+| [Simulación de máquinas](references/machine-simulations.md) | Elegir modelos, unidades, geometría, exploración y películas opcionales. |
+| [Vocabulario de movimiento](references/motion-vocabulary.md) | Resolver packs e identificadores de Motion Prompt, definir tiempos y crear prompts precisos. |
+| [Proyectos Arduino](references/arduino-projects.md) | Ideas elegidas por el niño, supuestos de la placa, circuitos, sketches legibles, predicciones y depuración. |
 | [Identidad de Taster](references/identity.md) | Logotipo, tipografía y colores existentes. |
 | [API de ejecución](references/kit.md) | Firmas de las utilidades, ejemplos de integración, copia de proyectos y verificación en el navegador. |
 | [Ejemplos funcionales](examples/README.md) | Qué demuestra cada proyecto incluido y cómo adaptarlo. |
@@ -230,13 +263,17 @@ FOLD usa coordenadas experimentales de crambina de [RCSB PDB 1CRN](https://www.r
 
 El ejemplo de diagramas toma principios de [Diagram Design](https://github.com/cathrynlavery/diagram-design) y [Archify](https://github.com/tt-a1i/archify), conservando la identidad de Taster. El ejemplo de video utiliza [Hyperframes](https://github.com/heygen-com/hyperframes) y contiene un MP4, una vista previa y [comandos de renderizado reproducibles](examples/taster-film/README.md). Los nuevos temas requieren modelos y fuentes adecuados.
 
+[Papermorph](https://github.com/DozenTwelve/Papermorph), [machine-skill](https://github.com/AirsupHQ/machine-skill) y [Motion Prompt](https://github.com/showheyohtaki/motion-prompt) inspiran tres flujos adicionales. Las guías enlazan sus fuentes; LEAF, CRANK y CUE son implementaciones originales de Taster. Se incorporan instrucciones de creación y plantillas ejecutables, sin instalar los skills originales ni prometer compatibilidad con sus motores o API. LEAF usa texto original y ondas lineales ideales; CRANK modela cinemática de cuerpos rígidos; CUE demuestra seis efectos de un subconjunto local. La extracción de PDF, la narración de producción, la dinámica de máquinas y el catálogo completo de efectos requieren trabajo específico.
+
+[Learn Arduino](https://learn-arduino-red.vercel.app/), de Dilum Sanjaya, inspira la progresión práctica de Arduino Inventor y SPARK. SPARK es un ejemplo original de Taster para una **Arduino Uno R3 asumida explícitamente**: su modelo JavaScript conecta controles, un circuito ilustrado y código `.ino` generado. No compila ni ejecuta C++ arbitrario. Tampoco calcula voltajes del circuito, se conecta a una placa ni demuestra que se haya probado un montaje físico. Consulta [la guía para la placa concreta](references/arduino-projects.md) antes de adaptar el cableado.
+
 ## Ejemplos
 
 Elige un proyecto incluido para explorar una implementación funcional, o usa las ideas adicionales para comenzar algo nuevo. Cada prompt aparece una sola vez. Adapta el público, los archivos fuente, las dimensiones y el objetivo de aprendizaje a tu proyecto.
 
 ### Proyectos incluidos y sus prompts
 
-Estos diez proyectos están disponibles en `examples/`. Cada entrada enlaza al ejemplo publicado e incluye un prompt reutilizable que describe el proyecto.
+Estos catorce proyectos están disponibles en `examples/`. Cada entrada indica su código y ubicación de vista previa e incluye un prompt reutilizable que describe el proyecto.
 
 #### Lumen — The Sunken Garden
 
@@ -363,9 +400,66 @@ Incluye una composición HTML determinista para Hyperframes, una vista previa
 con controles de reproducción, el MP4 y el comando exacto para renderizarlo.
 ```
 
+#### LEAF
+
+Código y guía: [`examples/paper-lab/`](examples/paper-lab/README.md) · Vista local: `/examples/paper-lab/` · Plantilla: `paper-lab`
+
+Una lectura interactiva sobre superposición de ondas inspirada en Papermorph. Recorre tres capítulos, controla la animación, cambia la fase relativa, lee la transcripción, escucha las voces opcionales del navegador y responde una comprobación de conocimientos.
+
+```text
+$taster convierte una breve lección original sobre superposición de ondas en un
+libro interactivo al estilo Papermorph. Incluye tres capítulos, control de fase,
+animación SVG con línea de tiempo, transcripción, narración opcional y un cuestionario
+con explicaciones. Muestra los supuestos científicos y las fuentes.
+```
+
+#### CRANK
+
+Código y guía: [`examples/machine-lab/`](examples/machine-lab/README.md) · Vista local: `/examples/machine-lab/` · Plantilla: `machine-lab`
+
+Un mecanismo de biela y manivela inspirado en machine-skill que conecta el ensamblaje 3D con su cinemática analítica. Inspecciona sus piezas, ajusta el mecanismo, separa la cubierta y compara el desplazamiento y la velocidad en distintos ángulos.
+
+```text
+$taster crea un mecanismo interactivo de biela y manivela inspirado en machine-skill.
+Calcula el movimiento a partir del radio, la longitud de la biela, el ángulo y la
+velocidad. Muestra lecturas en unidades SI y permite inspeccionar las piezas,
+separar la cubierta, pausar, recorrer el ciclo y reiniciar. Explica los supuestos.
+```
+
+#### CUE
+
+Código y guía: [`examples/motion-lab/`](examples/motion-lab/README.md) · Vista local: `/examples/motion-lab/` · Plantilla: `motion-lab`
+
+Un estudio de Motion Prompt con Pop-in, Stagger, Mask reveal, Overshoot, Anticipation y Motion path. Elige un efecto, ajusta duración e intensidad, explora cualquier instante y copia un prompt con su identidad original. Las vistas previas son implementaciones locales originales de esos conceptos.
+
+```text
+$taster crea un laboratorio de Motion Prompt con Pop-in, Stagger, Mask reveal,
+Overshoot, Anticipation y Motion path. Conserva la atribución de pack e ID, demuestra
+cada efecto con SVG determinista e incluye controles de tiempo, repetición,
+duración, intensidad y copia del prompt. Inicia en pausa con movimiento reducido.
+```
+
+#### SPARK
+
+Código y guía: [`examples/arduino-lab/`](examples/arduino-lab/README.md) · Vista local: `/examples/arduino-lab/` · Plantilla: `arduino-lab`
+
+Un banco de inventos Arduino para las primeras ideas de un niño. Elige Lighthouse, Secret signal o Firefly, ponle nombre al invento, predice qué pasará y pruébalo. Ajusta el tiempo del ciclo y la perilla de brillo, mantén pulsado el botón, explora las piezas y la lista de cableado, pausa o avanza el tiempo y descarga el sketch `.ino` correspondiente. El circuito supone explícitamente una Uno R3, un LED con resistencia de 330 Ω en D9, un botón `INPUT_PULLUP` en D2 y un potenciómetro de 10 kΩ en A0. El comportamiento del navegador y el brillo cualitativo son distintos de una validación eléctrica o física.
+
+```text
+$taster ayuda a mi hijo de 12 años a imaginar un invento Arduino inspirado en Learn Arduino.
+Aún no hemos confirmado un kit físico. Ofrece tres ideas y deja que elija y nombre
+una. Empieza con un laboratorio en el navegador como SPARK con predecir → probar →
+explicar, piezas explorables y controles sencillos.
+Usa una Uno R3 explícita como ejemplo: LED en D9 con resistencia de 330 Ω,
+botón con pull-up en D2 y perilla en A0. Incluye piezas y tabla de pines, un sketch
+.ino legible y descargable y un pequeño reto de depuración. Explica qué verifica
+el modelo del navegador y qué requiere una placa real; adapta el cableado cuando
+sepamos cuál tenemos.
+```
+
 ### Más ideas de proyectos
 
-Los siguientes 47 prompts describen proyectos adicionales o adaptaciones. Sus temas no se incluyen como ejemplos completos; el agente debe implementar y verificar el modelo y las interacciones solicitados.
+Los siguientes 50 prompts describen proyectos adicionales o adaptaciones. Sus temas no se incluyen como ejemplos completos; el agente debe implementar y verificar el modelo y las interacciones solicitados.
 
 #### Computación cuántica y átomos
 
@@ -544,6 +638,36 @@ $taster explica la difusión comparando caminatas aleatorias con una semilla def
 y un perfil de concentración. Permíteme cambiar la frecuencia de los pasos e
 inspeccionar el desplazamiento cuadrático medio, distinguiendo claramente las
 trayectorias individuales de las estadísticas del conjunto.
+```
+
+#### Inventos Arduino para niños
+
+**Un invento a partir de una historia**
+
+```text
+$arduino-inventor quiero hacer algo para el dormitorio de un pequeño astronauta.
+Dame tres ideas con luces y botones. Déjame elegir mi favorita, ponerle un nombre
+y predecir qué hará. Todavía no tengo placa; empieza con un plan en papel o un
+modelo de comportamiento en el navegador y explica cada pieza con palabras sencillas.
+```
+
+**Una criatura que envía una señal**
+
+```text
+$arduino-inventor ayuda a mi hijo de 12 años a inventar una luciérnaga de cartón que envía
+una señal luminosa secreta. Tenemos una Uno R3, un LED, una resistencia de 330 ohmios,
+un botón y cables. Empieza con un solo comportamiento, incluye una tabla de pines
+y un sketch comentado, y deja que cambie el patrón después de predecir el resultado.
+```
+
+**Una planta que puede pedir ayuda**
+
+```text
+$taster convierte la idea de mi hijo para recordar el cuidado de una planta en una
+pequeña exploración Arduino. Empieza con un control que represente un sensor
+imaginario y deja que elija el mensaje o la señal luminosa. Antes de proponer
+cableado físico, identifica nuestra placa y módulo sensor. Distingue las lecturas
+simuladas de las mediciones reales e incluye un experimento y una pista de depuración.
 ```
 
 #### Robótica y mecanismos

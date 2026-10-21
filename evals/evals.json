@@ -157,6 +157,50 @@
         "Labels any interpolated frames and distinguishes structural metrics from decorative motion",
         "Reports unsupported file formats or absent trajectory data rather than substituting a simulated result"
       ]
+    },
+    {
+      "id": "papermorph-book",
+      "prompt": "Use $taster to turn my supplied physics chapter into a Papermorph-style interactive book with animation, narration, and quizzes.",
+      "checks": [
+        "Maps chapters and claims to the supplied source and preserves page references",
+        "Defines shared style and chapter beats before implementation",
+        "Uses a transcript with optional narration and knowledge checks tied to the lesson",
+        "Scrubbing and chapter changes keep visuals and text coherent and cancel stale speech",
+        "Does not imply that the local starter extracts PDFs or bundles the Papermorph engine"
+      ]
+    },
+    {
+      "id": "machine-skill-mechanism",
+      "prompt": "Use $taster in the spirit of machine-skill to build an inspectable slider-crank with adjustable speed, a revealing guard, and live displacement and velocity.",
+      "checks": [
+        "Defines dimensions, units, kinematic constraints, and supported parameter ranges",
+        "Drives geometry and readouts from the same model with known limiting cases checked",
+        "Supports inspection, pause, seek, reset, and reversible reveal",
+        "Distinguishes kinematics from force, combustion, and manufacturing simulations",
+        "Only adds a rendered machine film when requested and verifies the encoded deliverable"
+      ]
+    },
+    {
+      "id": "motion-prompt-effects",
+      "prompt": "Use $taster with Motion Prompt’s Stagger and Overshoot, making a seekable demo and a reusable prompt for each.",
+      "checks": [
+        "Resolves the intended upstream pack and ID with source attribution",
+        "Translates names into explicit timing and visual behavior without claiming the full catalog is implemented",
+        "Repeated and reverse sampling reproduces the same state after duration or intensity changes",
+        "Offers keyboard controls, reduced motion, and a copy fallback",
+        "Names the local preview subset and preserves existing project meaning when applying effects"
+      ]
+    },
+    {
+      "id": "arduino-invention",
+      "prompt": "Use $taster to help my 12-year-old invent an Arduino firefly for a cardboard forest. Start in the browser, show how its knob and button affect an LED, and include a clear Uno R3 wiring plan and downloadable sketch.",
+      "checks": [
+        "Preserves the learner’s theme and offers prediction, experimentation, and a creative change",
+        "States the board, actual pins, component values, and physical-build assumptions",
+        "Keeps browser behavior, code, and wiring consistent including PWM and active-low button logic",
+        "Labels the preset browser model without claiming arbitrary C++ execution or circuit solving",
+        "Provides accessible controls and meaningful tests while distinguishing compilation from real hardware validation"
+      ]
     }
   ]
 }

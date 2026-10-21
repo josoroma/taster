@@ -1,0 +1,190 @@
+[
+  [
+    "until",
+    "window.__paperLab?.ready && document.fonts.status === 'loaded'",
+    5000
+  ],
+  [
+    "eval",
+    "if(window.__paperLab.stats().playing) throw new Error('Unrequested playback'); if(document.documentElement.scrollWidth>innerWidth) throw new Error('Horizontal overflow'); true"
+  ],
+  [
+    "scroll",
+    "[data-chapter='1']"
+  ],
+  [
+    "click",
+    "[data-chapter='1']"
+  ],
+  [
+    "eval",
+    "if(window.__paperLab.stats().chapterIndex!==1 || window.__paperLab.stats().time!==16) throw new Error('Chapter navigation failed'); true"
+  ],
+  [
+    "key",
+    "ArrowRight",
+    "#reader"
+  ],
+  [
+    "eval",
+    "if(window.__paperLab.stats().time!==20) throw new Error('Keyboard seek failed'); true"
+  ],
+  [
+    "scroll",
+    "#play"
+  ],
+  [
+    "click",
+    "#play"
+  ],
+  [
+    "wait",
+    300
+  ],
+  [
+    "click",
+    "#play"
+  ],
+  [
+    "eval",
+    "if(window.__paperLab.stats().playing || window.__paperLab.stats().time<=20) throw new Error('Play / pause failed'); window.__pausedTime=window.__paperLab.stats().time; true"
+  ],
+  [
+    "wait",
+    200
+  ],
+  [
+    "eval",
+    "if(window.__paperLab.stats().time!==window.__pausedTime) throw new Error('Paused state drifted'); true"
+  ],
+  [
+    "scroll",
+    "[data-phase='180']"
+  ],
+  [
+    "click",
+    "[data-phase='180']"
+  ],
+  [
+    "eval",
+    "const s=window.__paperLab.stats(); if(s.chapterIndex!==2 || s.phase!==180 || s.amplitude>1e-10 || s.playing) throw new Error('Cancellation preset failed'); true"
+  ],
+  [
+    "scroll",
+    "[data-phase='90']"
+  ],
+  [
+    "click",
+    "[data-phase='90']"
+  ],
+  [
+    "eval",
+    "if(Math.abs(window.__paperLab.stats().amplitude-Math.SQRT2)>1e-10) throw new Error('Quarter-phase incorrect'); true"
+  ],
+  [
+    "scroll",
+    "#scrubber"
+  ],
+  [
+    "drag",
+    "#scrubber",
+    0.7,
+    0.5,
+    0.2,
+    0.5,
+    10
+  ],
+  [
+    "eval",
+    "if(window.__paperLab.stats().time>15 || window.__paperLab.stats().phase!==0 || window.__paperLab.stats().playing) throw new Error('Timeline seek failed'); true"
+  ],
+  [
+    "scroll",
+    "#restart"
+  ],
+  [
+    "click",
+    "#restart"
+  ],
+  [
+    "eval",
+    "if(window.__paperLab.stats().time!==0 || window.__paperLab.stats().chapterIndex!==0) throw new Error('Reset failed'); true"
+  ],
+  [
+    "scroll",
+    ".check-button"
+  ],
+  [
+    "click",
+    ".check-button"
+  ],
+  [
+    "eval",
+    "if(!document.querySelector('#quiz-feedback').textContent.includes('Choose')) throw new Error('Empty quiz feedback failed'); true"
+  ],
+  [
+    "scroll",
+    "#answer-0"
+  ],
+  [
+    "click",
+    "#answer-0"
+  ],
+  [
+    "scroll",
+    ".check-button"
+  ],
+  [
+    "click",
+    ".check-button"
+  ],
+  [
+    "eval",
+    "if(document.querySelector('#quiz-feedback').dataset.correct!=='false') throw new Error('Incorrect answer marked correct'); true"
+  ],
+  [
+    "scroll",
+    "#answer-1"
+  ],
+  [
+    "click",
+    "#answer-1"
+  ],
+  [
+    "scroll",
+    ".check-button"
+  ],
+  [
+    "click",
+    ".check-button"
+  ],
+  [
+    "eval",
+    "if(document.querySelector('#quiz-feedback').dataset.correct!=='true') throw new Error('Correct answer failed'); true"
+  ],
+  [
+    "scroll",
+    "#transcript summary"
+  ],
+  [
+    "click",
+    "#transcript summary"
+  ],
+  [
+    "eval",
+    "if(!document.querySelector('#transcript').open || document.querySelectorAll('.transcript-chapter').length!==3) throw new Error('Transcript missing'); if(document.documentElement.scrollWidth>innerWidth) throw new Error('Expanded page overflows'); true"
+  ],
+  [
+    "eval",
+    "if(window.__paperLab.stats().speechAvailable){window.__speechMock={utterances:[],cancels:0}; Object.defineProperty(window,'speechSynthesis',{configurable:true,value:{speak(u){window.__speechMock.utterances.push(u)},cancel(){window.__speechMock.cancels++}}}); document.querySelector('#read-aloud').click(); const old=window.__speechMock.utterances[0]; document.querySelector('#stop-reading').click(); document.querySelector('#read-aloud').click(); const current=window.__speechMock.utterances[1]; old.onend(); old.onerror(); if(!window.__paperLab.stats().speaking || document.querySelector('#stop-reading').disabled || window.__speechMock.cancels!==1) throw new Error('Stale voice callback cancelled current reading'); current.onend(); if(window.__paperLab.stats().speaking || !document.querySelector('#stop-reading').disabled) throw new Error('Voice completion failed'); speechSynthesis.speak=()=>{throw new Error('Unavailable voice')}; document.querySelector('#read-aloud').click(); if(window.__paperLab.stats().speaking || !document.querySelector('#speech-status').textContent.includes('unavailable')) throw new Error('Voice fallback failed');} true"
+  ],
+  [
+    "eval",
+    "window.__paperLab.seek(38); true"
+  ],
+  [
+    "shot",
+    "shots/paper-lab-verified.png",
+    "#reader"
+  ]
+]

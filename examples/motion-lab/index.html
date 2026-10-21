@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f1e9">
+  <meta name="description" content="CUE is a small, hands-on motion vocabulary. Pick a movement, tune its timing, and make a precise prompt.">
+  <title>CUE — A little motion vocabulary</title>
+  <link rel="icon" href="../../assets/showcase/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <a class="skip" href="#stage">Skip to motion preview</a>
+  <div class="page">
+    <header class="masthead"><a href="../../" aria-label="Taster home"><img src="../../assets/showcase/logo.svg" alt="Taster" width="128" height="36"></a><span>STUDIES IN MOVEMENT / 01</span><a href="../../">All experiences ↗</a></header>
+    <main>
+      <section class="intro" aria-labelledby="title"><div class="wordmark"><span class="spark" aria-hidden="true">✳</span><h1 id="title">CUE<span>.</span></h1></div><div class="intro-copy"><p class="eyebrow">A little motion vocabulary</p><p>Know the move.<br><em>Find the words.</em></p><span>Pick a motion. Tune the feeling. Take the prompt.</span></div><div class="edition" aria-hidden="true"><b>06</b><span>ways to<br>make a move</span></div></section>
+      <section class="lab" aria-label="Motion workbench">
+        <aside class="library" aria-labelledby="library-title"><div class="section-label"><h2 id="library-title">Choose your cue</h2><span>01—06</span></div><div id="effects" class="effect-grid" role="group" aria-label="Motion examples"></div><p class="library-note">Names from <a href="https://github.com/showheyohtaki/motion-prompt">Motion Prompt</a>. <br>Six original Taster interpretations.</p></aside>
+        <div class="workspace">
+          <section class="preview" aria-labelledby="effect-title"><div class="preview-heading"><div><p class="eyebrow" id="effect-id">MOTION / #002</p><h2 id="effect-title">Stagger</h2></div><span class="mode" id="mode">PAUSED</span></div><p id="tagline" class="tagline"></p><div id="stage" tabindex="0" role="group" aria-label="Motion preview. Space to play or pause, left and right arrows to seek, Home to reset."><svg id="motion" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 330" role="img" aria-labelledby="scene-title"><title id="scene-title">Stagger motion preview</title></svg></div><div class="stage-foot"><span id="description"></span><a id="source-link" href="https://showheyohtaki.github.io/motion-prompt/#002">Original reference ↗</a></div></section>
+          <div class="transport"><button type="button" id="play" class="play" aria-label="Play motion">▶ <span>Play</span></button><button type="button" id="replay" aria-label="Replay motion from the beginning">↺</button><label class="sr-only" for="seek">Preview time</label><input type="range" id="seek" min="0" max="2.4" step="0.001" value="1.25"><output id="time" for="seek">1.25 / 2.40 s</output></div>
+          <div class="settings"><label for="duration"><span>Duration <output id="duration-output">2.4 s</output></span><input id="duration" type="range" min="0.6" max="6" step="0.1" value="2.4"></label><label for="intensity"><span><span id="intensity-label">Bar overshoot</span><output id="intensity-output">1.00×</output></span><input id="intensity" type="range" min="0.25" max="1.75" step="0.05" value="1"></label></div>
+          <p class="keyboard-note">Space to play / pause · ← → to seek · Home to reset <span id="motion-note"></span></p>
+        </div>
+      </section>
+      <section class="prompt-panel" aria-labelledby="prompt-title"><div class="prompt-intro"><p class="eyebrow">From a feeling to a direction</p><h2 id="prompt-title">Say it with<br><em>a little precision.</em></h2><p>Your selected move, timing, and reference travel together.</p></div><div class="prompt-content"><div class="prompt-bar"><label for="prompt">YOUR MOTION BRIEF</label><button type="button" id="copy">Copy prompt <span aria-hidden="true">↗</span></button></div><textarea id="prompt" readonly spellcheck="false" aria-describedby="copy-status"></textarea><p id="copy-status" role="status">Ready to copy. You can also select the text.</p></div></section>
+    </main>
+    <footer><p>Small movements. Clear intentions.</p><p>Vocabulary: <a href="https://github.com/showheyohtaki/motion-prompt">Shohei Ohtaki / Motion Prompt</a><span> · </span><a href="./README.md">Source notes &amp; controls ↗</a></p></footer>
+  </div>
+  <noscript><p class="noscript">Enable JavaScript to preview and tune the six moves: Pop-in, Stagger, Mask reveal, Overshoot, Anticipation, and Motion path.</p></noscript>
+  <script type="module" src="./main.mjs"></script>
+</body>
+</html>

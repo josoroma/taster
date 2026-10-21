@@ -1,4 +1,4 @@
 interface:
   display_name: "Taster"
-  short_description: "Science, molecules, games, diagrams, and video"
-  default_prompt: "Use $taster to explain an idea through an interactive model, molecular structure, diagram, playable game, or video, choosing a visual style that fits the subject."
+  short_description: "Science, Arduino, books, machines, games, and motion"
+  default_prompt: "Use $taster to explain an idea through an interactive model, Arduino project, book, machine, molecular structure, diagram, game, or film, with a visual style that fits the subject."

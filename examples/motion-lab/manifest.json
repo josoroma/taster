@@ -1,0 +1,63 @@
+{
+  "source": {
+    "name": "Motion Prompt",
+    "author": "Shohei Ohtaki",
+    "repository": "https://github.com/showheyohtaki/motion-prompt",
+    "commit": "36f5bdacb1e012eb00caf30741d2e2223ee514b4",
+    "catalogVersion": "1.45af2a203e",
+    "api": "v1",
+    "reviewed": "2026-10-20",
+    "upstreamLicense": "MIT"
+  },
+  "scope": "Six original Taster interpretations of named entries. Not the full upstream catalog, runtime, exact demo geometry, or timing. No upstream code or description paragraphs are included.",
+  "effects": [
+    {
+      "id": "001",
+      "pack": "motion",
+      "no": "01",
+      "slug": "pop-in",
+      "name": "Pop-in",
+      "source": "https://showheyohtaki.github.io/motion-prompt/#001"
+    },
+    {
+      "id": "002",
+      "pack": "motion",
+      "no": "02",
+      "slug": "stagger",
+      "name": "Stagger",
+      "source": "https://showheyohtaki.github.io/motion-prompt/#002"
+    },
+    {
+      "id": "005",
+      "pack": "motion",
+      "no": "05",
+      "slug": "mask-reveal",
+      "name": "Mask reveal",
+      "source": "https://showheyohtaki.github.io/motion-prompt/#005"
+    },
+    {
+      "id": "010",
+      "pack": "motion",
+      "no": "10",
+      "slug": "overshoot",
+      "name": "Overshoot",
+      "source": "https://showheyohtaki.github.io/motion-prompt/#010"
+    },
+    {
+      "id": "121",
+      "pack": "motion2",
+      "no": "01",
+      "slug": "anticipation",
+      "name": "Anticipation",
+      "source": "https://showheyohtaki.github.io/motion-prompt/#121"
+    },
+    {
+      "id": "126",
+      "pack": "motion2",
+      "no": "06",
+      "slug": "motion-path",
+      "name": "Motion path",
+      "source": "https://showheyohtaki.github.io/motion-prompt/#126"
+    }
+  ]
+}

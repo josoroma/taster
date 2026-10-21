@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#141b20"><meta name="description" content="CRANK: inspect a slider-crank mechanism and explore the exact link between rotation, displacement, and velocity.">
+  <title>CRANK · Machine Lab · Taster</title>
+  <link rel="icon" href="../../favicon.svg"><link rel="stylesheet" href="./style.css">
+  <script type="importmap">{"imports":{"three":"../../node_modules/three/build/three.module.js","three/addons/":"../../node_modules/three/examples/jsm/"}}</script>
+</head>
+<body>
+<header><a class="brand" href="../">✳ TASTER <span>/ MACHINE LAB</span></a><span class="edition">FIELD STUDY / 011</span><a href="#model-notes">The model ↙</a></header>
+<main>
+  <section class="intro"><div><p class="eyebrow">ROTATION → RECIPROCATION</p><h1>CRANK<span>01</span></h1></div><p class="intro-copy">One turn.<br><em>Two directions.</em><small>Explore the geometry behind a familiar motion.</small></p></section>
+  <section class="workbench" aria-label="Interactive slider-crank mechanism">
+    <aside class="controls">
+      <div class="panel-heading"><span class="eyebrow">01 / THE OUTPUT</span><span id="motion-state" class="badge">PAUSED</span></div>
+      <p class="hero-label">Travel from outer dead centre</p><div class="hero"><output id="travel">0.0</output><span>mm</span></div><div class="travel-track"><i id="travel-fill"></i></div><div class="range-ends"><span>0 mm</span><span>80 mm stroke</span></div>
+      <div class="numbers"><div><span>VELOCITY · AT SET SPEED</span><strong><output id="velocity">0.0</output> <small>mm/s</small></strong></div><div><span>ROD ANGLE</span><strong><output id="rod-angle">0.0</output><small>°</small></strong></div></div>
+      <div class="input-field"><div><label for="rpm">Crank speed</label><output id="rpm-value" for="rpm">24 rpm</output></div><input id="rpm" type="range" min="0" max="60" step="1" value="24"><div class="range-ends"><span>STILL</span><span>60 rpm</span></div></div>
+      <div class="transport"><button id="play" class="primary">▶ Run mechanism</button><button id="reset" aria-label="Reset mechanism" title="Reset mechanism">↺</button></div>
+      <div class="input-field angle-field"><div><label for="angle">Crank angle</label><output id="angle-value" for="angle">45°</output></div><input id="angle" type="range" min="0" max="360" step="0.1" value="45"><div class="angle-stops"><button data-angle="0">0°</button><button data-angle="90">90°</button><button data-angle="180">180°</button><button data-angle="270">270°</button></div></div>
+      <p id="motion-note" class="micro">Seek any angle to pause and inspect. Positive travel points toward the shaft.</p>
+    </aside>
+    <div class="visual">
+      <div class="scene-toolbar"><span class="eyebrow">SC–40 / KINEMATIC STUDY</span><div aria-label="Camera views"><button data-view="iso" aria-pressed="true">3/4</button><button data-view="top" aria-pressed="false">Plan</button><button id="frame">Frame</button></div></div>
+      <div class="scene-frame"><canvas id="machine" tabindex="0" aria-label="Slider-crank machine. Drag to orbit, Shift-drag to pan, wheel to zoom. Arrow keys pan, plus and minus zoom, Home frames the mechanism."></canvas>
+        <div id="fallback" hidden><svg id="schematic" viewBox="-65 -75 285 150" role="img" aria-label="Plan view of the slider-crank mechanism"><line x1="85" y1="-22" x2="205" y2="-22"/><line x1="85" y1="22" x2="205" y2="22"/><circle cx="0" cy="0" r="40" class="orbit"/><line id="svg-crank" class="crank"/><line id="svg-rod" class="rod"/><rect id="svg-slider" width="30" height="35" rx="4" y="-17.5"/><circle cx="0" cy="0" r="5" class="pin"/><circle id="svg-pin" r="5" class="pin"/></svg><p>Plan schematic · WebGL unavailable<br>All model controls and measurements remain active.</p></div>
+        <div class="scene-caption"><span id="view-status">ORTHOGRAPHIC / ASSEMBLED</span><span>SCHEMATIC GEOMETRY</span></div>
+      </div>
+      <div class="view-controls"><span>DRAG TO ORBIT <b>·</b> SCROLL TO ZOOM</span><div><button id="zoom-out" aria-label="Zoom out">−</button><button id="zoom-in" aria-label="Zoom in">+</button></div></div>
+      <div class="reveal"><div><label for="reveal">Lift inspection guard</label><output id="reveal-value" for="reveal">0%</output></div><input id="reveal" type="range" min="0" max="1" step="0.01" value="0"><span>ASSEMBLED</span><span>REVEALED</span></div>
+    </div>
+  </section>
+  <section class="analysis-strip" aria-label="Displacement through a revolution"><div><span class="eyebrow">02 / READ THE CYCLE</span><h2>A steady turn.<br><em>A changing speed.</em></h2><p>Travel pauses at both ends. The connecting rod makes the middle of the stroke asymmetric.</p></div><div class="plot-wrap"><svg id="plot" viewBox="0 0 700 170" role="img" aria-label="Slider travel over one crank revolution, from zero to 80 millimetres and back"><path class="plot-grid" d="M40 15V135H680 M40 75H680 M40 15H680"/><path id="plot-line"/><line id="plot-cursor" y1="15" y2="135"/><circle id="plot-dot" r="5"/><text x="6" y="20">80</text><text x="15" y="138">0</text><text x="40" y="160">0°</text><text x="346" y="160">180°</text><text x="652" y="160">360°</text></svg><p><span>TRAVEL / mm</span><span>CRANK ANGLE / °</span></p></div></section>
+  <section class="inspection" aria-labelledby="parts-title"><div class="section-heading"><span class="eyebrow">03 / FOLLOW THE CONNECTION</span><h2 id="parts-title">Four parts. One constraint.</h2></div><div id="parts" class="parts"></div><div class="part-detail"><span id="part-number" aria-hidden="true">01</span><div><p id="part-kind" class="eyebrow"></p><h3 id="part-name"></h3><p id="part-copy"></p></div><button id="focus-part">Focus component ↗</button></div></section>
+  <details id="model-notes"><summary>How the motion is computed <span>Equations, assumptions & sources +</span></summary><div class="notes"><div><h3>Exact geometry. Prescribed speed.</h3><p>Crank radius <b>r = 40 mm</b>; connecting rod <b>l = 140 mm</b>. The slider pin stays on the x axis. Angle θ is counterclockwise from +x. Distances are solved in metres; readouts convert to millimetres.</p><p class="equation">q = √(l² − r² sin²θ)<br>x = r cos θ + q<br>s = r + l − x<br>ds/dt = ω(r sin θ + r² sin θ cos θ / q)<br>ω = 2π · rpm / 60</p></div><div><h3>What this study means</h3><p>The display and numbers come from one closed-form kinematic model. Pausing freezes the angle; the velocity readout continues to show the derivative at the set speed. Playback runs in real time with no hidden speed factor.</p><p>This is an original ideal rigid-link schematic with frictionless joints. It does not solve force, torque, combustion, wear, collisions, or manufacturing tolerances. The lifted guard is an inspection aid.</p><p>Workflow inspiration: <a href="https://github.com/AirsupHQ/machine-skill">Airsup Machine Skill</a>. Equation reference: its <a href="https://github.com/AirsupHQ/machine-skill/blob/main/references/solvers.md#piston-engines">slider-crank solver recipe</a>. Taster implementation and geometry are original; no upstream runtime is bundled.</p></div></div></details>
+</main>
+<footer><a href="../">← All Taster experiences</a><span>A SMALL MODEL. A VISIBLE CONSEQUENCE.</span><a href="./README.md">Source & controls ↗</a></footer>
+<p id="announcer" class="sr-only" role="status" aria-live="polite"></p>
+<script type="module" src="./main.mjs"></script>
+</body>
+</html>

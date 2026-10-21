@@ -1,8 +1,8 @@
 ---
 name: taster
-description: Create interactive science and engineering explainers, molecular and biomolecular structure animations, playable browser games, editorial or interactive diagrams, and HTML-to-video films. Use for inspectable models, reversible assemblies, source-backed molecular views, architecture and process diagrams, and deterministic video compositions; not ordinary websites or data dashboards.
+description: Create interactive science and engineering explainers, beginner Arduino invention lessons, molecular animations, browser games, diagrams, interactive books, machine simulations, named motion studies, and HTML-to-video films. Use for inspectable models, reversible assemblies, playful electronics projects, source-backed reading experiences, Papermorph-style books, machine-skill-style mechanisms, motion-prompt effects, and deterministic compositions; not ordinary websites or data dashboards.
 metadata:
-  short-description: "Build science, games, diagrams, and explanatory video"
+  short-description: "Build interactive science, books, machines, and motion"
 ---
 
 # Taster
@@ -21,6 +21,10 @@ Infer the audience, format, visual direction, and smallest complete interaction 
 - **Molecular structure:** choose a scientific question, identify the structure or schematic, and connect residue/atom selection, representations, and measured distances to the same coordinates. Read the molecular guide before choosing a renderer or animating conformations.
 - **Diagram:** choose the relationship the reader should understand, then a topology that expresses it. Deliver static SVG/HTML or interactive inspection as requested; a diagram does not require a game or a 3D scene. Read the diagram guide for layout, exports, and architecture semantics.
 - **Video:** define the audience, message, duration, and aspect ratio; author a deterministic composition and render the requested video file. Keep the browser preview and encoded deliverable distinct. Read the video guide for Hyperframes and export verification.
+- **Interactive book (Papermorph):** turn supplied text, a PDF, or a story into a chapter experience with traceable sources, a consistent visual style, animated explanations, a readable transcript, and useful knowledge checks. Read the interactive-books guide; the local starter uses original text and optional browser speech.
+- **Machine (machine-skill):** establish dimensions, constraints, units, and the mechanism's equations before building geometry. Drive the inspection view and readouts from one model; distinguish kinematics from force or performance simulation. Read the machine-simulations guide, then the video guide if a film is requested.
+- **Named motion (motion-prompt):** resolve the requested effect by pack and ID, translate it into explicit timing and visual behavior, and make it seekable. Read the motion-vocabulary guide; preserve the subject's meaning and reduced-motion controls when applying a visual effect.
+- **Arduino invention:** help a beginner turn an interest into a small input → rule → output project. Offer a prediction, an experiment, and something to change. Read the Arduino guide before selecting pins or giving a physical build; keep board-specific wiring, browser behavior, and exported sketches consistent. Use a browser model when hardware is unknown, and clearly identify its limits. For focused invention coaching, the repository also includes the standalone `arduino-inventor` skill.
 
 Choose the renderer automatically from the task: semantic HTML/SVG for crisp planar mechanisms; Canvas for dense 2D motion; Three.js/WebGL for spatial inspection, lighting, volumes, orbital cameras, or immersive games. Retain a suitable existing stack. Export stills or video only when requested; a still-image reference does not change an interactive request into an image task.
 
@@ -40,6 +44,11 @@ Read only the resources needed for the task:
 | [references/molecular-structures.md](references/molecular-structures.md) | Experimental or predicted structures, atom/residue identity, molecular representations, trajectories, and honest scientific motion. |
 | [references/diagrams.md](references/diagrams.md) | Editorial and interactive diagrams informed by Diagram Design and Archify, labeled relationships, accessible inspection, and SVG exports. |
 | [references/video.md](references/video.md) | HTML-to-video with Hyperframes, deterministic timelines, assets, rendering, and media verification. |
+| [references/interactive-books.md](references/interactive-books.md) | Papermorph-inspired chapter planning, source mapping, narration, animated explanations, and quizzes. |
+| [references/machine-simulations.md](references/machine-simulations.md) | Machine-skill-inspired research, kinematic or physical models, inspection, and optional films. |
+| [references/motion-vocabulary.md](references/motion-vocabulary.md) | Motion Prompt names, pack/ID resolution, deterministic effect sampling, and reusable prompts. |
+| [references/arduino-projects.md](references/arduino-projects.md) | Kid-friendly Arduino invention, board/part selection, wiring, sketches, interactive lessons, and debugging. |
+| [skills/arduino-inventor/SKILL.md](skills/arduino-inventor/SKILL.md) | Standalone Arduino Inventor skill for imagining and building beginner projects, with or without Taster. |
 | [references/identity.md](references/identity.md) | Existing Taster colors, typography, logo, and editorial design for Taster-branded artifacts. |
 | [references/kit.md](references/kit.md) | Actual runtime APIs, starter copying, and browser verification commands. |
 | `kit/motion.mjs` | Deterministic transport, stage progress, immutable rest poses, and reversible assembly. |
@@ -54,6 +63,10 @@ Read only the resources needed for the task:
 | `examples/molecular-lab/` | Molecular inspection using bundled experimental coordinates, residue selection, and controllable explanatory animation. |
 | `examples/taster-diagram/` | A branded, interactive map explaining Taster with an editable SVG export. |
 | `examples/taster-film/` | A branded Taster film, deterministic HTML composition, browser preview, and rendered video. |
+| `examples/paper-lab/` | LEAF: an original interactive wave chapter with animation, transcript, optional speech, and a quiz. |
+| `examples/machine-lab/` | CRANK: an inspectable slider-crank driven by a kinematic model and measured readouts. |
+| `examples/motion-lab/` | CUE: a small Motion Prompt vocabulary with seekable demonstrations and reusable prompts. |
+| `examples/arduino-lab/` | SPARK: original Uno R3 invention lessons, an inspectable circuit, predictions, and downloadable sketches. |
 
 For a new project, copy the closest working example into an empty destination:
 
@@ -63,7 +76,11 @@ node /absolute/path/to/taster/scripts/create-project.mjs /absolute/path/to/proje
 
 Use `--template lumen` for a movement-based game, `--template workshop` for sober engineering, `--template ai-history` for a chapter-based browser animation, `--template brain-atlas` for labeled biological inspection, `--template particle-atlas` for a journey into matter, or `--template cyborg-hand` for a conceptual articulated mechanism. Use `--template molecular-lab` for molecular structure inspection, `--template taster-diagram` for an interactive diagram, and `--template taster-film` for HTML-to-video. Adapt the subject, model, lesson, and geometry together. Do not retain unrelated example claims or UI. Existing projects can reuse individual helpers without being replaced by a starter. Installation, publishing, accounts, and external services are separate from creating a local artifact; do not add them implicitly.
 
+Use `--template paper-lab` for interactive reading, `--template machine-lab` for a model-driven machine, or `--template motion-lab` for named motion studies. These are original Taster implementations informed by the linked projects. They do not install or bundle those projects' engines, full catalogs, or external services. When modifying an existing upstream project, inspect its actual files and version before claiming compatibility.
+
 ## Build the experience
+
+Use `--template arduino-lab` for a beginner Arduino invention lab. The preview samples selected component behaviors; it is not a general C++ executor or electrical solver. Only describe a sketch as compiled or a circuit as tested when those checks actually ran.
 
 1. **Choose the reveal.** Write one sentence connecting the central action to the insight or challenge. Sketch a short sequence: orient, reveal, inspect, change, observe. Give each shot a subject and purpose; use close-ups to explain relationships, not merely to create movement.
 2. **Define the model first.** Keep simulation or game rules separate from rendering. Record units, assumptions, bounds, and approximations. Use a pure module where practical. Readouts, geometry, captions, and outcomes must agree with that same state. For science, verify consequential claims against primary sources before encoding them.

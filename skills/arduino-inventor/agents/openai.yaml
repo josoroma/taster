@@ -1,0 +1,4 @@
+interface:
+  display_name: "Arduino Inventor"
+  short_description: "Imagine and build beginner Arduino projects"
+  default_prompt: "Use $arduino-inventor to help my 12-year-old turn an imaginative idea into a small Arduino project, with a first experiment, clear wiring, readable code, and something fun to change."

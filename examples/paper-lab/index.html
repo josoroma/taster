@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#f1eee5"><title>LEAF — A little book of waves</title><link rel="stylesheet" href="./style.css"></head>
+<body>
+<a class="skip-link" href="#reader">Skip to the book</a>
+<div class="shell" id="paper-lab">
+  <header class="masthead"><a class="brand" href="../../"><span class="brand-mark" aria-hidden="true">⌁</span> LEAF <span class="brand-note">PAPER LAB</span></a><div class="edition">AN INTERACTIVE FIELD GUIDE <span>VOL. 01</span></div></header>
+  <div class="book-heading"><div><p class="eyebrow">SMALL BOOKS. BIG IDEAS.</p><h1>A little book<br>of <em>waves.</em></h1></div><p class="intro">Read a little. Move a little.<br>Find out what happens<br>when two waves meet.</p><div class="book-stamp" aria-hidden="true">3<br><span>CHAPTERS<br>ONE IDEA</span></div></div>
+  <div class="reader-layout">
+    <nav class="contents" aria-label="Book chapters"><p class="eyebrow">CONTENTS</p><div id="chapters"></div><p class="contents-note">48 seconds of motion.<br>As long as you need<br>to understand.</p><a href="#transcript">Read the transcript ↗</a></nav>
+    <main id="reader" tabindex="0" aria-label="Interactive wave lesson. Space to play or pause. Left and right arrows to seek. Home to restart, End to finish.">
+      <div class="book-topline"><span>ON WAVES &amp; SUPERPOSITION</span><span id="page-number">01 / 03</span></div>
+      <div class="open-book">
+        <section class="lesson-copy" aria-labelledby="chapter-title"><p class="eyebrow" id="chapter-kicker"></p><h2 id="chapter-title"></h2><p id="chapter-body"></p><div class="takeaway"><span aria-hidden="true">↳</span><p id="takeaway"></p></div><p class="page-reference">ORIGINAL LESSON · §16.5 SOURCE NOTE BELOW</p></section>
+        <section class="illustration" aria-label="Wave illustration">
+          <div class="figure-label"><span>FIGURE <b id="figure-number">01</b></span><span>DISPLACEMENT / cm</span></div>
+          <svg id="wave-diagram" viewBox="0 0 660 420" role="img" aria-labelledby="svg-title svg-description"><title id="svg-title">A travelling sinusoidal wave</title><desc id="svg-description">Three aligned traces compare wave A, wave B and their sum. Horizontal position is in metres; vertical displacement is in centimetres.</desc>
+            <defs><pattern id="grid" x="58" y="20" width="70" height="24" patternUnits="userSpaceOnUse"><path d="M70 0H0V24" fill="none" stroke="#dcded5" stroke-width=".7"/></pattern><clipPath id="plot-clip"><rect x="58" y="25" width="560" height="370"/></clipPath></defs>
+            <rect x="58" y="25" width="560" height="370" fill="url(#grid)"/>
+            <g class="axis"><path d="M58 95H618 M58 215H618 M58 335H618"/><path d="M58 25V375"/></g>
+            <g class="tick-label"><text x="46" y="75">1</text><text x="46" y="100">0</text><text x="46" y="124">−1</text><text x="46" y="195">1</text><text x="46" y="220">0</text><text x="46" y="244">−1</text><text x="46" y="292">2</text><text x="46" y="340">0</text><text x="46" y="388">−2</text></g>
+            <g class="row-label"><text x="64" y="44">WAVE A</text><text x="64" y="164" id="label-b">WAVE B</text><text x="64" y="284" id="label-sum">A + B</text></g>
+            <g clip-path="url(#plot-clip)"><path id="wave-a" class="wave wave-a"/><path id="wave-b" class="wave wave-b"/><path id="wave-sum" class="wave wave-sum"/><path id="probe-line" d="M338 48V385" class="probe-line"/><circle id="probe-a" cx="338" cy="95" r="5" class="probe probe-a"/><circle id="probe-b" cx="338" cy="215" r="5" class="probe probe-b"/><circle id="probe-sum" cx="338" cy="335" r="5" class="probe probe-sum"/></g>
+            <g class="x-label"><text x="58" y="406">0</text><text x="198" y="406">2</text><text x="338" y="406">4</text><text x="478" y="406">6</text><text x="618" y="406">8 m</text></g>
+          </svg>
+          <div class="figure-caption"><span id="figure-caption">Follow the dot. It stays at x = 4 m.</span><span>TIME × ¼</span></div>
+        </section>
+      </div>
+      <div class="player"><button id="play" class="play-button" type="button">▶ <span>Play lesson</span></button><button id="restart" class="icon-button" type="button" aria-label="Restart lesson" title="Restart">↶</button><label class="sr-only" for="scrubber">Lesson position</label><input id="scrubber" type="range" min="0" max="48" step="0.01" value="0"><output id="time">00:00 / 00:48</output><label class="sr-only" for="speed">Playback speed</label><select id="speed"><option value="0.5">0.5×</option><option value="1" selected>1×</option><option value="2">2×</option></select></div>
+      <section class="experiment" aria-labelledby="experiment-title"><div><p class="eyebrow" id="experiment-title">TRY A DIFFERENT MEETING</p><label for="phase">Phase of wave B <output id="phase-value">0°</output></label></div><div class="phase-controls"><input id="phase" type="range" min="0" max="180" step="1" value="0"><div class="presets"><button type="button" data-phase="0">0° · together</button><button type="button" data-phase="90">90° · between</button><button type="button" data-phase="180">180° · opposite</button></div></div><div class="amplitude"><output id="amplitude">2.00 <small>cm</small></output><span>AMPLITUDE OF THE SUM</span></div></section>
+      <div class="reader-foot"><span>Ideal linear waves · A = 1 cm · λ = 4 m · f = 0.25 Hz</span><span id="motion-note">Playback begins paused.</span></div>
+    </main>
+  </div>
+  <section class="afterword" aria-labelledby="quiz-title"><div><p class="eyebrow">BEFORE YOU TURN THE PAGE</p><h2 id="quiz-title">Did it click?</h2><p id="quiz-question"></p></div><form id="quiz"><fieldset><legend class="sr-only">Choose the combined displacement</legend><div id="answers"></div></fieldset><button class="check-button" type="submit">Check my answer ↗</button><p id="quiz-feedback" role="status">An answer is a starting point. Try it in the diagram.</p></form></section>
+  <details id="transcript"><summary>Read, listen &amp; look closer <span>TRANSCRIPT + SOURCE NOTES</span></summary><div class="notes-grid"><div><div class="voice-tools"><button id="read-aloud" type="button">Read current chapter aloud</button><button id="stop-reading" type="button" disabled>Stop reading</button></div><p id="speech-status" role="status">Optional browser voice. The complete text is always available below.</p><div id="transcript-content"></div></div><aside><h3>About this little book</h3><p>Original text, SVG artwork, and code by Taster. This is a three-chapter lesson, not a reproduction or extraction of a book.</p><h3>The model</h3><p>Two sinusoidal waves travel in the same direction with equal amplitude, frequency, and wavelength. We add signed displacements in an ideal linear medium. The plots share a scale of 24 drawing units per centimetre; motion runs at one quarter of model speed. No boundaries, damping, energy calculation, or nonlinear effects are simulated.</p><p><code>y₁ = A sin(kx − ωt)</code><br><code>y₂ = A sin(kx − ωt + φ)</code><br><code>Aₛᵤₘ = 2A |cos(φ/2)|</code></p><h3>Reading &amp; inspiration</h3><p>Wave superposition: <a href="https://openstax.org/books/university-physics-volume-1/pages/16-5-interference-of-waves" target="_blank" rel="noopener noreferrer">OpenStax, University Physics Vol. 1, §16.5 ↗</a>. The wording and drawings here are original.</p><p>Book workflow inspired by <a href="https://github.com/DozenTwelve/Papermorph" target="_blank" rel="noopener noreferrer">DozenTwelve / Papermorph ↗</a>: scope, storyboard, narration, animated lesson, and quick check. LEAF uses its own player and does not load the Papermorph engine.</p></aside></div></details>
+  <footer class="footer"><span>LEAF / PAPER LAB</span><span>Made to be understood. Built with Taster.</span><a href="../../">Explore the collection ↗</a></footer>
+</div>
+<p id="status" class="sr-only" role="status"></p>
+<noscript><p class="noscript">This interactive lesson needs JavaScript. The source notes and model description remain available in “Read, listen &amp; look closer.”</p></noscript>
+<script type="module" src="./main.mjs"></script>
+</body></html>
